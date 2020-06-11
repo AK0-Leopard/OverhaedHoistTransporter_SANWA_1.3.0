@@ -1,0 +1,100 @@
+**********************************************
+*  BlockControlSystem_GVO-v1.0.1
+*  Latest modifications record
+*  Date  : 2014/11/20
+*  Author: 
+*  Mail  : 
+*  Tel   : 03-5783280
+**********************************************
+***v1.9.17
+   2020/01/16  (Kevin Wei)
+Bug修正
+-- 在與MCS同步S1F3-VID=91(EnhancedCarriers)時，會發生沒有填入CST ID以及CST Loc的問題。
+-- 修正
+	1.在行經的路上有故障車時，就不會產生OHTC_CMD。
+	2.如果OHTC_CMD已經產生在準備下給OHT前發現行走的路上有一台故障車，將會把此命令Abort。
+功能增加
+-- 增加操作功能的Log。
+-- 增加給Viewer端呼叫MTS/MTL功能的API。
+功能修改
+-- 更改四色燈的顯示方式，改為客戶要求
+
+
+
+***v1.9.16
+   2019/12/20  (Mark Chou)
+功能增加
+-- 加入四色燈的設定與功能。
+
+***v1.9.13
+   2019/12/07  (Kevin Wei)
+功能增加
+-- 在Alarm Map功能中加入POSSIBLE_CAUSES以及、SUGGESTION的欄位，用來顯示在畫面上。
+-- 在進行MTS/MTL Car in/ Car out流程時，會多去判斷 MTS的門是否有成功開啟，才決定是否可以派車子過去/出來。
+
+***v1.9.12
+   2019/12/01  (Kevin Wei)
+功能增加
+-- 加入當OHT在有命令的狀態下，超過20分鐘沒有動作時，將會上報Alarm給MCS。
+-- 增加手動清除OHT目前所在位置的功能，防止斷線後無法進行復歸。
+Bug修正
+-- 修正在MTS與主幹道交接處的位置，無法下達手動命令的問題。
+功能修正
+-- 修正Block模組，將不會再主動下達Continue給VH，一律透過車子自行來詢問。
+
+***v1.9.11
+   2019/11/27  (Kevin Wei)
+功能增加
+-- 加入監控CV是否有人員要進入的功能，如果有的話將會對該路段進行管控。
+   (當有人員要進入時會先透過CV界面向人員詢問，直到OHTC清空路段並且Disable後，就會通知CV路段管制完成，
+    讓人員進入)
+-- 加入當車子上報的距離尚未大於60mm時，將忽略該次的距離更新。
+
+***v1.9.10
+   2019/11/14  (Kevin Wei)
+功能修正
+-- 加入在使用ID:43詢問發生Time out 3次後，將會自動重新啟動該OHT的port，進行重新連線。
+-- 加入再Section Change時，如果該Entry section的To address以及Leave section的From address是Block 的leave address，
+   則會使用該address嘗試去進行一次釋放。
+-- 加入可以手動開/關Port的功能。
+
+***v1.9.8
+   2019/10/28  (Kevin Wei)
+功能修正
+-- 加入禁止OHT透過手動方式下命令移動至MTS、MTL的功能。
+
+***v1.9.5
+   2019/10/14  (Kevin Wei)
+Bug修正
+-- 針對上報Carrier Installed、Carrier Remove進行管理，並新增獨立畫面管理取消原本在Debug頁面中的。
+-- 增加MCS Command的Command Status來記錄該筆命令目前執行到哪一個步驟。
+-- 增加判斷當OHT上報的ID:132，已經是處理過的結束命令時，將不會再重新處理而直接回覆。
+-- 修正Alarm Clear多次上報的問題。
+
+功能修正
+-- 修正對於MCS命令Cancel、Abort流程拒絕的時機。
+	-Cancel僅能在Vh load arrive前能執行。
+	-Abort僅能在Vh load complete-> unload arrive前能執行。
+
+***v1.9.4
+   2019/10/11  (Kevin Wei)
+功能修正
+-- 修正停車位計算，會有殘帳的問題。
+-- 修正在透過MCS下達中斷命令時，帶給車子的Commnad ID會填入MCS-Command ID的問題。(應該是要填入OHTC Command ID)
+
+
+***v1.9.3
+   2019/10/08  (Kevin Wei)
+功能修正
+-- 修正上報CSID =107時， Command ID填成Carrier ID的問題。
+-- 加入 BCR Read fail流程, Enable/Disable的功能。
+
+***v1.9.2
+   2019/09/26  (Kevin Wei)
+功能修正
+-- 取消MCS暫時加入的S2F49-CARRIER_ATTRIBUTE的屬性。
+
+***v1.9.1
+   2019/09/17  (Kevin Wei)
+功能增加
+-- 增加推車的功能。

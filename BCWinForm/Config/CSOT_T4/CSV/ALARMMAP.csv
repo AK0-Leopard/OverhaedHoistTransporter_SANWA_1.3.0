@@ -1,0 +1,586 @@
+OBJECT_ID,ALARM_ID,ALARM_LVL,ALARM_DESC,ALARM_DESC_CH,POSSIBLE_CAUSES,SUGGESTION,COMMENT
+VH_LINE,14,2,Turning speed exceeded,入弯速度超标,a. 入弯传感器在高速直線段異常触发,a1. 检查/调整入弯传感器,"入弯传感器:
+  DI_前左车入弯检知
+  DI_前右车入弯检知"
+VH_LINE,15,2,Turn right speed exceeded,入右弯速度超标,a. 入右弯传感器在高速直線段異常触发,a1. 检查/调整右入弯传感器,"入弯传感器:
+  DI_前右车入弯检知"
+VH_LINE,16,2,Turn left speed exceeded,入左弯速度超标,a. 入左弯传感器在高速直線段異常触发,a1. 检查/调整左入弯传感器,"入弯传感器:
+  DI_前左车入弯检知"
+VH_LINE,88,2,Wrong way protection stopped,走错路保护停止,"a. 前车转向换手未实时完成, 导致分歧路口走错方向","a1. 检查/调整天轨检知传感器
+a2. 检查前车转向换手传动系统","天轨检知传感器:
+  DI_前左前_上轨道检知、
+  DI_前左后_上轨道检知、
+  DI_前右前_上轨道检知、
+  DI_前右后_上轨道检知"
+VH_LINE,89,2,Too big protection stops,偏过大保护停止,a. 该次走行路线之马达编码器值与实际条形码定义图资距离，累积偏差超过800mm -- 走行轮打滑,"a1. 检查走行马达分辨率设定
+a2. 检查走行轮传动系统",
+VH_LINE,99,2,OoC  HANG,OoC  *HANG*,"a. 前次程序部分残留
+b. 内存不足
+c. 储存空间不足","a1. 重新启动
+b1. 重新启动
+b2. 仅执行必要软件即可
+c1. 清理不必要档案",
+VH_LINE,101,2,Disk C will don't has enough space,C槽储存空间将不足,a. 储存空间即将不足,"a1. 清理非必要暂存残留档案
+a2. 清理C:\Windows\Temp\目录",储存空间 < 10GB
+VH_LINE,102,2,Disk D will don't has enough space,D槽储存空间将不足,a. 储存空间即将不足,"a1. 清理非必要暂存残留档案
+a2. 清理D:\Log\PROC_300VehM\目录
+a3. 清理D:\Log\Process\目录
+a4. 清理D:\Log\Monitor\目录",储存空间 < 10GB
+VH_LINE,103,2,Disk C hasn't enough space,C槽储存空间已不足,a. 储存空间已经不足,"a1. 清理非必要暂存残留档案
+a2. 清理C:\Windows\Temp\目录",储存空间 < 3GB
+VH_LINE,104,2,Disk D hasn't enough space,D槽储存空间已不足,a. 储存空间已经不足,"a1. 清理非必要暂存残留档案
+a2. 清理D:\Log\PROC_300VehM\目录
+a3. 清理D:\Log\Process\目录
+a4. 清理D:\Log\Monitor\目录",储存空间 < 3GB
+VH_LINE,150,1,Connecting station - block corrections,接续站_闭塞段更正,"a. 网络通讯持续异常 (但软件程序已自动更正/修复)
+b. 询问闭塞段放行程序异常 (但软件程序已自动更正/修复)","a1. 检查网络联机状况
+b1. 检查软件询问闭塞段放行程序",软件程序已自动更正/修复 (纯参考)
+VH_LINE,220,2,HID exception is not hoisted,HID异常未卷扬,"a. HID车体取电器磁场异常
+b. HID车体取电器温度异常
+c. HID地面电控箱异常","a1. 检查HID车体取电器磁场讯号
+b1. 检查HID车体取电器温度讯号
+c1. 检查HID地面电控箱","HID车体取电器磁场讯号: 
+  DI_HID_磁场输入异常
+
+HID车体取电器温度讯号:
+  DI_HID_温度保护异常"
+VH_LINE,221,2,HID Stops Winning Abnormally,HID异常停卷扬,"a. HID车体取电器磁场异常
+b. HID车体取电器温度异常
+c. HID地面电控箱异常","a1. 检查HID车体取电器磁场讯号
+b1. 检查HID车体取电器温度讯号
+c1. 检查HID地面电控箱","HID车体取电器磁场讯号:
+  DI_HID_磁场输入异常
+
+HID车体取电器温度讯:
+  DI_HID_温度保护异常"
+VH_LINE,222,2,HID Exception_Shutdown,HID异常_关机,"a. HID车体取电器磁场异常
+b. HID车体取电器温度异常
+c. HID地面电控箱异常","a1. 检查HID车体取电器磁场讯号
+b1. 检查HID车体取电器温度讯号
+c1. 检查HID地面电控箱","HID车体取电器磁场讯号:
+  DI_HID_磁场输入异常
+
+HID车体取电器温度讯号:
+  DI_HID_温度保护异常"
+VH_LINE,223,2,HID magnetic field is not hoisted,HID磁场异常未卷扬上货,"a. HID车体取电器磁场异常
+b. HID地面电控箱异常","a1. 检查HID车体取电器磁场讯号
+b1. 检查HID地面电控箱","HID车体取电器磁场讯号: 
+  DI_HID_磁场输入异常"
+VH_LINE,224,2,HID temperature is abnormal,HID温度异常未卷扬上货,"a. HID车体取电器温度异常
+b. HID地面电控箱异常","a1. 检查HID车体取电器温度讯号
+b1. 检查HID地面电控箱","HID车体取电器磁场讯号: 
+  DI_HID_温度保护异常"
+VH_LINE,225,2,HID magnetic field stopped winding and loading,HID磁场异常停卷扬上货,"a. HID车体取电器磁场异常
+b. HID地面电控箱异常","a1. 检查HID车体取电器磁场讯号
+b1. 检查HID地面电控箱","HID车体取电器磁场讯号: 
+  DI_HID_磁场输入异常"
+VH_LINE,226,2,HID temperature abnormally stopped winding and loading,HID温度异常停卷扬上货,"a. HID车体取电器温度异常
+b. HID地面电控箱异常","a1. 检查HID车体取电器温度讯号
+b1. 检查HID地面电控箱","HID车体取电器磁场讯号: 
+  DI_HID_温度保护异常"
+VH_LINE,227,2,HID magnetic field abnormal_shutdown,HID磁场异常_关机,"a. HID车体取电器磁场异常
+b. HID地面电控箱异常","a1. 检查HID车体取电器磁场讯号
+b1. 检查HID地面电控箱","HID车体取电器磁场讯号: 
+  DI_HID_磁场输入异常"
+VH_LINE,228,2,HID temperature abnormal_shutdown,HID温度异常_关机,"a. HID车体取电器温度异常
+b. HID地面电控箱异常","a1. 检查HID车体取电器温度讯号
+b1. 检查HID地面电控箱","HID车体取电器磁场讯号: 
+  DI_HID_温度保护异常"
+VH_LINE,233,2,HID magnetic field is abnormal,HID磁场异常未卷扬下货,"a. HID车体取电器磁场异常
+b. HID地面电控箱异常","a1. 检查HID车体取电器磁场讯号
+b1. 检查HID地面电控箱","HID车体取电器磁场讯号: 
+  DI_HID_磁场输入异常"
+VH_LINE,234,2,HID temperature is abnormal,HID温度异常未卷扬下货,"a. HID车体取电器温度异常
+b. HID地面电控箱异常","a1. 检查HID车体取电器温度讯号
+b1. 检查HID地面电控箱","HID车体取电器磁场讯号: 
+  DI_HID_温度保护异常"
+VH_LINE,235,2,HID magnetic field abnormally stopped and hoisted,HID磁场异常停卷扬下货,"a. HID车体取电器磁场异常
+b. HID地面电控箱异常","a1. 检查HID车体取电器磁场讯号
+b1. 检查HID地面电控箱","HID车体取电器磁场讯号: 
+  DI_HID_磁场输入异常"
+VH_LINE,236,2,HID temperature abnormally stopped loading and unloading,HID温度异常停卷扬下货,"a. HID车体取电器温度异常
+b. HID地面电控箱异常","a1. 检查HID车体取电器温度讯号
+b1. 检查HID地面电控箱","HID车体取电器磁场讯号: 
+  DI_HID_温度保护异常"
+VH_LINE,301,2,Optical radar device failure,光学雷达装置失效,"a. 光学雷达装置失效
+b. 光学雷达装置IO讯号接线异常","a1. OHT断电重新启动
+a2. 光学雷达装置送修
+b1. 检查光学雷达装置IO讯号接线","走行光学雷达装置异常讯号:
+  DI_AreaSnr4Walk_MalFunction"
+VH_LINE,302,2,Laser ranging device failed,激光测距装置失效,"a. 激光测距装置失效
+b. 激光测距装置通讯线连接异常","a1. OHT断电重新启动
+a2. 激光测距装置送修
+b1. 检查激光测距装置通讯线",走行激光测距通讯异常
+VH_LINE,444,2,Running anti-collision protection trigger,走行防撞保护触发,"a. 走行防撞边条碰撞, 触发EMS保护","a1. 检查走行防撞边条极限讯号
+a2. 将追撞之后方OHT, 用调机作业方式单动后移","走行防撞边条极限讯号:
+  走行轴正极限讯号"
+VH_LINE,445,2,Before loading _ Doesn't exist bar code at load port,上货前_终站无条形码,a. 走行轮打滑过大,"a1. 检查走行马达分辨率设定
+a2. 检查走行轮传动系统
+a3. 检查图资设定",
+VH_LINE,446,2,Before unloading _ Doesn't exist bar code at unload port,下货前_终站无条形码,a. 走行轮打滑过大,"a1. 检查走行马达分辨率设定
+a2. 检查走行轮传动系统
+a3. 检查图资设定",
+VH_LINE,447,2,No barcode at terminal,终站无条形码,a. 走行轮打滑过大,"a1. 检查走行马达分辨率设定
+a2. 检查走行轮传动系统",
+VH_LINE,448,2,No barcode at the stop,停等站无条形码,a. 走行轮打滑过大,"a1. 检查走行马达分辨率设定
+a2. 检查走行轮传动系统",
+VH_LINE,800,2,The times of secondary positioning of walking reaches the upper limit,走行二次定位累积次数达上限异常,"a. 欲上货, 却未停进定义规格范围内
+b. 马达发生异常","a1. 检查图资设定
+a2. 检查走行马达相关机件","(±0.4mm)
+Max: 13次"
+VH_LINE,801,2,Sideshift axis - abnormal operation position of moving to fixed point,侧移轴-移至定点作业位置异常,"a. 防坠未完全打开
+b. 定点作业位置超过软件正负极限
+c. 马达发生异常
+d. 机构硬件干涉卡住","a1. 检查防坠机构及Sensor
+b1. 检查相关位置设定值
+c1. 检查侧移马达相关机件
+d1. 检查侧移机构件",
+VH_LINE,802,2,Sideshift axis - abnormal move to walkable position,侧移轴-移至可行走位置异常,"a. 防坠未完全打开
+b. 可行走位置超过软件正负极限
+c. 马达发生异常
+d. 机构硬件干涉卡住","a1. 检查防坠机构及Sensor
+b1. 检查相关位置设定值
+c1. 检查侧移马达相关机件
+d1. 检查侧移机构件",
+VH_LINE,803,2,Rotation axis - abnormal operation position of moving to fixed point,旋转轴-移至定点作业位置异常,"a. 防坠未完全打开
+b. 定点作业位置超过软件正负极限
+c. 马达发生异常
+d. 机构硬件干涉卡住","a1. 检查防坠机构及Sensor
+b1. 检查相关位置设定值
+c1. 检查旋转马达相关机件
+d1. 检查旋转机构件",
+VH_LINE,804,2,Rotation axis - abnormal move to walkable position,旋转轴-移至可行走位置异常,"a. 防坠未完全打开
+b. 可行走位置超过软件正负极限
+c. 马达发生异常
+d. 机构硬件干涉卡住","a1. 检查防坠机构及Sensor
+b1. 检查相关位置设定值
+c1. 检查旋转马达相关机件
+d1. 检查旋转机构件",
+VH_LINE,805,2,Front tailgate - abnormal extension,前防坠-伸出异常,"a. 伸出到位Sensor损坏
+b. 机构硬件干涉卡住
+c. DO/DI 输出/入异常
+d. 马达或齿轮松脱","a1. 检查防坠机构及Sensor
+b1. 检查防坠机构件
+c1. 检查IO输出/入讯号
+d1. 检查防坠马达相关机件",
+VH_LINE,806,2,Front tailgate - abnormal closing,前防坠-收合异常,"a. 收合到位Sensor损坏
+b. 机构硬件干涉卡住
+c. DO/DI 输出/入异常
+d. 马达或齿轮松脱","a1. 检查防坠机构及Sensor
+b1. 检查防坠机构件
+c1. 检查IO输出/入讯号
+d1. 检查防坠马达相关机件",
+VH_LINE,807,2,Back tailgate - abnormal extension,后防坠-伸出异常,"a. 伸出到位Sensor损坏
+b. 机构硬件干涉卡住
+c. DO/DI 输出/入异常
+d. 马达或齿轮松脱","a1. 检查防坠机构及Sensor
+b1. 检查防坠机构件
+c1. 检查IO输出/入讯号
+d1. 检查防坠马达相关机件",
+VH_LINE,808,2,Back tailgate - abnormal closing,后防坠-收合异常,"a. 收合到位Sensor损坏
+b. 机构硬件干涉卡住
+c. DO/DI 输出/入异常
+d. 马达或齿轮松脱","a1. 检查防坠机构及Sensor
+b1. 检查防坠机构件
+c1. 检查IO输出/入讯号
+d1. 检查防坠马达相关机件",
+VH_LINE,811,2,Hoist axis - abnormal position before catching the objects ,卷扬轴-置物前移至定点作业位置异常,"a. 防坠未完全打开
+b. 定点作业位置超过软件正负极限
+c. 马达发生异常
+d. 机构硬件干涉卡住","a1. 检查防坠机构及Sensor
+b1. 检查相关位置设定值
+c1. 检查卷扬马达相关机件
+d1. 检查卷扬机构件",
+VH_LINE,812,2,Hoist axis - abnormal position after catching the objects ,卷扬轴-置物后移至可行走位置异常,"a. 防坠未完全打开
+b. 可行走位置超过软件正负极限
+c. 马达发生异常
+d. 机构硬件干涉卡住","a1. 检查防坠机构及Sensor
+b1. 检查相关位置设定值
+c1. 检查卷扬马达相关机件
+d1. 检查卷扬机构件",
+VH_LINE,813,2,Gripper - abnormal opening in unloading,卷扬轴-取物前移至定点作业位置异常,"a. 防坠未完全打开
+b. 马达联轴器松脱
+c. 马达发生异常
+d. 机构硬件干涉卡住
+e. 煞车未解开","a1. 检查防坠机构及Sensor
+b1. 检查联轴器
+c1. 检查夹爪马达相关机件
+d1. 检查卷扬机构件
+e1. 检查夹爪煞车",
+VH_LINE,814,2,Gripper - abnormal closing in unloading,卷扬轴-取物后移至可行走位置异常,"a. 防坠未完全打开
+b. 马达联轴器松脱
+c. 马达发生异常
+d. 机构硬件干涉卡住
+e. 煞车未解开","a1. 检查防坠机构及Sensor
+b1. 检查联轴器
+c1. 检查夹爪马达相关机件
+d1. 检查卷扬机构件
+e1. 检查夹爪煞车",
+VH_LINE,815,2,Gripper - abnormal opening in loading,夹爪-置物中打开异常,"a. 防坠未完全打开
+b. 马达联轴器松脱
+c. 马达发生异常
+d. 机构硬件干涉卡住
+e. 煞车未解开","a1. 检查防坠机构及Sensor
+b1. 检查联轴器
+c1. 检查夹爪马达相关机件
+d1. 检查卷扬机构件
+e1. 检查夹爪煞车",
+VH_LINE,816,2,Gripper - abnormal closing in loading,夹爪-置物中闭合异常,"a. 防坠未完全打开
+b. 马达联轴器松脱
+c. 马达发生异常
+d. 机构硬件干涉卡住
+e. 煞车未解开","a1. 检查防坠机构及Sensor
+b1. 检查联轴器
+c1. 检查夹爪马达相关机件
+d1. 检查卷扬机构件
+e1. 检查夹爪煞车",
+VH_LINE,817,2,Gripper - abnormal opening in loading,夹爪-取物中打开异常,"a. 防坠未完全打开
+b. 马达联轴器松脱
+c. 马达发生异常
+d. 机构硬件干涉卡住
+e. 煞车未解开","a1. 检查防坠机构及Sensor
+b1. 检查联轴器
+c1. 检查夹爪马达相关机件
+d1. 检查卷扬机构件
+e1. 检查夹爪煞车",
+VH_LINE,818,2,Gripper - abnormal closing in loading,夹爪-取物中闭合异常,"a. 防坠未完全打开
+b. 马达联轴器松脱
+c. 马达发生异常
+d. 机构硬件干涉卡住
+e. 煞车未解开","a1. 检查防坠机构及Sensor
+b1. 检查联轴器
+c1. 检查夹爪马达相关机件
+d1. 检查卷扬机构件
+e1. 检查夹爪煞车",
+VH_LINE,819,2,Before loading - gripper without tray,置物前_夹爪无货物异常,"a. 测/过物Sensor未对准侦测货物位置
+b. 货物使用透明载具","a1. 检查Sensor对货物相对位置
+b1. 检查载具材质",
+VH_LINE,820,2,After unloading - gripper still has tray,置物后_夹爪有货物异常,a. 测/过物Sensor相对位置未对准,a1. 检查Sensor发射端与接收端角度与位置,
+VH_LINE,821,2,Before loading - gripper has tray in abnormal,取物前_夹爪有货物异常,a. 测/过物Sensor相对位置未对准,a1. 检查Sensor发射端与接收端角度与位置,
+VH_LINE,822,2,After unloading - gripper without tray in abnormal,取物后_夹爪无货物异常,"a. 测物Sensor未对准侦测货物位置
+b. 货物使用透明载具","a1. 检查Sensor对货物相对位置
+b1. 检查载具材质",
+VH_LINE,823,2,Abnormal detection of falling objects,防坠过物检知异常,"a. 防坠过物Sensor相对位置未对准
+b. 卷扬可行走位置设定过低","a1. 检查Sensor发射端与接收端角度与位置
+b1. 修改卷扬可行走高度设定值",
+VH_LINE,888,2,OHTC request ForceFinish,OHTC要求强制终结_ForceFinish,a. OHTC要求强制终结,a1. 确认OHTC强制终结(ForceFinish)缘由,
+VH_LINE,900,1,BCR Read Fail,BCR Read Fail,"a. 台车定点取物上货, 上升后在OHT车内, 没读到CST/Tray-ID
+b. 台车定点置物下货, 在OHT车内下降前, 没读到CST/Tray-ID","a1. 检查CST/Tray-ID是否可正常辨识
+a2. 检查BCR
+b1. 检查CST/Tray-ID是否可正常辨识
+b2. 检查BCR",
+VH_LINE,901,1,BCR Read Fail after loading,上货后BCR Read Fail,"a. 台车定点取物上货, 上升后在OHT车内, 没读到CST/Tray-ID","a1. 检查CST/Tray-ID是否可正常辨识
+a2. 检查BCR",
+VH_LINE,902,1,BCR Read Fail before shipment,下货前BCR Read Fail,"a. 台车定点置物下货, 在OHT车内下降前, 没读到CST/Tray-ID","a1. 检查CST/Tray-ID是否可正常辨识
+a2. 检查BCR",
+VH_LINE,910,1,PIO (before Busy-ON) handshake failure,PIO(Busy-ON前)交握失败,a. 货物转移前之PIO交握流程异常,"a1. 确认/排除本机OHT侧PIO交握讯号异常
+a2. 确认/排除对应EQ侧PIO交握讯号异常
+a3. 确认PIO交握时序是否有误","TA1:
+  DI_PIO模块_OUT_1 (等EQ侧 L_REQ 为High)
+  DI_PIO模块_OUT_2 (等EQ侧 U_REQ 为High)
+
+TA2:
+  DI_PIO模块_OUT_4 (等EQ侧 READY 为High)"
+VH_LINE,911,1,PIO (after Busy-OFF) handshake failure,PIO(Busy-OFF后)交握失败,a. 货物转移后之PIO交握流程异常,"a1. 确认/排除本机OHT侧PIO交握讯号异常
+a2. 确认/排除对应EQ侧PIO交握讯号异常
+a3. 确认PIO交握时序是否有误","TA3:
+  DI_PIO模块_OUT_4 (等EQ侧 READY 为Low)"
+VH_LINE,918,2,Abnormal tension of rear belt 1,后皮带1张力异常,"a. 后皮带1断裂
+b. 卷扬夹爪吊篮因碰撞到东西而歪斜
+c.  后皮带1张力传感器异常","a1. 检查/更换后皮带1
+b1. 检查吊篮是否碰撞到东西
+c1. 检查 后皮带1张力传感器","(800 ms)
+
+后皮带张力传感器:
+  DI_后皮带张力检知1"
+VH_LINE,919,2,Abnormal tension of rear belt 2,后皮带2张力异常,"a. 后皮带2断裂
+b. 卷扬夹爪吊篮因碰撞到东西而歪斜
+c.  后皮带2张力传感器异常","a1. 检查/更换后皮带2
+b1. 检查吊篮是否碰撞到东西
+c1. 检查 后皮带2张力传感器","(800 ms)
+
+后皮带张力传感器:
+  DI_后皮带张力检知2"
+VH_LINE,920,2,Side-shift rotation anti-fall exception,侧移旋转防坠异常,a. 台车到站前预定位流程 NG,"a1. 检查卷扬侧移系统
+a2. 检查卷扬旋转系统
+a3. 检查卷扬防坠系统",
+VH_LINE,921,2,Loading process is abnormal,上货流程异常,a. 台车定点取物上货流程 NG,"a1. 检查卷扬侧移系统
+a2. 检查卷扬旋转系统
+a3. 检查卷扬防坠系统",
+VH_LINE,922,2,Unloading process is abnormal,下货流程异常,a. 台车定点置物下货流程 NG,"a1. 检查卷扬侧移系统
+a2. 检查卷扬旋转系统
+a3. 检查卷扬防坠系统",
+VH_LINE,923,2,Before loading - Abnormal operation position of running fixed point,上货前-走行定点作业位置异常,"a. 欲上货, 却未停进定义规格范围内
+b. 马达发生异常","a1. 检查图资设定
+a2. 检查走行马达相关机件",(±0.4mm)
+VH_LINE,924,2,Before unloading - Abnormal operation position of running fixed point,下货前-走行定点作业位置异常,"a. 欲下货, 却未停进定义规格范围内
+b. 马达发生异常","a1. 检查图资设定
+b1. 检查走行马达相关机件",(±0.4mm)
+VH_LINE,926,2,Out-Of-Adr Space,Out-Of-Adr Space,"a. 欲上下货, 却未停进定义站点范围内",a1. 检查图资设定,(±45mm)
+VH_LINE,927,1,Illegal AdrType,Illegal AdrType,a. 此定义站点不适用于上下货,a1. 检查图资设定,"(限定Port为EQ, STK/CV, OHB)"
+VH_LINE,928,1,Unmatched Adr,Unmatched Adr,a. 目前站点非欲上下货站点,a1. 检查图资设定,
+VH_LINE,929,1,Illegal AdrID,Illegal AdrID,a. 欲上下货站点在图资内无对应设定,a1. 检查图资设定,
+VH_LINE,931,2,Belt tension abnormal,皮带张力异常,"a. 皮带断裂
+b. 卷扬夹爪吊篮因碰撞到东西而歪斜
+c. 皮带张力传感器异常","a1. 检查/更换皮带
+b1. 检查吊篮是否碰撞到东西
+c1. 检查皮带张力传感器","(800 ms)
+
+皮带张力传感器:
+  DI_前皮带张力检知"
+VH_LINE,932,2,Back belt tension abnormal,后皮带张力异常,"a. 后皮带断裂
+b. 卷扬夹爪吊篮因碰撞到东西而歪斜
+c.  后皮带张力传感器异常","a1. 检查/更换后皮带
+b1. 检查吊篮是否碰撞到东西
+c1. 检查 后皮带张力传感器","(800 ms)
+
+后皮带张力传感器:
+  DI_后皮带张力检知1、
+  DI_后皮带张力检知2"
+VH_LINE,933,2,Skew detection abnormal,偏摆检知异常,"a. 皮带断裂
+b. 卷扬夹爪吊篮因碰撞到东西而歪斜","a1. 检查/更换皮带
+b1. 检查吊篮是否碰撞到东西
+c1. 检查 偏摆检知传感器","偏摆检知传感器:
+  DI_载台偏摆检知"
+VH_LINE,934,2,Belt rewinding abnormal,皮带反绕异常,"a. 卷扬马达轴原点讯号异常, 导致回卷过头
+b. 传感器异常","a1. 检查卷扬马达轴原点讯号/遮片是否固定牢靠
+b1. 检查 皮带反绕传感器","卷扬马达轴原点讯号:
+  卷扬轴正极限讯号
+
+皮带反绕传感器:
+  卷扬轴负极限讯号"
+VH_LINE,935,2,EQ side PIO handshake abnormal,EQ侧PIO交握异常,a. EQ侧PIO交握回报 HO_AVBL 或 ES 讯号转Low,a1. 确认/排除对应EQ侧Port状态异常,"EQ侧Port状态异常:
+  DI_PIO模块_OUT_7 (等EQ侧 HO_AVBL 为Low)
+  DI_PIO模块_OUT_8 (等EQ侧 ES 为Low)"
+VH_LINE,936,2,HO_AVBL exception on PIO received EQ,PIO上货收EQ发HO_AVBL异常,a. 上货EQ侧PIO交握回报 HO_AVBL 讯号转Low,a1. 确认/排除对应EQ侧Port状态异常,"EQ侧Port状态异常:
+  DI_PIO模块_OUT_7 (等EQ侧 HO_AVBL 为Low)"
+VH_LINE,937,2,PIO loading EQ sends ES exception,PIO上货收EQ发ES异常,a. 上货EQ侧PIO交握回报 ES 讯号转Low,a1. 确认/排除对应EQ侧Port状态异常,"EQ侧Port状态异常:
+  DI_PIO模块_OUT_8 (等EQ侧 ES 为Low)"
+VH_LINE,938,2,HO_AVBL Exception When PIO Receives Delivery,PIO下货收EQ发HO_AVBL异常,a. 下货EQ侧PIO交握回报 HO_AVBL 讯号转Low,a1. 确认/排除对应EQ侧Port状态异常,"EQ侧Port状态异常:
+  DI_PIO模块_OUT_7 (等EQ侧 HO_AVBL 为Low)"
+VH_LINE,939,2,PIO receives EQ and receives ES exception,PIO下货收EQ发ES异常,a. 下货EQ侧PIO交握回报 ES 讯号转Low,a1. 确认/排除对应EQ侧Port状态异常,"EQ侧Port状态异常:
+  DI_PIO模块_OUT_8 (等EQ侧 ES 为Low)"
+VH_LINE,940,1,PIO drop off and other EQ issued L_REQ timeout Hi,PIO下货等EQ发L_REQ逾时Hi,a. OHT 下货流程 --- OHT于时间内未收到 EQ  [L_REQ]  ON 讯号,"a1. 请EQ检查讯号发送是否有误或异常
+a2. 检查OHT PIO接收是否正常","(默认值 2 sec)
+
+TA1:
+  DI_PIO模块_OUT_1 (等EQ侧 L_REQ 为High)"
+VH_LINE,941,1,PIO drop off and other EQs issued READY timeout Hi,PIO下货等EQ发READY逾时Hi,a. OHT 下货流程 --- OHT于时间内未收到 EQ  [READY] ON 讯号,"a1. 请EQ检查讯号发送是否有误或异常
+a2. 检查OHT PIO接收是否正常","(默认值 2 sec)
+
+TA2:
+  DI_PIO模块_OUT_4 (等EQ侧 READY 为High)"
+VH_LINE,942,1,EIO sends READY timeout when PIO orders off,PIO下货等EQ发READY逾时Lo,a. OHT 下货流程 --- OHT于时间内未收到 EQ  [READY] OFF 讯号,"a1. 请EQ检查讯号发送是否有误或异常
+a2. 检查OHT PIO接收是否正常","(默认值 2 sec)
+
+TA3:
+  DI_PIO模块_OUT_4 (等EQ侧 READY 为Low)"
+VH_LINE,943,1,EIO sends U_REQ timeout when PIO is shipped,PIO上货等EQ发U_REQ逾时Hi,a. OHT 上货流程 --- OHT于时间内未收到 EQ  [U_REQ]  ON 讯号,"a1. 请EQ检查讯号发送是否有误或异常
+a2. 检查OHT PIO接收是否正常","(默认值 2 sec)
+
+TA1:
+  DI_PIO模块_OUT_2 (等EQ侧 U_REQ 为High)"
+VH_LINE,944,1,EIO sends READY timeout when PIO is shipped,PIO上货等EQ发READY逾时Hi,a. OHT 上货流程 --- OHT于时间内未收到 EQ  [READY] ON 讯号,"a1. 请EQ检查讯号发送是否有误或异常
+a2. 检查OHT PIO接收是否正常","(默认值 2 sec)
+
+TA2:
+  DI_PIO模块_OUT_4 (等EQ侧 READY 为High)"
+VH_LINE,945,1,EIO sends READY timeout when PIO is released,PIO上货等EQ发READY逾时Lo,a. OHT 上货流程 --- OHT于时间内未收到 EQ  [READY] OFF 讯号,"a1. 请EQ检查讯号发送是否有误或异常
+a2. 检查OHT PIO接收是否正常","(默认值 2 sec)
+
+TA3:
+  DI_PIO模块_OUT_4 (等EQ侧 READY 为Low)"
+VH_LINE,950,2,In remote maintenance mode,遥控维护模式中,"a. OHT(下方)之遥控器开关被启用, 禁止执行正常流程",a1. 请解除OHT(下方)之遥控器开关,"遥控器开关:
+  DI_解煞车开关_遥控转向DRIVER"
+VH_LINE,951,2,Abnormal right orbit of starting station,起站右天轨异常,"a. 走行前之起站右天轨检知, 无法换手","a1. 检查图资设定
+a2. 检查/调整右天轨检知传感器","天轨检知传感器: 
+  DI_前右前_上轨道检知、
+  DI_前右后_上轨道检知、"
+VH_LINE,952,2,Abnormal left sky orbit,起站左天轨异常,"a. 走行前之起站左天轨检知, 无法换手","a1. 检查图资设定
+a2. 检查/调整左天轨检知传感器","天轨检知传感器: 
+  DI_前左前_上轨道检知、
+  DI_前左后_上轨道检知、"
+VH_LINE,953,2,Turn right and do n’t change hands,入右弯没换完手,"a. 在""入弯传感器未正常触发""的降速保护流程内，若前车未对应右转向换手完成，则立马急停&打断流程!","a1. 检查/调整右天轨检知传感器
+a2. 检查右转向换手传动系统
+a3. 检查/调整右入弯传感器","天轨检知传感器:
+  DI_前右前_上轨道检知、
+  DI_前右后_上轨道检知
+
+入弯传感器:
+  DI_前右车入弯检知"
+VH_LINE,954,2,Turn left and never change hands,入左弯没换完手,"a. 在""入弯传感器未正常触发""的降速保护流程内，若前车未对应左转向换手完成，则立马急停&打断流程!","a1. 检查/调整左天轨检知传感器
+a2. 检查左转向换手传动系统
+a3. 检查/调整左入弯传感器","天轨检知传感器:
+  DI_前左前_上轨道检知、
+  DI_前左后_上轨道检知
+
+入弯传感器:
+  DI_前左车入弯检知"
+VH_LINE,955,2,Turn right forward start exclusive trigger exception,前右转启动_互斥触发异常,"a. 前右转向换手流程内 ~ 启动前检查, 发现两互斥到位传感器皆触发的硬件异常，需立马急停&打断流程!","a1. 检查前车右转检知_前车转向左下右上位检知传感器
+a2. 检查前车左转检知_前车转向左上右下位检知传感器","前转向换手到位传感器:
+  DI_前车右转检知_前车转向左下右上位检知、
+  DI_前车左转检知_前车转向左上右下位检知"
+VH_LINE,956,2,Turn left forward start exclusive trigger exception,前左转启动_互斥触发异常,"a. 前左转向换手流程内 ~ 启动前检查, 发现两互斥到位传感器皆触发的硬件异常，需立马急停&打断流程!","a1. 检查前车右转检知_前车转向左下右上位检知传感器
+a2. 检查前车左转检知_前车转向左上右下位检知传感器","前转向换手到位传感器:
+  DI_前车右转检知_前车转向左下右上位检知、
+  DI_前车左转检知_前车转向左上右下位检知"
+VH_LINE,957,2,Turn right backward start exclusive trigger exception,后右转启动_互斥触发异常,"a. 后右转向换手流程内 ~ 启动前检查, 发现两互斥到位传感器皆触发的硬件异常，需立马急停&打断流程!","a1. 检查后车右转检知_后车转向左下右上位检知传感器
+a2. 检查后车左转检知_后车转向左上右下位检知传感器","后转向换手到位传感器:
+  DI_后车右转检知_后车转向左下右上位检知、
+  DI_后车左转检知_后车转向左上右下位检知"
+VH_LINE,958,2,Turn left backward start exclusive trigger exception,后左转启动_互斥触发异常,"a. 后左转向换手流程内 ~ 启动前检查, 发现两互斥到位传感器皆触发的硬件异常，需立马急停&打断流程!","a1. 检查后车右转检知_后车转向左下右上位检知传感器
+a2. 检查后车左转检知_后车转向左上右下位检知传感器","后转向换手到位传感器:
+  DI_后车右转检知_后车转向左下右上位检知、
+  DI_后车左转检知_后车转向左上右下位检知"
+VH_LINE,960,2,Turn right before starting abnormally,前右转 启动异常,a. 前右转向换手未在时限内离开原(出发)位,a1. 检查前右转向换手传动系统,"(209 ms)
+
+前右转向换手原(出发)位传感器:
+  DI_前车右转检知_前车转向左下右上位检知"
+VH_LINE,961,2,Turn left before starting abnormally,前左转 启动异常,a. 前左转向换手未在时限内离开原(出发)位,a1. 检查前左转向换手传动系统,"(209 ms)
+
+前左转向换手原(出发)位传感器:
+  DI_前车左转检知_前车转向左上右下位检知"
+VH_LINE,962,2,Turn right after start abnormal,后右转 启动异常,a. 后右转向换手未在时限内离开原(出发)位,a1. 检查后右转向换手传动系统,"(209 ms)
+
+后右转向换手原(出发)位传感器:
+  DI_后车右转检知_后车转向左下右上位检知"
+VH_LINE,963,2,Turn left after starting abnormally,后左转 启动异常,a. 后左转向换手未在时限内离开原(出发)位,a1. 检查后左转向换手传动系统,"(209 ms)
+
+后左转向换手原(出发)位传感器:
+  DI_后车左转检知_后车转向左上右下位检知"
+VH_LINE,964,2,Turn right before,前右转 到位异常,a. 前右转向换手未在时限内移动到(目标)位,a1. 检查前右转向换手传动系统,"(500 ms)
+
+前右转向换手到位传感器:
+  DI_前车右转检知_前车转向左下右上位检知"
+VH_LINE,965,2,Turn left forward,前左转 到位异常,a. 前左转向换手未在时限内移动到(目标)位,a1. 检查前左转向换手传动系统,"(500 ms)
+
+前左转向换手到位传感器:
+  DI_前车左转检知_前车转向左上右下位检知"
+VH_LINE,966,2,Turn right after being in place,后右转 到位异常,a. 后右转向换手未在时限内移动到(目标)位,a1. 检查后右转向换手传动系统,"(500 ms)
+
+后右转向换手到位传感器:
+  DI_后车右转检知_后车转向左下右上位检知"
+VH_LINE,967,2,Turn left back into place abnormal,后左转 到位异常,a. 后左转向换手未在时限内移动到(目标)位,a1. 检查后左转向换手传动系统,"(500 ms)
+
+后左转向换手到位传感器:
+  DI_后车左转检知_后车转向左上右下位检知"
+VH_LINE,968,2,Forward rotation abnormal,前转 到位异常,a. 前转向换手未在时限内移动到(目标)位,a1. 检查前转向换手传动系统,"(500 ms)
+
+前转向换手到位传感器:
+  DI_前车右转检知_前车转向左下右上位检知、
+  DI_前车左转检知_前车转向左上右下位检知"
+VH_LINE,969,2,After turning in place abnormal,后转 到位异常,a. 后转向换手未在时限内移动到(目标)位,a1. 检查后转向换手传动系统,"(500 ms)
+
+后转向换手到位传感器:
+  DI_后车右转检知_后车转向左下右上位检知、
+  DI_后车左转检知_后车转向左上右下位检知"
+VH_LINE,971,2,Abnormal Sky Track,起站天轨异常,"a. 走行前之起站天轨检知, 无法换手","a1. 检查图资设定
+a2. 检查/调整天轨检知传感器","天轨检知传感器: 
+  DI_前左前_上轨道检知、
+  DI_前左后_上轨道检知、
+  DI_前右前_上轨道检知、
+  DI_前右后_上轨道检知"
+VH_LINE,972,2,Not turning hands,入弯没换完手,"a. 在""入弯传感器未正常触发""的降速保护流程内，若前车未对应转向换手完成，则立马急停&打断流程!","a1. 检查/调整天轨检知传感器
+a2. 检查转向换手传动系统
+a3. 检查/调整入弯传感器","天轨检知传感器:
+  DI_前左前_上轨道检知、
+  DI_前左后_上轨道检知、
+  DI_前右前_上轨道检知、
+  DI_前右后_上轨道检知
+
+入弯传感器:
+  DI_前右车入弯检知、
+  DI_前左车入弯检知"
+VH_LINE,973,2,Forward start abnormal,前转 启动异常,a. 前转向换手未在时限内离开原(出发)位,a1. 检查前转向换手传动系统,"(209 ms)
+
+前转向换手原(出发)位传感器:
+  DI_前车右转检知_前车转向左下右上位检知、
+  DI_前车左转检知_前车转向左上右下位检知"
+VH_LINE,974,2,Turn back abnormally,后转 启动异常,a. 后转向换手未在时限内离开原(出发)位,a1. 检查后转向换手传动系统,"(209 ms)
+
+后转向换手原(出发)位传感器:
+  DI_后车右转检知_后车转向左下右上位检知、
+  DI_后车左转检知_后车转向左上右下位检知"
+VH_LINE,976,2,Non local delivery delay,非原地 上货延迟,"a. 之前刚执行""台车到站前预定位流程"", 做过前PIO交握, 但应绑定尾随之""取物上货流程""命令, 超过时限/太晚才发送到OHT侧, 会导致引动""原地-取物上货流程"", 为防止重发PIO交握异常, 拒绝执行!","a1. 检查OHT-C运作是否卡顿
+a2. 检查OHT-Ｍ运作是否卡顿
+a3. 重新启动
+a4. 仅执行必要软件即可",(180 s)
+VH_LINE,977,2,Off site delivery delay,非原地 下货延迟,"a. 之前刚执行""台车到站前预定位流程"", 做过前PIO交握, 但应绑定尾随之""置物下货流程""命令, 超过时限/太晚才发送到OHT侧, 会导致引动""原地-置物下货流程"", 为防止重发PIO交握异常, 拒绝执行!","a1. 检查OHT-C运作是否卡顿
+a2. 检查OHT-Ｍ运作是否卡顿
+a3. 重新启动
+a4. 仅执行必要软件即可",(180 s)
+VH_LINE,978,2,"Slow stop, EMS","缓停不及,EMS","a. 路障侦测触发-缓停讯号时之移动速度过快, 预测安全煞停距离不足/有碰撞之虞, 强制执行EMS/中断流程保护","a1. 检查/调整LiDAR侦测范围组合设定
+a2. 检查LiDAR讯号
+a3. 检查/排除事发地点周遭是否有易误判物体干扰","(安全门坎 300 +300 mm/s @ 1000 mm)
+
+LiDAR缓停讯号:
+  DI_AreaSnr4Walk_Notify3_Near"
+VH_LINE,979,2,"Deceleration V1 is not enough, EMS","降速V1不及,EMS","a. 路障侦测触发-降速V1讯号时之移动速度过快, 预测安全煞停距离不足/有碰撞之虞, 强制执行EMS/中断流程保护","a1. 检查/调整LiDAR侦测范围组合设定
+a2. 检查LiDAR讯号
+a3. 检查/排除事发地点周遭是否有易误判物体干扰","(安全门坎 1000 +300 mm/s @ 2000 mm)
+
+LiDAR降速V1讯号:
+  DI_AreaSnr4Walk_Notify2_Midway"
+VH_LINE,980,2,"Deceleration V2 is not enough, EMS","降速V2不及,EMS","a. 路障侦测触发-降速V2讯号时之移动速度过快, 预测安全煞停距离不足/有碰撞之虞, 强制执行EMS/中断流程保护","a1. 检查/调整LiDAR侦测范围组合设定
+a2. 检查LiDAR讯号
+a3. 检查/排除事发地点周遭是否有易误判物体干扰","(安全门坎 2000 +300 mm/s @ 3500 mm)
+
+LiDAR降速V2讯号:
+  DI_AreaSnr4Walk_Notify1_Far"
+VH_LINE,981,2,The winch position is not safe,卷扬位置不安全,"a. 走行前之安全检查, 卷扬升降尚未上升至安全/可行走位置","a1. 检查卷扬马达轴原点讯号/遮片是否固定牢靠
+a2. 进行整机校正点复归","卷扬马达轴原点讯号:
+  DI_上升端检知_原点_极限"
+VH_LINE,982,2,Position of winch 2 is unsafe,卷扬2位置不安全,"a. 走行前之安全检查, 卷扬2升降尚未上升至安全/可行走位置","a1. 检查卷扬2马达轴原点讯号/遮片是否固定牢靠
+a2. 进行整机校正点复归","(仅适用于特殊型号OHT产品)
+卷扬2马达轴原点讯号:
+  DI_后上升端检知_原点_极限"
+VH_LINE,985,2,Steering status is abnormal,转向状态异常,a. 转向换手系统(马达/传感器/机构)异常,a1. 检查转向换手传动系统,
+VH_LINE,987,2,Running steering status is abnormal,走行转向状态异常,"a. 走行系统(马达/传感器/机构)异常
+b. 转向换手系统(马达/传感器/机构)异常","a1. 检查走行传动系统
+b1. 检查转向换手传动系统",
+VH_LINE,998,1,Vehicle stop at place too long,台车同点停留时间过久,"a. 在有命令情况下停留同一点位过久(2.5分)
+b. 要求闭塞权过久还没要到(2.5分)",a1. 检查OHTC闭塞通行权是否出问题,
+VH_LINE,999,2,System internal exception,系统内部异常,a. 系统内部异常,"a1. 重新启动
+a2. 仅执行必要软件即可
+a3. 清理不必要档案","IPC Timeout  || Unexcepted Error
+complete all NG"
+HID_NODE,1,1,power alarm,A.HID雅米供电异常,A.HID雅米供电异常,A.检查HID电箱,
+HID_NODE,2,1,Temp alarm,A.HID温度异常,A.HID温度异常,A.检查HID电箱,
+MTS_NODE,1,1,OHxC timeout Alarm,A.与OHTC网络通讯异常,A.与OHTC网络通讯异常,A.检查通讯网络线,
+MTS_NODE,2,1,light curtain alarm,A.光栅侦测到异物,A.光栅侦测到异物,A.检查光栅,
+MTS_NODE,3,1,Safety door no open,A.安全门没锁,A.安全门没锁,A.检查安全门,
+MTS_NODE,4,1,front door no open,A.前门没开,A.前门没开,A.检查前门,
+MTS_NODE,5,1,Back door unlock,A.后门没开,A.后门没开,A.检查后门,
+MTS_NODE,6,1,OHT Come in not complete,A.OHT车没有完整进入MTS,A.OHT车没有完整进入MTS,A.检查OHT车所在位置,
+MTS_NODE,7,1,OHT Go out not complete,A.OHT车没有完整出去MTS,A.OHT车没有完整出去MTS,A.检查OHT车所在位置,
+MTS_NODE,8,1,Safety door no open,A.安全门没有阖上,A.安全门没有阖上,A.检查安全门,
+MTS_NODE,9,1,front door unlock,A.前门没闭合,A.前门没闭合,A.检查前门,
+MTS_NODE,10,1,Back door unlock,A.后门没闭合,A.后门没闭合,A.检查后门,
+MTS_NODE,11,1,EMO status,A.EMO触发紧急停止,A.EMO触发紧急停止,A.检查EMO触发，紧急停止,
+MTL_NODE,1,1,EMO status,A.EMO触发紧急停止,A.EMO触发紧急停止,A.检查EMO触发，紧急停止,
+MTL_NODE,2,1,Smoke alarms,A.烟雾侦测触发,A.烟雾侦测触发,A.检查电箱，是否有烟雾产生,
+MTL_NODE,3,1,Pressure Signal Error,A.气压异常,A.气压异常,A.检查气压阀或厂务端气压压力,
+MTL_NODE,4,1,Raster Error,A.光栅侦测到异物,A.光栅侦测到异物,A.检查光栅,
+MTL_NODE,5,1,Torque Error,A.马达负载过重,A.马达负载过重,A检查负载是否正常，或有无异物干涉,
+MTL_NODE,6,1,Safe Level Error,A.载台两轴水平偏移,A.载台两轴水平偏移,A.检查载台两轴水平,
+MTL_NODE,7,1,Cylinder A retracts alarm,A.气缸A伸出异常,A.气缸A伸出异常,A.检查气缸A,
+MTL_NODE,8,1,Cylinder A extended alarm,A.气缸A缩回异常,A.气缸A缩回异常,A.检查气缸A,
+MTL_NODE,9,1,Cylinder B retracts alarm,A.气缸B伸出异常,A.气缸B伸出异常,A.检查气缸B,
+MTL_NODE,10,1,Cylinder B extended alarm,A.气缸B缩回异常,A.气缸B缩回异常,A.检查气缸B,
+MTL_NODE,11,1,Cylinder B retracts alarm,A.气缸C伸出异常,A.气缸C伸出异常,A.检查气缸C,
+MTL_NODE,12,1,Cylinder B extended alarm,A.气缸C缩回异常,A.气缸C缩回异常,A.检查气缸C,
+MTL_NODE,17,1,Car_Out_Time_Out(OHTC),A.叫车交握异常(OHTC),A.叫车交握异常(OHTC),A.检查通讯或确认OHTC是否有讯号,
+MTL_NODE,18,1,Car_Out_Time_Out(MTL),A.叫车交握异常(MTL),A.叫车交握异常(MTL),A.检查通讯或确认OHTC是否有讯号,
+MTL_NODE,19,1,MTL_Cancel Car Out-Time Out,A.取消入车交握异常,A.取消入车交握异常,A.检查通讯或确认OHTC是否有讯号,
+MTL_NODE,20,1,OHxC timeout Alarm,A.与OHTC网络通讯异常,A.与OHTC网络通讯异常,A.检查通讯网络线,
+MTL_NODE,21,1,OHTC_Car_In-Time Out,A.出车交握异常,A.出车交握异常,A.检查通讯或确认OHTC是否有讯号,
+MTL_NODE,22,1,"Closs,Presence Sensor Time Out",A.过桥、在席感测异常,A.过桥、在席感测异常,A.检查传感器是否异常,
+MTL_NODE,23,1,Integrated alert-Time Out,A.整合警报发生异常,A.整合警报发生异常,A.检查机台设备或驱动气是否有警报发生,
+CV31,1,2,CV of door abnormally open,CV門異常開啟,,,
+CV31,2,2,CV of alive signal abnormal happend,CV訊號異常,,,
+CV32,1,2,CV of door abnormally open,CV門異常開啟,,,
+CV32,2,2,CV of alive signal abnormal happend,CV訊號異常,,,
+CV61,1,2,CV of door abnormally open,CV門異常開啟,,,
+CV61,2,2,CV of alive signal abnormal happend,CV訊號異常,,,
+CV62,1,2,CV of door abnormally open,CV門異常開啟,,,
+CV62,2,2,CV of alive signal abnormal happend,CV訊號異常,,,

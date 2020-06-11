@@ -1,0 +1,2362 @@
+EQPT_REAL_ID,ALARM_ID,ALARM_LVL,ALARM_DESC
+1ACP01-IND,1,2,A0001:Main Safty Relay Action
+1ACP01-IND,2,2,A0002:Main CDA Pressure to low
+1ACP01-IND,3,2,A0003:Main CDA Pressure to low
+1ACP01-IND,4,2,A0004:Operation Not on
+1ACP01-IND,10,2,A0010:Main CC-Link communication Error
+1ACP01-IND,11,2,A0011:Main CC-Link IE communication Error
+1ACP01-IND,37,2,A0037:Robot Fence door Opened
+1ACP01-IND,38,2,A0038:HMI EMO active
+1ACP01-IND,39,2,A0039:Fence EMO active
+1ACP01-IND,40,2,A0040:Port01 Receiving and delivering glass action at one time
+1ACP01-IND,41,2,A0041:Port01 With CST but without CST ID alarm
+1ACP01-IND,42,2,A0042:Port01 With CST ID but without CST alarm
+1ACP01-IND,43,2,A0043:AC motor INV.01 Error
+1ACP01-IND,44,2,A0044:AC motor INV.02 Error
+1ACP01-IND,45,2,A0045:Port01 Receive action time out 
+1ACP01-IND,46,2,A0046:Port01 Delivering action time out
+1ACP01-IND,47,2,A0047:Port01 Receive action time out 
+1ACP01-IND,48,2,A0048:Port01 Delivering action time out
+1ACP01-IND,49,2,A0049:Port01 Receive action time out 
+1ACP01-IND,50,2,A0050:Port01 Delivering action time out
+1ACP01-IND,51,2,A0051:Port01 Receive action time out 
+1ACP01-IND,52,2,A0052:Port01 Delivering action time out
+1ACP01-IND,53,2,A0053:Port01 Receive action time out 
+1ACP01-IND,54,2,A0054:Port01 Delivering action time out
+1ACP01-IND,55,2,A0055:Port01 SERVO Drive Error
+1ACP01-IND,56,2,A0056:Port01 SERVO Action time out
+1ACP01-IND,57,2,A0057:Port01 Servo Up-limit detected problem
+1ACP01-IND,58,2,A0058:Port01 Servo Down-limit detected problem
+1ACP01-IND,59,2,A0059:Port01 Position sensor detected problem
+1ACP01-IND,60,2,A0060:Port01 Alignment-R/L Clamp sensor problem
+1ACP01-IND,61,2,A0061:Port01 Alignment-R/L Unclamp sensor problem
+1ACP01-IND,62,2,A0062:Port01 Alignment-F/B Clamp sensor problem
+1ACP01-IND,63,2,A0063:Port01 Alignment-F/B Unclamp sensor problem
+1ACP01-IND,64,2,A0064:Port01 CST Up Action timeuot
+1ACP01-IND,65,2,A0065:Port01 CST Down Action timeuot
+1ACP01-IND,66,2,A0066:Port01 Float fixed sensor problem
+1ACP01-IND,67,2,A0067:Port01 Float release sensor problem
+1ACP01-IND,70,2,A0070:Port01 STK areasensor problem
+1ACP01-IND,71,2,A0071:Port01 hand dectect sensor problem
+1ACP01-IND,72,2,A0072:Port01 different than the glass and the data problem
+1ACP01-IND,73,2,A0073:Port01 failed to read RFID 
+1ACP01-IND,80,2,A0080:Port02 Receiving and delivering glass action at one time
+1ACP01-IND,81,2,A0081:Port02 With CST but without CST ID alarm
+1ACP01-IND,82,2,A0082:Port02 With CST ID but without CST alarm
+1ACP01-IND,83,2,A0083:AC motor INV.01 Error
+1ACP01-IND,84,2,A0084:AC motor INV.02 Error
+1ACP01-IND,85,2,A0085:Port02 Receive action time out 
+1ACP01-IND,86,2,A0086:Port02 Delivering action time out
+1ACP01-IND,87,2,A0087:Port02 Receive action time out 
+1ACP01-IND,88,2,A0088:Port02 Delivering action time out
+1ACP01-IND,89,2,A0089:Port02 Receive action time out 
+1ACP01-IND,90,2,A0090:Port02 Delivering action time out
+1ACP01-IND,91,2,A0091:Port02 Receive action time out 
+1ACP01-IND,92,2,A0092:Port02 Delivering action time out
+1ACP01-IND,93,2,A0093:Port02 Receive action time out 
+1ACP01-IND,94,2,A0094:Port02 Delivering action time out
+1ACP01-IND,95,2,A0095:Port02 SERVO Drive Error
+1ACP01-IND,96,2,A0096:Port02 SERVO Action time out
+1ACP01-IND,97,2,A0097:Port02 Servo Up-limit detected problem
+1ACP01-IND,98,2,A0098:Port02 Servo Down-limit detected problem
+1ACP01-IND,99,2,A0099:Port02 Position sensor detected problem
+1ACP01-IND,100,2,A0100:Port02 Alignment-R/L Clamp sensor problem
+1ACP01-IND,101,2,A0101:Port02 Alignment-R/L Unclamp sensor problem
+1ACP01-IND,102,2,A0102:Port02 Alignment-F/B Clamp sensor problem
+1ACP01-IND,103,2,A0103:Port02 Alignment-F/B Unclamp sensor problem
+1ACP01-IND,104,2,A0104:Port02 CST Up Action timeuot
+1ACP01-IND,105,2,A0105:Port02 CST Down Action timeuot
+1ACP01-IND,106,2,A0106:Port02 Float fixed sensor problem
+1ACP01-IND,107,2,A0107:Port02 Float release sensor problem
+1ACP01-IND,110,2,A0110:Port02 STK areasensor problem
+1ACP01-IND,111,2,A0111:Port02 hand dectect sensor problem
+1ACP01-IND,112,2,A0112:Port02 different than the glass and the data problem
+1ACP01-IND,113,2,A0113:Port02 failed to read RFID 
+1ACP01-IND,120,2,A0120:Port03 Receiving and delivering glass action at one time
+1ACP01-IND,121,2,A0121:Port03 With CST but without CST ID alarm
+1ACP01-IND,122,2,A0122:Port03 With CST ID but without CST alarm
+1ACP01-IND,123,2,A0123:AC motor INV.01 Error
+1ACP01-IND,124,2,A0124:AC motor INV.02 Error
+1ACP01-IND,125,2,A0125:Port03 Receive action time out 
+1ACP01-IND,126,2,A0126:Port03 Delivering action time out
+1ACP01-IND,127,2,A0127:Port03 Receive action time out 
+1ACP01-IND,128,2,A0128:Port03 Delivering action time out
+1ACP01-IND,129,2,A0129:Port03 Receive action time out 
+1ACP01-IND,130,2,A0130:Port03 Delivering action time out
+1ACP01-IND,131,2,A0131:Port03 Receive action time out 
+1ACP01-IND,132,2,A0132:Port03 Delivering action time out
+1ACP01-IND,133,2,A0133:Port03 Receive action time out 
+1ACP01-IND,134,2,A0134:Port03 Delivering action time out
+1ACP01-IND,135,2,A0135:Port03 SERVO Drive Error
+1ACP01-IND,136,2,A0136:Port03 SERVO Action time out
+1ACP01-IND,137,2,A0137:Port03 Servo Up-limit detected problem
+1ACP01-IND,138,2,A0138:Port03 Servo Down-limit detected problem
+1ACP01-IND,139,2,A0139:Port03 Position sensor detected problem
+1ACP01-IND,140,2,A0140:Port03 Alignment-R/L Clamp sensor problem
+1ACP01-IND,141,2,A0141:Port03 Alignment-R/L Unclamp sensor problem
+1ACP01-IND,142,2,A0142:Port03 Alignment-F/B Clamp sensor problem
+1ACP01-IND,143,2,A0143:Port03 Alignment-F/B Unclamp sensor problem
+1ACP01-IND,144,2,A0144:Port03 CST Up Action timeuot
+1ACP01-IND,145,2,A0145:Port03 CST Down Action timeuot
+1ACP01-IND,146,2,A0146:Port03 Float fixed sensor problem
+1ACP01-IND,147,2,A0147:Port03 Float release sensor problem
+1ACP01-IND,150,2,A0150:Port03 STK areasensor problem
+1ACP01-IND,151,2,A0151:Port03 hand dectect sensor problem
+1ACP01-IND,152,2,A0152:Port03 different than the glass and the data problem
+1ACP01-IND,153,2,A0153:Port03 failed to read RFID 
+1ACP01-IND,160,2,A0160:Port04 Receiving and delivering glass action at one time
+1ACP01-IND,161,2,A0161:Port04 With CST but without CST ID alarm
+1ACP01-IND,162,2,A0162:Port04 With CST ID but without CST alarm
+1ACP01-IND,163,2,A0163:AC motor INV.01 Error
+1ACP01-IND,164,2,A0164:AC motor INV.02 Error
+1ACP01-IND,165,2,A0165:Port04 Receive action time out 
+1ACP01-IND,166,2,A0166:Port04 Delivering action time out
+1ACP01-IND,167,2,A0167:Port04 Receive action time out 
+1ACP01-IND,168,2,A0168:Port04 Delivering action time out
+1ACP01-IND,169,2,A0169:Port04 Receive action time out 
+1ACP01-IND,170,2,A0170:Port04 Delivering action time out
+1ACP01-IND,171,2,A0171:Port04 Receive action time out 
+1ACP01-IND,172,2,A0172:Port04 Delivering action time out
+1ACP01-IND,173,2,A0173:Port04 Receive action time out 
+1ACP01-IND,174,2,A0174:Port04 Delivering action time out
+1ACP01-IND,175,2,A0175:Port04 SERVO Drive Error
+1ACP01-IND,176,2,A0176:Port04 SERVO Action time out
+1ACP01-IND,177,2,A0177:Port04 Servo Up-limit detected problem
+1ACP01-IND,178,2,A0178:Port04 Servo Down-limit detected problem
+1ACP01-IND,179,2,A0179:Port04 Position sensor detected problem
+1ACP01-IND,180,2,A0180:Port04 Alignment-R/L Clamp sensor problem
+1ACP01-IND,181,2,A0181:Port04 Alignment-R/L Unclamp sensor problem
+1ACP01-IND,182,2,A0182:Port04 Alignment-F/B Clamp sensor problem
+1ACP01-IND,183,2,A0183:Port04 Alignment-F/B Unclamp sensor problem
+1ACP01-IND,184,2,A0184:Port04 CST Up Action timeuot
+1ACP01-IND,185,2,A0185:Port04 CST Down Action timeuot
+1ACP01-IND,186,2,A0186:Port04 Float fixed sensor problem
+1ACP01-IND,187,2,A0187:Port04 Float release sensor problem
+1ACP01-IND,190,2,A0190:Port04 STK areasensor problem
+1ACP01-IND,191,2,A0191:Port04 hand dectect sensor problem
+1ACP01-IND,192,2,A0192:Port04 different than the glass and the data problem
+1ACP01-IND,193,2,A0193:Port04 failed to read RFID 
+1ACP01-IND,200,2,A0200:Port05 Receiving and delivering glass action at one time
+1ACP01-IND,201,2,A0201:Port05 With CST but without CST ID alarm
+1ACP01-IND,202,2,A0202:Port05 With CST ID but without CST alarm
+1ACP01-IND,203,2,A0203:AC motor INV.01 Error
+1ACP01-IND,204,2,A0204:AC motor INV.02 Error
+1ACP01-IND,205,2,A0205:Port05 Receive action time out 
+1ACP01-IND,206,2,A0206:Port05 Delivering action time out
+1ACP01-IND,207,2,A0207:Port05 Receive action time out 
+1ACP01-IND,208,2,A0208:Port05 Delivering action time out
+1ACP01-IND,209,2,A0209:Port05 Receive action time out 
+1ACP01-IND,210,2,A0210:Port05 Delivering action time out
+1ACP01-IND,211,2,A0211:Port05 Receive action time out 
+1ACP01-IND,212,2,A0212:Port05 Delivering action time out
+1ACP01-IND,213,2,A0213:Port05 Receive action time out 
+1ACP01-IND,214,2,A0214:Port05 Delivering action time out
+1ACP01-IND,215,2,A0215:Port05 SERVO Drive Error
+1ACP01-IND,216,2,A0216:Port05 SERVO Action time out
+1ACP01-IND,217,2,A0217:Port05 Servo Up-limit detected problem
+1ACP01-IND,218,2,A0218:Port05 Servo Down-limit detected problem
+1ACP01-IND,219,2,A0219:Port05 Position sensor detected problem
+1ACP01-IND,220,2,A0220:Port05 Alignment-R/L Clamp sensor problem
+1ACP01-IND,221,2,A0221:Port05 Alignment-R/L Unclamp sensor problem
+1ACP01-IND,222,2,A0222:Port05 Alignment-F/B Clamp sensor problem
+1ACP01-IND,223,2,A0223:Port05 Alignment-F/B Unclamp sensor problem
+1ACP01-IND,224,2,A0224:Port05 CST Up Action timeuot
+1ACP01-IND,225,2,A0225:Port05 CST Down Action timeuot
+1ACP01-IND,226,2,A0226:Port05 Float fixed sensor problem
+1ACP01-IND,227,2,A0227:Port05 Float release sensor problem
+1ACP01-IND,230,2,A0230:Port05 STK areasensor problem
+1ACP01-IND,231,2,A0231:Port05 hand dectect sensor problem
+1ACP01-IND,232,2,A0232:Port05 different than the glass and the data problem
+1ACP01-IND,233,2,A0233:Port05 failed to read RFID 
+1ACP01-IND,240,2,A0240:Port06 Receiving and delivering glass action at one time
+1ACP01-IND,241,2,A0241:Port06 With CST but without CST ID alarm
+1ACP01-IND,242,2,A0242:Port06 With CST ID but without CST alarm
+1ACP01-IND,243,2,A0243:AC motor INV.01 Error
+1ACP01-IND,244,2,A0244:AC motor INV.02 Error
+1ACP01-IND,245,2,A0245:Port06 Receive action time out 
+1ACP01-IND,246,2,A0246:Port06 Delivering action time out
+1ACP01-IND,247,2,A0247:Port06 Receive action time out 
+1ACP01-IND,248,2,A0248:Port06 Delivering action time out
+1ACP01-IND,249,2,A0249:Port06 Receive action time out 
+1ACP01-IND,250,2,A0250:Port06 Delivering action time out
+1ACP01-IND,251,2,A0251:Port06 Receive action time out 
+1ACP01-IND,252,2,A0252:Port06 Delivering action time out
+1ACP01-IND,253,2,A0253:Port06 Receive action time out 
+1ACP01-IND,254,2,A0254:Port06 Delivering action time out
+1ACP01-IND,255,2,A0255:Port06 SERVO Drive Error
+1ACP01-IND,256,2,A0256:Port06 SERVO Action time out
+1ACP01-IND,257,2,A0257:Port06 Servo Up-limit detected problem
+1ACP01-IND,258,2,A0258:Port06 Servo Down-limit detected problem
+1ACP01-IND,259,2,A0259:Port06 Position sensor detected problem
+1ACP01-IND,260,2,A0260:Port06 Alignment-R/L Clamp sensor problem
+1ACP01-IND,261,2,A0261:Port06 Alignment-R/L Unclamp sensor problem
+1ACP01-IND,262,2,A0262:Port06 Alignment-F/B Clamp sensor problem
+1ACP01-IND,263,2,A0263:Port06 Alignment-F/B Unclamp sensor problem
+1ACP01-IND,264,2,A0264:Port06 CST Up Action timeuot
+1ACP01-IND,265,2,A0265:Port06 CST Down Action timeuot
+1ACP01-IND,266,2,A0266:Port06 Float fixed sensor problem
+1ACP01-IND,267,2,A0267:Port06 Float release sensor problem
+1ACP01-IND,270,2,A0270:Port06 STK areasensor problem
+1ACP01-IND,271,2,A0271:Port06 hand dectect sensor problem
+1ACP01-IND,272,2,A0272:Port06 different than the glass and the data problem
+1ACP01-IND,273,2,A0273:Port06 failed to read RFID 
+1ACP01-IND,280,2,A0280:ROBOT Receiving and delivering  action at one time
+1ACP01-IND,281,2,A0281:ROBOT Upper arm with glass but without glass data problem
+1ACP01-IND,282,2,A0282:ROBOT Upper arm with glass data but without glass problem
+1ACP01-IND,283,2,A0283:ROBOT Lower arm with glass but without glass data problem
+1ACP01-IND,284,2,A0284:ROBOT Lower arm with glass data but without glass problem
+1ACP01-IND,285,2,A0285:ROBOT Controller Error
+1ACP01-IND,286,2,A0286:ROBOT EMO Active
+1ACP01-IND,287,2,A0287:ROBOT is not at Remote mode
+1ACP01-IND,290,2,A0290:ROBOT Start action Timeout
+1ACP01-IND,291,2,A0291:ROBOT Sensing1 Timeout
+1ACP01-IND,292,2,A0292:ROBOT Sensing2 Timeout
+1ACP01-IND,293,2,A0293:ROBOT Receive action time out 
+1ACP01-IND,294,2,A0294:ROBOT Delivering action time out
+1ACP01-IND,295,2,A0295:ROBOT Receive action time out 
+1ACP01-IND,296,2,A0296:ROBOT Delivering action time out
+1ACP01-IND,297,2,A0297:ROBOT Receive action time out 
+1ACP01-IND,298,2,A0298:ROBOT Delivering action time out
+1ACP01-IND,299,2,A0299:ROBOT Receive action time out 
+1ACP01-IND,300,2,A0300:ROBOT Delivering action time out
+1ACP01-IND,301,2,A0301:ROBOT Receive action time out 
+1ACP01-IND,302,2,A0302:ROBOT Delivering action time out
+1ACP01-IND,303,2,A0303:ROBOT Receive action time out 
+1ACP01-IND,304,2,A0304:ROBOT Delivering action time out
+1ACP01-IND,305,2,A0305:ROBOT Receive action time out 
+1ACP01-IND,306,2,A0306:ROBOT Delivering action time out
+1ACP01-IND,307,2,A0307:ROBOT Receive action time out 
+1ACP01-IND,308,2,A0308:ROBOT Delivering action time out
+1ACP01-IND,310,2,A0310:ROBOT before action check error
+1ACP01-IND,311,2,A0311:ROBOT before action check data error
+1ACP01-IND,312,2,A0312:ROBOT action code check error
+1ACP01-IND,313,2,A0313:ROBOT_from EQ1 EMO signal active problem
+1ACP01-IND,314,2,A0314:ROBOT_from EQ2 EMO signal active problem
+1ACP01-IND,315,2,A0315:ROBOT_from EQ3 EMO signal active problem
+1ACP01-IND,316,2,A0316:ROBOT_from EQ4 EMO signal active problem
+1ACP01-IND,317,2,A0317:ROBOT_from EQ1 Interlock signal active problem
+1ACP01-IND,318,2,A0318:ROBOT_from EQ2 Interlock signal active problem
+1ACP01-IND,319,2,A0319:ROBOT_from EQ3 Interlock signal active problem
+1ACP01-IND,320,2,A0320:ROBOT_from EQ4 Interlock signal active problem
+1ACP01-IND,321,2,A0321:Port08 With CST but without CST ID alarm
+1ACP01-IND,322,2,A0322:Port08 With CST ID but without CST alarm
+1ACP01-IND,323,2,A0323:AC motor INV.01 Error
+1ACP01-IND,324,2,A0324:AC motor INV.02 Error
+1ACP01-IND,325,2,A0325:Port08 Receive action time out 
+1ACP01-IND,326,2,A0326:Port08 Delivering action time out
+1ACP01-IND,327,2,A0327:Port08 Receive action time out 
+1ACP01-IND,328,2,A0328:Port08 Delivering action time out
+1ACP01-IND,329,2,A0329:Port08 Receive action time out 
+1ACP01-IND,330,2,A0330:Port08 Delivering action time out
+1ACP01-IND,331,2,A0331:Port08 Receive action time out 
+1ACP01-IND,332,2,A0332:Port08 Delivering action time out
+1ACP01-IND,333,2,A0333:Port08 Receive action time out 
+1ACP01-IND,334,2,A0334:Port08 Delivering action time out
+1ACP01-IND,335,2,A0335:Port08 SERVO Drive Error
+1ACP01-IND,336,2,A0336:Port08 SERVO Action time out
+1ACP01-IND,337,2,A0337:Port08 Servo Up-limit detected problem
+1ACP01-IND,338,2,A0338:Port08 Servo Down-limit detected problem
+1ACP01-IND,339,2,A0339:Port08 Position sensor detected problem
+1ACP01-IND,340,2,A0340:Port08 Alignment-R/L Clamp sensor problem
+1ACP01-IND,341,2,A0341:Port08 Alignment-R/L Unclamp sensor problem
+1ACP01-IND,342,2,A0342:Port08 Alignment-F/B Clamp sensor problem
+1ACP01-IND,343,2,A0343:Port08 Alignment-F/B Unclamp sensor problem
+1ACP01-IND,344,2,A0344:Port08 CST Up Action timeuot
+1ACP01-IND,345,2,A0345:Port08 CST Down Action timeuot
+1ACP01-IND,346,2,A0346:Port08 Float fixed sensor problem
+1ACP01-IND,347,2,A0347:Port08 Float release sensor problem
+1ACP01-IND,350,2,A0350:Port08 STK areasensor problem
+1ACP01-IND,351,2,A0351:Port08 hand dectect sensor problem
+1ACP01-IND,352,2,A0352:Port08 different than the glass and the data problem
+1ACP01-IND,353,2,A0353:Port08 failed to read RFID 
+1ACP01-IND,400,2,A0400:ROBOT Receiving and delivering  action at one time
+1ACP01-IND,401,2,A0401:ROBOT Upper arm with glass but without glass data problem
+1ACP01-IND,402,2,A0402:ROBOT Upper arm with glass data but without glass problem
+1ACP01-IND,403,2,A0403:ROBOT Lower arm with glass but without glass data problem
+1ACP01-IND,404,2,A0404:ROBOT Lower arm with glass data but without glass problem
+1ACP01-IND,405,2,A0405:ROBOT Controller Error
+1ACP01-IND,406,2,A0406:ROBOT EMO Active
+1ACP01-IND,407,2,A0407:ROBOT is not at Remote mode
+1ACP01-IND,410,2,A0410:ROBOT Start action Timeout
+1ACP01-IND,411,2,A0411:ROBOT Sensing1 Timeout
+1ACP01-IND,412,2,A0412:ROBOT Sensing2 Timeout
+1ACP01-IND,413,2,A0413:ROBOT Receive action time out 
+1ACP01-IND,414,2,A0414:ROBOT Delivering action time out
+1ACP01-IND,415,2,A0415:ROBOT Receive action time out 
+1ACP01-IND,416,2,A0416:ROBOT Delivering action time out
+1ACP01-IND,417,2,A0417:ROBOT Receive action time out 
+1ACP01-IND,418,2,A0418:ROBOT Delivering action time out
+1ACP01-IND,419,2,A0419:ROBOT Receive action time out 
+1ACP01-IND,420,2,A0420:ROBOT Delivering action time out
+1ACP01-IND,421,2,A0421:ROBOT Receive action time out 
+1ACP01-IND,422,2,A0422:ROBOT Delivering action time out
+1ACP01-IND,423,2,A0423:ROBOT Receive action time out 
+1ACP01-IND,424,2,A0424:ROBOT Delivering action time out
+1ACP01-IND,425,2,A0425:ROBOT Receive action time out 
+1ACP01-IND,426,2,A0426:ROBOT Delivering action time out
+1ACP01-IND,427,2,A0427:ROBOT Receive action time out 
+1ACP01-IND,428,2,A0428:ROBOT Delivering action time out
+1ACP01-IND,430,2,A0430:ROBOT before action check error
+1ACP01-IND,431,2,A0431:ROBOT before action check data error
+1ACP01-IND,432,2,A0432:ROBOT action code check error
+1ACP01-IND,433,2,A0433:ROBOT_from EQ1 EMO signal active problem
+1ACP01-IND,434,2,A0434:ROBOT_from EQ2 EMO signal active problem
+1ACP01-IND,435,2,A0435:ROBOT_from EQ3 EMO signal active problem
+1ACP01-IND,436,2,A0436:ROBOT_from EQ4 EMO signal active problem
+1ACP01-IND,437,2,A0437:ROBOT_from EQ1 Interlock signal active problem
+1ACP01-IND,438,2,A0438:ROBOT_from EQ2 Interlock signal active problem
+1ACP01-IND,439,2,A0439:ROBOT_from EQ3 Interlock signal active problem
+1ACP01-IND,440,2,A0440:ROBOT_from EQ4 Interlock signal active problem
+1ACP01-IND,535,1,W0535:Port01 Ionizer1 not Run state
+1ACP01-IND,536,1,W0536:Port01 Ionizer1 low ION
+1ACP01-IND,537,1,W0537:Port01 Ionizer1 High  Voltage  Abnormal 
+1ACP01-IND,538,1,W0538:Port01 Ionizer1 Tip need to Cleaning  
+1ACP01-IND,539,1,W0539:Port01 Ionizer2 not Run state
+1ACP01-IND,540,1,W0540:Port01 Ionizer2 low ION
+1ACP01-IND,541,1,W0541:Port01 Ionizer2 High  Voltage  Abnormal 
+1ACP01-IND,542,1,W0542:Port01 Ionizer2 Tip need to Cleaning  
+1ACP01-IND,543,1,W0543:Port01 exceed count to read RFID
+1ACP01-IND,700,1,W0700: EH02 On/Off  LINE Request Timeout
+1ACP01-IND,701,1,W0701: EH05 CST Data ReloadRequest Timeout
+1ACP01-IND,702,1,W0702: HH06 PORT    CMD BC  T2 Timeout
+1ACP01-IND,703,1,W0703: EH10 JOB TR  REPORT Request Timeout
+1ACP01-IND,704,1,W0704: EH11 JOB DATAREQ. Request Timeout
+1ACP01-IND,705,1,W0705: EH12 data delete report timeout
+1ACP01-IND,706,1,W0706: EH14 Alarm Report Timeout
+1ACP01-IND,707,1,W0707: EH03 Process data Report Timeout
+1ACP01-IND,710,1,W0710: EH01 BC  T2  TimeOut
+1ACP01-IND,711,1,W0711: EH04 BC  T2  TimeOut
+1ACP01-IND,712,1,W0712: EH15 BC  T2  TimeOut
+1ACP01-IND,713,1,W0713: EH16 BC  T2  TimeOut
+1ACP01-IND,714,1,W0714: EH16 BC  T2  TimeOut
+1ACP01-IND,715,1,W0715: EH18 BC  T2  TimeOut
+1ACP01-IND,800,1,W0800:RBCV30  EQ01 EMO Signal turn off
+1ACP01-IND,801,1,W0801:RBCV30  EQ02 EMO Signal turn off
+1ACP01-IND,802,1,W0802:RBCV30  EQ03 EMO Signal turn off
+1ACP01-IND,803,1,W0803:RBCV30  EQ04 EMO Signal turn off
+1ACP01-IND,804,1,W0804:RBCV30  EQ01 Pause Signal turn on
+1ACP01-IND,805,1,W0805:RBCV30  EQ02 Pause Signal turn on
+1ACP01-IND,806,1,W0806:RBCV30  EQ03 Pause Signal turn on
+1ACP01-IND,807,1,W0807:RBCV30  EQ04 Pause Signal turn on
+1ACP01-IND,819,1,W0819:Have Robot Command without action timeout
+1ACP01-IND,820,1,W0820:I/F-1 T1 Timeout Robot on upstream
+1ACP01-IND,821,1,W0821:I/F-1 T3 Timeout Robot on upstream
+1ACP01-IND,822,1,W0822:I/F-1 T5 Timeout Robot on upstream
+1ACP01-IND,823,1,W0823:I/F-1 T7 Timeout Robot on upstream
+1ACP01-IND,824,1,W0824:I/F-1 T2 Timeout Robot on downstream
+1ACP01-IND,825,1,W0825:I/F-1 T4 Timeout Robot on downstream
+1ACP01-IND,826,1,W0826:I/F-1 T6 Timeout Robot on downstream
+1ACP01-IND,830,1,W0830:I/F-2 T1 Timeout Robot on upstream
+1ACP01-IND,831,1,W0831:I/F-2 T3 Timeout Robot on upstream
+1ACP01-IND,832,1,W0832:I/F-2 T5 Timeout Robot on upstream
+1ACP01-IND,833,1,W0833:I/F-2 T7 Timeout Robot on upstream
+1ACP01-IND,834,1,W0834:I/F-2 T2 Timeout Robot on downstream
+1ACP01-IND,835,1,W0835:I/F-2 T4 Timeout Robot on downstream
+1ACP01-IND,836,1,W0836:I/F-2 T6 Timeout Robot on downstream
+1ACP01-IND,840,1,W0840:I/F-3 T1 Timeout Robot on upstream
+1ACP01-IND,841,1,W0841:I/F-3 T3 Timeout Robot on upstream
+1ACP01-IND,842,1,W0842:I/F-3 T5 Timeout Robot on upstream
+1ACP01-IND,843,1,W0843:I/F-3 T7 Timeout Robot on upstream
+1ACP01-IND,844,1,W0844:I/F-3 T2 Timeout Robot on downstream
+1ACP01-IND,845,1,W0845:I/F-3 T4 Timeout Robot on downstream
+1ACP01-IND,846,1,W0846:I/F-3 T6 Timeout Robot on downstream
+1ACP01-PDC,1,2,[F0001]PLC     Alarm
+1ACP01-PDC,2,2,[F0002]PLC     CC-Link Master1 Alarm
+1ACP01-PDC,3,2,[F0003]PLC     CC-Link Remote1 Alarm
+1ACP01-PDC,4,2,[F0004]PLC     Network Card    Alarm
+1ACP01-PDC,5,2,[F0005]PLC     Serial  Card1CH1AlarmEUV
+1ACP01-PDC,6,2,[F0006]PLC     Serial  Card1CH2AlarmINT
+1ACP01-PDC,7,2,[F0007]PLC     Serial  Card2CH1Spare
+1ACP01-PDC,8,2,[F0008]PLC     Serial  Card2CH2AlarmTIC
+1ACP01-PDC,9,2,[F0009]PLC     QD75D2N Card    Alarm
+1ACP01-PDC,10,2,[F0010]PLC     QD75D4N Card    Alarm
+1ACP01-PDC,11,2,[F0011]PLC     Serial  Card1CH1AlarmO3
+1ACP01-PDC,12,2,[F0012]
+1ACP01-PDC,13,2,[F0013]
+1ACP01-PDC,14,2,[F0014]
+1ACP01-PDC,15,2,[F0015]VPS MainPower   Off     Alarm
+1ACP01-PDC,16,2,[F0016]GPS MainPower   Off     Alarm
+1ACP01-PDC,17,2,[F0017]
+1ACP01-PDC,18,2,[F0018]
+1ACP01-PDC,19,2,[F0019]
+1ACP01-PDC,20,2,[F0020]
+1ACP01-PDC,21,2,[F0021]EMO SRU Confirm Off     Alarm
+1ACP01-PDC,22,2,[F0022]IN/OUT  OP TOP  EMO     Alarm
+1ACP01-PDC,23,2,[F0023]IN/OUT  MT TOP  EMO     Alarm
+1ACP01-PDC,24,2,[F0024]IN/OUT  OP MID  PanelEMOAlarm
+1ACP01-PDC,25,2,[F0025]IN/OUT  MT MID  EMO     Alarm
+1ACP01-PDC,26,2,[F0026]SWR2 TOPOP EMO  Alarm
+1ACP01-PDC,27,2,[F0027]SWR2 TOPMT EMO  Alarm
+1ACP01-PDC,28,2,[F0028]SWR2 MIDOP EMO  Alarm
+1ACP01-PDC,29,2,[F0029]SWR2 MIDMT EMO  Alarm
+1ACP01-PDC,30,2,[F0030]PRE_SWR TOP OP  EMO     Alarm
+1ACP01-PDC,31,2,[F0031]PRE_SWR TOP MT  EMO     Alarm
+1ACP01-PDC,32,2,[F0032]ELE MID OP EMO  Alarm
+1ACP01-PDC,33,2,[F0033]ELE MID MT EMO  Alarm
+1ACP01-PDC,34,2,[F0034]HPMJ    EMO     Alarm
+1ACP01-PDC,35,2,[F0035]LOADER  EMO     Alarm
+1ACP01-PDC,36,2,[F0036]
+1ACP01-PDC,37,2,[F0037]
+1ACP01-PDC,38,2,[F0038]
+1ACP01-PDC,39,2,[F0039]
+1ACP01-PDC,40,2,[F0040]EQP     Pause   Status  Alarm
+1ACP01-PDC,41,2,[F0041]
+1ACP01-PDC,42,2,[F0042]PortableGOT EMS Alarm
+1ACP01-PDC,43,2,[F0043]
+1ACP01-PDC,44,2,[F0044]
+1ACP01-PDC,45,2,[F0045]
+1ACP01-PDC,46,2,[F0046]
+1ACP01-PDC,47,2,[F0047]
+1ACP01-PDC,48,2,[F0048]
+1ACP01-PDC,49,2,[F0049]
+1ACP01-PDC,50,2,[F0050]
+1ACP01-PDC,51,2,[F0051]
+1ACP01-PDC,52,2,[F0052]
+1ACP01-PDC,53,2,[F0053]
+1ACP01-PDC,54,2,[F0054]
+1ACP01-PDC,55,2,[F0055]
+1ACP01-PDC,56,2,[F0056]
+1ACP01-PDC,57,2,[F0057]
+1ACP01-PDC,58,2,[F0058]
+1ACP01-PDC,59,2,[F0059]
+1ACP01-PDC,60,2,[F0060]
+1ACP01-PDC,61,2,[F0061]
+1ACP01-PDC,62,2,[F0062]
+1ACP01-PDC,63,2,[F0063]
+1ACP01-PDC,64,2,[F0064]
+1ACP01-PDC,65,2,[F0065]
+1ACP01-PDC,66,2,[F0066]
+1ACP01-PDC,67,2,[F0067]
+1ACP01-PDC,68,2,[F0068]
+1ACP01-PDC,69,2,[F0069]
+1ACP01-PDC,70,2,[F0070]
+1ACP01-PDC,71,2,[F0071]
+1ACP01-PDC,72,2,[F0072]
+1ACP01-PDC,73,2,[F0073]
+1ACP01-PDC,74,2,[F0074]
+1ACP01-PDC,75,2,[F0075]
+1ACP01-PDC,76,2,[F0076]
+1ACP01-PDC,77,2,[F0077]
+1ACP01-PDC,78,2,[F0078]
+1ACP01-PDC,79,2,[F0079]
+1ACP01-PDC,80,2,[F0080]
+1ACP01-PDC,81,2,[F0081]
+1ACP01-PDC,82,2,[F0082]
+1ACP01-PDC,83,2,[F0083]
+1ACP01-PDC,84,2,[F0084]
+1ACP01-PDC,85,2,[F0085]
+1ACP01-PDC,86,2,[F0086]
+1ACP01-PDC,87,2,[F0087]
+1ACP01-PDC,88,2,[F0088]
+1ACP01-PDC,89,2,[F0089]
+1ACP01-PDC,90,2,[F0090]
+1ACP01-PDC,91,2,[F0091]
+1ACP01-PDC,92,2,[F0092]
+1ACP01-PDC,93,2,[F0093]
+1ACP01-PDC,94,2,[F0094]
+1ACP01-PDC,95,2,[F0095]
+1ACP01-PDC,96,2,[F0096]
+1ACP01-PDC,97,2,[F0097]
+1ACP01-PDC,98,2,[F0098]
+1ACP01-PDC,99,2,[F0099]
+1ACP01-PDC,100,2,[F0100]
+1ACP01-PDC,101,2,[F0101]IN CV   CV MotorCP Trip Alarm
+1ACP01-PDC,102,2,[F0102]UP AK   CV MotorCP Trip Alarm
+1ACP01-PDC,103,2,[F0103]UP SWR4 CV MotorCP Trip Alarm
+1ACP01-PDC,104,2,[F0104]UP S3&O3CV MotorCP Trip Alarm
+1ACP01-PDC,105,2,[F0105]UP SWR2 CV MotorCP Trip Alarm
+1ACP01-PDC,106,2,[F0106]UP HF   CV MotorCP Trip Alarm
+1ACP01-PDC,107,2,[F0107]UP SWR1 CV MotorCP Trip Alarm
+1ACP01-PDC,108,2,[F0108]UP O3-1 CV MotorCP Trip Alarm
+1ACP01-PDC,109,2,[F0109]UP P_SWRCV MotorCP Trip Alarm
+1ACP01-PDC,110,2,[F0110]ELEV    CV MotorCP Trip Alarm
+1ACP01-PDC,111,2,[F0111]PRE_SWR CV MotorCP Trip Alarm
+1ACP01-PDC,112,2,[F0112]O3-1    CV MotorCP Trip Alarm
+1ACP01-PDC,113,2,[F0113]SWR1    CV MotorCP Trip Alarm
+1ACP01-PDC,114,2,[F0114]HF      CV MotorCP Trip Alarm
+1ACP01-PDC,115,2,[F0115]SWR2    CV MotorCP Trip Alarm
+1ACP01-PDC,116,2,[F0116]O3-2    CV MotorCP Trip Alarm
+1ACP01-PDC,117,2,[F0117]SWR3    CV MotorCP Trip Alarm
+1ACP01-PDC,118,2,[F0118]SWR4    CV MotorCP Trip Alarm
+1ACP01-PDC,119,2,[F0119]AK      CV MotorCP Trip Alarm
+1ACP01-PDC,120,2,[F0120]OUT CV  CV MotorCP Trip Alarm
+1ACP01-PDC,121,2,[F0121]
+1ACP01-PDC,122,2,[F0122]
+1ACP01-PDC,123,2,[F0123]
+1ACP01-PDC,124,2,[F0124]
+1ACP01-PDC,125,2,[F0125]
+1ACP01-PDC,126,2,[F0126]IN CV   CV MotorDriver  Alarm
+1ACP01-PDC,127,2,[F0127]UP AK   CV MotorDriver  Alarm
+1ACP01-PDC,128,2,[F0128]UP SWR4 CV MotorDriver  Alarm
+1ACP01-PDC,129,2,[F0129]UP S3&O3CV MotorDriver  Alarm
+1ACP01-PDC,130,2,[F0130]UP SWR2 CV MotorDriver  Alarm
+1ACP01-PDC,131,2,[F0131]UP HF   CV MotorDriver  Alarm
+1ACP01-PDC,132,2,[F0132]UP SWR1 CV MotorDriver  Alarm
+1ACP01-PDC,133,2,[F0133]UP O3-1 CV MotorDriver  Alarm
+1ACP01-PDC,134,2,[F0134]UP P_SWRCV MotorDriver  Alarm
+1ACP01-PDC,135,2,[F0135]ELEV    CV MotorDriver  Alarm
+1ACP01-PDC,136,2,[F0136]PRE_SWR CV1MotorDriver  Alarm
+1ACP01-PDC,137,2,[F0137]PRE_SWR CV2MotorDriver  Alarm
+1ACP01-PDC,138,2,[F0138]O3-1    CV MotorDriver  Alarm
+1ACP01-PDC,139,2,[F0139]SWR1    CV MotorDriver  Alarm
+1ACP01-PDC,140,2,[F0140]HF      CV1MotorDriver  Alarm
+1ACP01-PDC,141,2,[F0141]HF      CV2MotorDriver  Alarm
+1ACP01-PDC,142,2,[F0142]SWR2    CV MotorDriver  Alarm
+1ACP01-PDC,143,2,[F0143]O3-2    CV MotorDriver  Alarm
+1ACP01-PDC,144,2,[F0144]SWR3    CV MotorDriver  Alarm
+1ACP01-PDC,145,2,[F0145]SWR4    CV MotorDriver  Alarm
+1ACP01-PDC,146,2,[F0146]AK      CV MotorDriver  Alarm
+1ACP01-PDC,147,2,[F0147]OUT CV  CV MotorDriver  Alarm
+1ACP01-PDC,148,2,[F0148]
+1ACP01-PDC,149,2,[F0149]
+1ACP01-PDC,150,2,[F0150]
+1ACP01-PDC,151,2,[F0151]INCV    ALIGN   CYL1 FW OP Alarm
+1ACP01-PDC,152,2,[F0152]INCV    ALIGN   CYL1 BW OP Alarm
+1ACP01-PDC,153,2,[F0153]INCV    ALIGN   CYL2 FW OP Alarm
+1ACP01-PDC,154,2,[F0154]INCV    ALIGN   CYL2 BW OP Alarm
+1ACP01-PDC,155,2,[F0155]INCV    ALIGN   CYL1 FW MT Alarm
+1ACP01-PDC,156,2,[F0156]INCV    ALIGN   CYL1 BW MT Alarm
+1ACP01-PDC,157,2,[F0157]INCV    ALIGN   CYL2 FW MT Alarm
+1ACP01-PDC,158,2,[F0158]INCV    ALIGN   CYL2 BW MT Alarm
+1ACP01-PDC,159,2,[F0159]
+1ACP01-PDC,160,2,[F0160]
+1ACP01-PDC,161,2,[F0161]IN/OUT  DOOR SRUConfirm Alarm
+1ACP01-PDC,162,2,[F0162]ELEV CV DOOR SRUConfirm Alarm
+1ACP01-PDC,163,2,[F0163]
+1ACP01-PDC,164,2,[F0164]
+1ACP01-PDC,165,2,[F0165]
+1ACP01-PDC,166,2,[F0166]
+1ACP01-PDC,167,2,[F0167]
+1ACP01-PDC,168,2,[F0168]
+1ACP01-PDC,169,2,[F0169]
+1ACP01-PDC,170,2,[F0170]
+1ACP01-PDC,171,2,[F0171]IN/OUT  FDOOR   OPEN TOPOP1Alarm
+1ACP01-PDC,172,2,[F0172]IN/OUT  FDOOR   OPEN TOPOP2Alarm
+1ACP01-PDC,173,2,[F0173]IN/OUT  FDOOR   OPEN TOPMT1Alarm
+1ACP01-PDC,174,2,[F0174]IN/OUT  FDOOR   OPEN TOPMT2Alarm
+1ACP01-PDC,175,2,[F0175]IN/OUT  FDOOR   OPEN MIDMT1Alarm
+1ACP01-PDC,176,2,[F0176]IN/OUT  FDOOR   OPEN MIDMT2Alarm
+1ACP01-PDC,177,2,[F0177]IN/OUT  FDOOR   OPEN MIDOP1Alarm
+1ACP01-PDC,178,2,[F0178]IN/OUT  FDOOR   OPEN MIDOP2Alarm
+1ACP01-PDC,179,2,[F0179]IN/OUT  FDOOR   OPEN MIDOP3Alarm
+1ACP01-PDC,180,2,[F0180]SWR1    FDOOR   OPEN TOPOP1Alarm
+1ACP01-PDC,181,2,[F0181]SWR1    FDOOR   OPEN TOPOP2Alarm
+1ACP01-PDC,182,2,[F0182]SWR1    FDOOR   OPEN TOPMT1Alarm
+1ACP01-PDC,183,2,[F0183]SWR1    FDOOR   OPEN TOPMT2Alarm
+1ACP01-PDC,184,2,[F0184]ELEV    FDOOR   OPEN TOPOP1Alarm
+1ACP01-PDC,185,2,[F0185]ELEV    FDOOR   OPEN TOPOP2Alarm
+1ACP01-PDC,186,2,[F0186]ELEV    FDOOR   OPEN TOPMT1Alarm
+1ACP01-PDC,187,2,[F0187]ELEV    FDOOR   OPEN TOPMT2Alarm
+1ACP01-PDC,188,2,[F0188]ELEV    FDOOR   OPEN MIDOP1Alarm
+1ACP01-PDC,189,2,[F0189]ELEV    FDOOR   OPEN MIDOP2Alarm
+1ACP01-PDC,190,2,[F0190]ELEV    FDOOR   OPEN MIDMT1Alarm
+1ACP01-PDC,191,2,[F0191]ELEV    FDOOR   OPEN MIDMT2Alarm
+1ACP01-PDC,192,2,[F0192]ELEV    FDOOR   OPEN LOWOP1Alarm
+1ACP01-PDC,193,2,[F0193]ELEV    FDOOR   OPEN LOWOP2Alarm
+1ACP01-PDC,194,2,[F0194]ELEV    FDOOR   OPEN LOWMT1Alarm
+1ACP01-PDC,195,2,[F0195]ELEV    FDOOR   OPEN LOWMT2Alarm
+1ACP01-PDC,196,2,[F0196]
+1ACP01-PDC,197,2,[F0197]
+1ACP01-PDC,198,2,[F0198]
+1ACP01-PDC,199,2,[F0199]
+1ACP01-PDC,200,2,[F0200]
+1ACP01-PDC,201,2,[F0201]INCV    GLS     IN S.S  Alarm
+1ACP01-PDC,202,2,[F0202]INCV    GLS     OUT S.S Alarm
+1ACP01-PDC,203,2,[F0203]UP AK   GLS     IN S.S  Alarm
+1ACP01-PDC,204,2,[F0204]UP AK   GLS     OUT S.S Alarm
+1ACP01-PDC,205,2,[F0205]UP SWR4 GLS     OUT S.S Alarm
+1ACP01-PDC,206,2,[F0206]UP SWR3 GLS     OUT S.S Alarm
+1ACP01-PDC,207,2,[F0207]UP O3-2 GLS     OUT S.S Alarm
+1ACP01-PDC,208,2,[F0208]UP SWR2 GLS     IN S.S  Alarm
+1ACP01-PDC,209,2,[F0209]UP SWR2 GLS     OUT S.S Alarm
+1ACP01-PDC,210,2,[F0210]UP HF   GLS     IN S.S  Alarm
+1ACP01-PDC,211,2,[F0211]UP HF   GLS     OUT S.S Alarm
+1ACP01-PDC,212,2,[F0212]UP SWR1 GLS     IN S.S  Alarm
+1ACP01-PDC,213,2,[F0213]UP SWR1 GLS     MID S.S Alarm
+1ACP01-PDC,214,2,[F0214]UP SWR1 GLS     OUT S.S Alarm
+1ACP01-PDC,215,2,[F0215]UP O3-1 GLS     IN S.S  Alarm
+1ACP01-PDC,216,2,[F0216]UP O3-1 GLS     OUT S.S Alarm
+1ACP01-PDC,217,2,[F0217]UP P_SWRGLS     IN S.S  Alarm
+1ACP01-PDC,218,2,[F0218]UP P_SWRGLS     OUT S.S Alarm
+1ACP01-PDC,219,2,[F0219]ELEV    GLS     IN S.S  Alarm
+1ACP01-PDC,220,2,[F0220]ELEV    GLS     MID S.S Alarm
+1ACP01-PDC,221,2,[F0221]ELEV    GLS     OUT S.S Alarm
+1ACP01-PDC,222,2,[F0222]PRE_SWR GLS     IN S.S  Alarm
+1ACP01-PDC,223,2,[F0223]PRE_SWR GLS     OUT S.S Alarm
+1ACP01-PDC,224,2,[F0224]O3-1    GLS     IN S.S  Alarm
+1ACP01-PDC,225,2,[F0225]O3-1    GLS     OUT S.S Alarm
+1ACP01-PDC,226,2,[F0226]SWR1    GLS     IN S.S  Alarm
+1ACP01-PDC,227,2,[F0227]SWR1    GLS     MID S.S Alarm
+1ACP01-PDC,228,2,[F0228]SWR1    GLS     OUT S.S Alarm
+1ACP01-PDC,229,2,[F0229]HF      GLS     IN S.S  Alarm
+1ACP01-PDC,230,2,[F0230]HF      GLS     MID1 S.SAlarm
+1ACP01-PDC,231,2,[F0231]HF      GLS     MID2 S.Salarm
+1ACP01-PDC,232,2,[F0232]HF      GLS     OUT S.S Alarm
+1ACP01-PDC,233,2,[F0233]SWR2    GLS     IN S.S  Alarm
+1ACP01-PDC,234,2,[F0234]SWR2    GLS     MID S.S Alarm
+1ACP01-PDC,235,2,[F0235]SWR2    GLS     OUT S.S Alarm
+1ACP01-PDC,236,2,[F0236]O3-2    GLS     IN S.S  Alarm
+1ACP01-PDC,237,2,[F0237]O3-2    GLS     OUT S.S Alarm
+1ACP01-PDC,238,2,[F0238]SWR3    GLS     IN S.S  Alarm
+1ACP01-PDC,239,2,[F0239]SWR3    GLS     OUT S.S Alarm
+1ACP01-PDC,240,2,[F0240]SWR4    GLS     IN S.S  Alarm
+1ACP01-PDC,241,2,[F0241]SWR4    GLS     OUT S.S Alarm
+1ACP01-PDC,242,2,[F0242]AK      GLS     IN S.S  Alarm
+1ACP01-PDC,243,2,[F0243]AK      GLS     OUT S.S Alarm
+1ACP01-PDC,244,2,[F0244]OUT CV  GLS     IN S.S  Alarm
+1ACP01-PDC,245,2,[F0245]OUT CV  GLS     SLOW S.SAlarm
+1ACP01-PDC,246,2,[F0246]OUT CV  GLS     OUT S.S Alarm
+1ACP01-PDC,247,2,[F0247]
+1ACP01-PDC,248,2,[F0248]
+1ACP01-PDC,249,2,[F0249]
+1ACP01-PDC,250,2,[F0250]
+1ACP01-PDC,251,2,[F0251]IN C/V  In S.S  Off     Alarm
+1ACP01-PDC,252,2,[F0252]UP AK   In S.S  On      Alarm
+1ACP01-PDC,253,2,[F0253]UP AK   Out S.S On      Alarm
+1ACP01-PDC,254,2,[F0254]IN C/V  Out S.S Off     Alarm
+1ACP01-PDC,255,2,[F0255]UP AK   In S.S  Off     Alarm
+1ACP01-PDC,256,2,[F0256]UP SWR4 Out S.S On      Alarm
+1ACP01-PDC,257,2,[F0257]UP AK   Out S.S Off     Alarm
+1ACP01-PDC,258,2,[F0258]UP SWR3 Out S.S On      Alarm
+1ACP01-PDC,259,2,[F0259]UP SWR4 Out S.S Off     Alarm
+1ACP01-PDC,260,2,[F0260]UP O3-2 Out S.S On      Alarm
+1ACP01-PDC,261,2,[F0261]UP SWR3 Out S.S Off     Alarm
+1ACP01-PDC,262,2,[F0262]UP SWR2 In S.S  On      Alarm
+1ACP01-PDC,263,2,[F0263]UP O3-2 Out S.S Off     Alarm
+1ACP01-PDC,264,2,[F0264]UP SWR2 Out S.S On      Alarm
+1ACP01-PDC,265,2,[F0265]UP SWR2 In S.S  Off     Alarm
+1ACP01-PDC,266,2,[F0266]UP HF   In S.S  On      Alarm
+1ACP01-PDC,267,2,[F0267]UP SWR2 Out S.S Off     Alarm
+1ACP01-PDC,268,2,[F0268]UP HF   Out S.S On      Alarm
+1ACP01-PDC,269,2,[F0269]UP HF   In S.S  Off     Alarm
+1ACP01-PDC,270,2,[F0270]UP SWR1 In S.S  On      Alarm
+1ACP01-PDC,271,2,[F0271]UP SWR1 Mid S.S On      Alarm
+1ACP01-PDC,272,2,[F0272]UP HF   Out S.S Off     Alarm
+1ACP01-PDC,273,2,[F0273]UP SWR1 Out S.S On      Alarm
+1ACP01-PDC,274,2,[F0274]UP SWR1 In S.S  Off     Alarm
+1ACP01-PDC,275,2,[F0275]UP O3-1 In S.S  On      Alarm
+1ACP01-PDC,276,2,[F0276]UP SWR1 Mid S.S Off     Alarm
+1ACP01-PDC,277,2,[F0277]UP O3-1 Out S.S On      Alarm
+1ACP01-PDC,278,2,[F0278]UP SWR1 Out S.S Off     Alarm
+1ACP01-PDC,279,2,[F0279]UP P_SWRIn S.S  On      Alarm
+1ACP01-PDC,280,2,[F0280]UP O3-1 In S.S  Off     Alarm
+1ACP01-PDC,281,2,[F0281]UP P_SWROut S.S On      Alarm
+1ACP01-PDC,282,2,[F0282]UP O3-1 In S.S  Off     Alarm
+1ACP01-PDC,283,2,[F0283]ELE CV  In S.S  On      Alarm
+1ACP01-PDC,284,2,[F0284]UP P_SWRIn S.S  Off     Alarm
+1ACP01-PDC,285,2,[F0285]UP P_SWROut S.S Off     Alarm
+1ACP01-PDC,286,2,[F0286]ELE CV  Mid S.S On      Alarm
+1ACP01-PDC,287,2,[F0287]ELE CV  Out S.S On      Alarm
+1ACP01-PDC,288,2,[F0288]ELE CV  Out S.S Off     Alarm
+1ACP01-PDC,289,2,[F0289]ELE CV  Mid S.S Off     Alarm
+1ACP01-PDC,290,2,[F0290]PRE_SWR In S.S  On      Alarm
+1ACP01-PDC,291,2,[F0291]PRE_SWR Out S.S On      Alarm
+1ACP01-PDC,292,2,[F0292]ELE CV  In S.S  Off     Alarm
+1ACP01-PDC,293,2,[F0293]O3-1    In S.S  On      Alarm
+1ACP01-PDC,294,2,[F0294]PRE_SWR In S.S  Off     Alarm
+1ACP01-PDC,295,2,[F0295]O3-1    Out S.S On      Alarm
+1ACP01-PDC,296,2,[F0296]SWR1    In S.S  On      Alarm
+1ACP01-PDC,297,2,[F0297]PRE_SWR Out S.S Off     Alarm
+1ACP01-PDC,298,2,[F0298]O3-1    In S.S  Off     Alarm
+1ACP01-PDC,299,2,[F0299]SWR1    Mid S.S On      Alarm
+1ACP01-PDC,300,2,[F0300]O3-1    Out S.S Off     Alarm
+1ACP01-PDC,301,2,[F0301]SWR1    Out S.S On      Alarm
+1ACP01-PDC,302,2,[F0302]SWR1    In S.S  Off     Alarm
+1ACP01-PDC,303,2,[F0303]HF      In S.S  On      Alarm
+1ACP01-PDC,304,2,[F0304]SWR1    Mid S.S Off     Alarm
+1ACP01-PDC,305,2,[F0305]HF      Mid1 S.SOn      Alarm
+1ACP01-PDC,306,2,[F0306]SWR1    Out S.S Off     Alarm
+1ACP01-PDC,307,2,[F0307]HF      In S.S  Off     Alarm
+1ACP01-PDC,308,2,[F0308]HF      Mid2 S.SOn      Alarm
+1ACP01-PDC,309,2,[F0309]HF      Out S.S On      Alarm
+1ACP01-PDC,310,2,[F0310]SWR2    In S.S  On      Alarm
+1ACP01-PDC,311,2,[F0311]HF      Mid1 S.SOff     Alarm
+1ACP01-PDC,312,2,[F0312]SWR2    Mid S.S On      Alarm
+1ACP01-PDC,313,2,[F0313]HF      Mid2 S.SOff     Alarm
+1ACP01-PDC,314,2,[F0314]HF      Out S.S Off     Alarm
+1ACP01-PDC,315,2,[F0315]SWR2    Out S.S On      Alarm
+1ACP01-PDC,316,2,[F0316]SWR2    In S.S  Off     Alarm
+1ACP01-PDC,317,2,[F0317]O3-2    In S.S  On      Alarm
+1ACP01-PDC,318,2,[F0318]SWR2    Mid S.S Off     Alarm
+1ACP01-PDC,319,2,[F0319]O3-2    Out S.S On      Alarm
+1ACP01-PDC,320,2,[F0320]SWR3    In S.S  On      Alarm
+1ACP01-PDC,321,2,[F0321]SWR2    Out S.S Off     Alarm
+1ACP01-PDC,322,2,[F0322]O3-2    In S.S  Off     Alarm
+1ACP01-PDC,323,2,[F0323]SWR3    Out S.S On      Alarm
+1ACP01-PDC,324,2,[F0324]SWR4    In S.S  On      Alarm
+1ACP01-PDC,325,2,[F0325]O3-2    Out S.S Off     Alarm
+1ACP01-PDC,326,2,[F0326]SWR3    In S.S  Off     Alarm
+1ACP01-PDC,327,2,[F0327]SWR4    Out S.S On      Alarm
+1ACP01-PDC,328,2,[F0328]AK      In S.S  On      Alarm
+1ACP01-PDC,329,2,[F0329]SWR3    Out S.S Off     Alarm
+1ACP01-PDC,330,2,[F0330]SWR4    In S.S  Off     Alarm
+1ACP01-PDC,331,2,[F0331]AK      Out S.S On      Alarm
+1ACP01-PDC,332,2,[F0332]OUT CV  In S.S  On      Alarm
+1ACP01-PDC,333,2,[F0333]SWR4    Out S.S Off     Alarm
+1ACP01-PDC,334,2,[F0334]AK      In S.S  Off     Alarm
+1ACP01-PDC,335,2,[F0335]AK      Out S.S Off     Alarm
+1ACP01-PDC,336,2,[F0336]OUT CV  Mid S.S On      Alarm
+1ACP01-PDC,337,2,[F0337]OUT CV  Out S.S On      Alarm
+1ACP01-PDC,338,2,[F0338]
+1ACP01-PDC,339,2,[F0339]
+1ACP01-PDC,340,2,[F0340]
+1ACP01-PDC,341,2,[F0341]IN C/V  to      UP AK   GapAlarm
+1ACP01-PDC,342,2,[F0342]IN C/V  In S.S  Off     GapAlarm
+1ACP01-PDC,343,2,[F0343]UP AK   In S.S  On      GapAlarm
+1ACP01-PDC,344,2,[F0344]UP AK   Out S.S On      GapAlarm
+1ACP01-PDC,345,2,[F0345]IN C/V  to      UP AK   GapAlarm
+1ACP01-PDC,346,2,[F0346]UP AK   to      UP SWR4 GapAlarm
+1ACP01-PDC,347,2,[F0347]IN C/V  Out S.S Off     GapAlarm
+1ACP01-PDC,348,2,[F0348]UP AK   In S.S  Off     GapAlarm
+1ACP01-PDC,349,2,[F0349]UP SWR4 Out S.S On      GapAlarm
+1ACP01-PDC,350,2,[F0350]UP AK   to      UP SWR4 GapAlarm
+1ACP01-PDC,351,2,[F0351]UP SWR4 to      UP O3-2 GapAlarm
+1ACP01-PDC,352,2,[F0352]UP AK   Out S.S Off     GapAlarm
+1ACP01-PDC,353,2,[F0353]UP SWR3 Out S.S On      GapAlarm
+1ACP01-PDC,354,2,[F0354]UP SWR4 Out S.S Off     GapAlarm
+1ACP01-PDC,355,2,[F0355]UP O3-2 Out S.S On      GapAlarm
+1ACP01-PDC,356,2,[F0356]UP SWR4 to      UP O3-2 GapAlarm
+1ACP01-PDC,357,2,[F0357]UP O3-2 to      UP SWR2 GapAlarm
+1ACP01-PDC,358,2,[F0358]UP SWR3 Out S.S Off     GapAlarm
+1ACP01-PDC,359,2,[F0359]UP SWR2 In S.S  On      GapAlarm
+1ACP01-PDC,360,2,[F0360]UP O3-2 Out S.S Off     GapAlarm
+1ACP01-PDC,361,2,[F0361]UP SWR2 Out S.S On      GapAlarm
+1ACP01-PDC,362,2,[F0362]UP O3-2 to      UP SWR2 GapAlarm
+1ACP01-PDC,363,2,[F0363]UP SWR2 to      UP HF   GapAlarm
+1ACP01-PDC,364,2,[F0364]UP SWR2 In S.S  Off     GapAlarm
+1ACP01-PDC,365,2,[F0365]UP HF   In S.S  On      GapAlarm
+1ACP01-PDC,366,2,[F0366]UP SWR2 Out S.S Off     GapAlarm
+1ACP01-PDC,367,2,[F0367]UP HF   Out S.S On      GapAlarm
+1ACP01-PDC,368,2,[F0368]UP SWR2 to      UP HF   GapAlarm
+1ACP01-PDC,369,2,[F0369]UP HF   to      UP SWR1 GapAlarm
+1ACP01-PDC,370,2,[F0370]UP HF   In S.S  Off     GapAlarm
+1ACP01-PDC,371,2,[F0371]UP SWR1 In S.S  On      GapAlarm
+1ACP01-PDC,372,2,[F0372]UP SWR1 Mid S.S On      GapAlarm
+1ACP01-PDC,373,2,[F0373]UP HF   Out S.S Off     GapAlarm
+1ACP01-PDC,374,2,[F0374]UP SWR1 Out S.S On      GapAlarm
+1ACP01-PDC,375,2,[F0375]UP HF   to      UP SWR1 GapAlarm
+1ACP01-PDC,376,2,[F0376]UP SWR1 to      UP O3-1 GapAlarm
+1ACP01-PDC,377,2,[F0377]UP SWR1 In S.S  Off     GapAlarm
+1ACP01-PDC,378,2,[F0378]UP O3-1 In S.S  On      GapAlarm
+1ACP01-PDC,379,2,[F0379]UP SWR1 Mid S.S Off     GapAlarm
+1ACP01-PDC,380,2,[F0380]UP O3-1 Out S.S On      GapAlarm
+1ACP01-PDC,381,2,[F0381]UP SWR1 to      UP O3-1 GapAlarm
+1ACP01-PDC,382,2,[F0382]UP O3-1 to      UP P_SWRGapAlarm
+1ACP01-PDC,383,2,[F0383]UP SWR1 Out S.S Off     GapAlarm
+1ACP01-PDC,384,2,[F0384]UP P_SWRIn S.S  On      GapAlarm
+1ACP01-PDC,385,2,[F0385]UP O3-1 In S.S  Off     GapAlarm
+1ACP01-PDC,386,2,[F0386]UP P_SWROut S.S On      GapAlarm
+1ACP01-PDC,387,2,[F0387]UP O3-1 to      UP P_SWRGapAlarm
+1ACP01-PDC,388,2,[F0388]UP P_SWRto      ELE CV  GapAlarm
+1ACP01-PDC,389,2,[F0389]UP O3-1 In S.S  Off     GapAlarm
+1ACP01-PDC,390,2,[F0390]ELE CV  In S.S  On      GapAlarm
+1ACP01-PDC,391,2,[F0391]UP P_SWRIn S.S  Off     GapAlarm
+1ACP01-PDC,392,2,[F0392]UP P_SWROut S.S Off     GapAlarm
+1ACP01-PDC,393,2,[F0393]ELE CV  Mid S.S On      GapAlarm
+1ACP01-PDC,394,2,[F0394]ELE CV  Out S.S On      GapAlarm
+1ACP01-PDC,395,2,[F0395]UP P_SWRto      ELE CV  GapAlarm
+1ACP01-PDC,396,2,[F0396]ELE CV  to      PRE_SWR GapAlarm
+1ACP01-PDC,397,2,[F0397]ELE CV  Out S.S Off     GapAlarm
+1ACP01-PDC,398,2,[F0398]ELE CV  Mid S.S Off     GapAlarm
+1ACP01-PDC,399,2,[F0399]PRE_SWR In S.S  On      GapAlarm
+1ACP01-PDC,400,2,[F0400]PRE_SWR Out S.S On      GapAlarm
+1ACP01-PDC,401,2,[F0401]ELE CV  to      PRE_SWR GapAlarm
+1ACP01-PDC,402,2,[F0402]PRE_SWR to      O3-1    GapAlarm
+1ACP01-PDC,403,2,[F0403]ELE CV  In S.S  Off     GapAlarm
+1ACP01-PDC,404,2,[F0404]O3-1    In S.S  On      GapAlarm
+1ACP01-PDC,405,2,[F0405]PRE_SWR In S.S  Off     GapAlarm
+1ACP01-PDC,406,2,[F0406]O3-1    Out S.S On      GapAlarm
+1ACP01-PDC,407,2,[F0407]PRE_SWR to      O3-1    GapAlarm
+1ACP01-PDC,408,2,[F0408]O3-1    to      SWR1    GapAlarm
+1ACP01-PDC,409,2,[F0409]SWR1    In S.S  On      GapAlarm
+1ACP01-PDC,410,2,[F0410]PRE_SWR Out S.S Off     GapAlarm
+1ACP01-PDC,411,2,[F0411]O3-1    In S.S  Off     GapAlarm
+1ACP01-PDC,412,2,[F0412]SWR1    Mid S.S On      GapAlarm
+1ACP01-PDC,413,2,[F0413]O3-1    Out S.S Off     GapAlarm
+1ACP01-PDC,414,2,[F0414]SWR1    Out S.S On      GapAlarm
+1ACP01-PDC,415,2,[F0415]O3-1    to      SWR1    GapAlarm
+1ACP01-PDC,416,2,[F0416]SWR1    to      HF      GapAlarm
+1ACP01-PDC,417,2,[F0417]SWR1    In S.S  Off     GapAlarm
+1ACP01-PDC,418,2,[F0418]HF      In S.S  On      GapAlarm
+1ACP01-PDC,419,2,[F0419]SWR1    Mid S.S Off     GapAlarm
+1ACP01-PDC,420,2,[F0420]HF      Mid1 S.SOn      GapAlarm
+1ACP01-PDC,421,2,[F0421]SWR1    Out S.S Off     GapAlarm
+1ACP01-PDC,422,2,[F0422]HF      In S.S  Off     GapAlarm
+1ACP01-PDC,423,2,[F0423]HF      Mid2 S.SOn      GapAlarm
+1ACP01-PDC,424,2,[F0424]HF      Out S.S On      GapAlarm
+1ACP01-PDC,425,2,[F0425]SWR1    to      HF      GapAlarm
+1ACP01-PDC,426,2,[F0426]HF      to      SWR2    GapAlarm
+1ACP01-PDC,427,2,[F0427]SWR2    In S.S  On      GapAlarm
+1ACP01-PDC,428,2,[F0428]HF      Mid1 S.SOff     GapAlarm
+1ACP01-PDC,429,2,[F0429]SWR2    Mid S.S On      GapAlarm
+1ACP01-PDC,430,2,[F0430]HF      Mid2 S.SOff     GapAlarm
+1ACP01-PDC,431,2,[F0431]HF      Out S.S Off     GapAlarm
+1ACP01-PDC,432,2,[F0432]SWR2    Out S.S On      GapAlarm
+1ACP01-PDC,433,2,[F0433]HF      to      SWR2    GapAlarm
+1ACP01-PDC,434,2,[F0434]SWR2    to      O3-2    GapAlarm
+1ACP01-PDC,435,2,[F0435]SWR2    In S.S  Off     GapAlarm
+1ACP01-PDC,436,2,[F0436]O3-2    In S.S  On      GapAlarm
+1ACP01-PDC,437,2,[F0437]SWR2    Mid S.S Off     GapAlarm
+1ACP01-PDC,438,2,[F0438]O3-2    Out S.S On      GapAlarm
+1ACP01-PDC,439,2,[F0439]SWR2    to      O3-2    GapAlarm
+1ACP01-PDC,440,2,[F0440]O3-2    to      SWR3    GapAlarm
+1ACP01-PDC,441,2,[F0441]SWR3    In S.S  On      GapAlarm
+1ACP01-PDC,442,2,[F0442]SWR2    Out S.S Off     GapAlarm
+1ACP01-PDC,443,2,[F0443]O3-2    In S.S  Off     GapAlarm
+1ACP01-PDC,444,2,[F0444]SWR3    Out S.S On      GapAlarm
+1ACP01-PDC,445,2,[F0445]O3-2    to      SWR3    GapAlarm
+1ACP01-PDC,446,2,[F0446]SWR3    to      SWR4    GapAlarm
+1ACP01-PDC,447,2,[F0447]SWR4    In S.S  On      GapAlarm
+1ACP01-PDC,448,2,[F0448]O3-2    Out S.S Off     GapAlarm
+1ACP01-PDC,449,2,[F0449]SWR3    In S.S  Off     GapAlarm
+1ACP01-PDC,450,2,[F0450]SWR4    Out S.S On      GapAlarm
+1ACP01-PDC,451,2,[F0451]SWR3    to      SWR4    GapAlarm
+1ACP01-PDC,452,2,[F0452]SWR4    to      AK      GapAlarm
+1ACP01-PDC,453,2,[F0453]AK      In S.S  On      GapAlarm
+1ACP01-PDC,454,2,[F0454]SWR3    Out S.S Off     GapAlarm
+1ACP01-PDC,455,2,[F0455]SWR4    In S.S  Off     GapAlarm
+1ACP01-PDC,456,2,[F0456]AK      Out S.S On      GapAlarm
+1ACP01-PDC,457,2,[F0457]SWR4    to      AK      GapAlarm
+1ACP01-PDC,458,2,[F0458]AK      to      OUT CV  GapAlarm
+1ACP01-PDC,459,2,[F0459]OUT CV  In S.S  On      GapAlarm
+1ACP01-PDC,460,2,[F0460]SWR4    Out S.S Off     GapAlarm
+1ACP01-PDC,461,2,[F0461]AK      In S.S  Off     GapAlarm
+1ACP01-PDC,462,2,[F0462]AK      Out S.S Off     GapAlarm
+1ACP01-PDC,463,2,[F0463]OUT CV  Mid S.S On      GapAlarm
+1ACP01-PDC,464,2,[F0464]OUT CV  Out S.S On      GapAlarm
+1ACP01-PDC,465,2,[F0465]AK      to      OUT CV  GapAlarm
+1ACP01-PDC,466,2,[F0466]
+1ACP01-PDC,467,2,[F0467]
+1ACP01-PDC,468,2,[F0468]
+1ACP01-PDC,469,2,[F0469]
+1ACP01-PDC,470,2,[F0470]
+1ACP01-PDC,471,2,[F0471]
+1ACP01-PDC,472,2,[F0472]
+1ACP01-PDC,473,2,[F0473]
+1ACP01-PDC,474,2,[F0474]
+1ACP01-PDC,475,2,[F0475]
+1ACP01-PDC,476,2,[F0476]
+1ACP01-PDC,477,2,[F0477]
+1ACP01-PDC,478,2,[F0478]
+1ACP01-PDC,479,2,[F0479]
+1ACP01-PDC,480,2,[F0480]
+1ACP01-PDC,481,2,[F0481]
+1ACP01-PDC,482,2,[F0482]
+1ACP01-PDC,483,2,[F0483]
+1ACP01-PDC,484,2,[F0484]
+1ACP01-PDC,485,2,[F0485]
+1ACP01-PDC,486,2,[F0486]
+1ACP01-PDC,487,2,[F0487]
+1ACP01-PDC,488,2,[F0488]
+1ACP01-PDC,489,2,[F0489]
+1ACP01-PDC,490,2,[F0490]IN CV   Hand    Detect  Alarm
+1ACP01-PDC,491,2,[F0491]OUT CV  Hand    Detect  Alarm
+1ACP01-PDC,492,2,[F0492]
+1ACP01-PDC,493,2,[F0493]
+1ACP01-PDC,494,2,[F0494]
+1ACP01-PDC,495,2,[F0495]
+1ACP01-PDC,496,2,[F0496]
+1ACP01-PDC,497,2,[F0497]
+1ACP01-PDC,498,2,[F0498]
+1ACP01-PDC,499,2,[F0499]
+1ACP01-PDC,500,2,[F0500]
+1ACP01-PDC,501,2,[F0501]
+1ACP01-PDC,502,2,[F0502]
+1ACP01-PDC,503,2,[F0503]
+1ACP01-PDC,504,2,[F0504]
+1ACP01-PDC,505,2,[F0505]
+1ACP01-PDC,506,2,[F0506]
+1ACP01-PDC,507,2,[F0507]
+1ACP01-PDC,508,2,[F0508]
+1ACP01-PDC,509,2,[F0509]
+1ACP01-PDC,510,2,[F0510]
+1ACP01-PDC,511,2,[F0511]
+1ACP01-PDC,512,2,[F0512]
+1ACP01-PDC,513,2,[F0513]
+1ACP01-PDC,514,2,[F0514]
+1ACP01-PDC,515,2,[F0515]
+1ACP01-PDC,516,2,[F0516]
+1ACP01-PDC,517,2,[F0517]
+1ACP01-PDC,518,2,[F0518]
+1ACP01-PDC,519,2,[F0519]
+1ACP01-PDC,520,2,[F0520]
+1ACP01-PDC,521,2,[F0521]
+1ACP01-PDC,522,2,[F0522]
+1ACP01-PDC,523,2,[F0523]
+1ACP01-PDC,524,2,[F0524]
+1ACP01-PDC,525,2,[F0525]
+1ACP01-PDC,526,2,[F0526]
+1ACP01-PDC,527,2,[F0527]
+1ACP01-PDC,528,2,[F0528]
+1ACP01-PDC,529,2,[F0529]
+1ACP01-PDC,530,2,[F0530]
+1ACP01-PDC,531,2,[F0531]
+1ACP01-PDC,532,2,[F0532]
+1ACP01-PDC,533,2,[F0533]
+1ACP01-PDC,534,2,[F0534]
+1ACP01-PDC,535,2,[F0535]
+1ACP01-PDC,536,2,[F0536]
+1ACP01-PDC,537,2,[F0537]
+1ACP01-PDC,538,2,[F0538]
+1ACP01-PDC,539,2,[F0539]
+1ACP01-PDC,540,2,[F0540]
+1ACP01-PDC,541,2,[F0541]
+1ACP01-PDC,542,2,[F0542]
+1ACP01-PDC,543,2,[F0543]
+1ACP01-PDC,544,2,[F0544]
+1ACP01-PDC,545,2,[F0545]
+1ACP01-PDC,546,2,[F0546]
+1ACP01-PDC,547,2,[F0547]
+1ACP01-PDC,548,2,[F0548]
+1ACP01-PDC,549,2,[F0549]
+1ACP01-PDC,550,2,[F0550]
+1ACP01-PDC,551,2,[F0551]DIW ZoneReady   Timeout Alarm
+1ACP01-PDC,552,2,[F0552]
+1ACP01-PDC,553,2,[F0553]
+1ACP01-PDC,554,2,[F0554]
+1ACP01-PDC,555,2,[F0555]O3-1    BDoor   SRU     Alarm
+1ACP01-PDC,556,2,[F0556]O3-2    BDoor   SRU     Alarm
+1ACP01-PDC,557,2,[F0557]O3-1    Main    Exhaust Alarm
+1ACP01-PDC,558,2,[F0558]O3-2    Main    Exhaust Alarm
+1ACP01-PDC,559,2,[F0559]
+1ACP01-PDC,560,2,[F0560]
+1ACP01-PDC,561,2,[F0561]PRE_SWR BDoor   OP1     Alarm
+1ACP01-PDC,562,2,[F0562]PRE_SWR BDoor   MT1     Alarm
+1ACP01-PDC,563,2,[F0563]PRE_SWR BDoor   OP2     Alarm
+1ACP01-PDC,564,2,[F0564]PRE_SWR BDoor   MT2     Alarm
+1ACP01-PDC,565,2,[F0565]O3-1    BDoor   OP      Alarm
+1ACP01-PDC,566,2,[F0566]O3-1    BDoor   MT      Alarm
+1ACP01-PDC,567,2,[F0567]SWR1    BDoor   OP1     Alarm
+1ACP01-PDC,568,2,[F0568]SWR1    BDoor   MT1     Alarm
+1ACP01-PDC,569,2,[F0569]SWR1    BDoor   OP2     Alarm
+1ACP01-PDC,570,2,[F0570]SWR1    BDoor   MT2     Alarm
+1ACP01-PDC,571,2,[F0571]SWR2    BDoor   OP1     Alarm
+1ACP01-PDC,572,2,[F0572]SWR2    BDoor   MT1     Alarm
+1ACP01-PDC,573,2,[F0573]SWR2    BDoor   OP2     Alarm
+1ACP01-PDC,574,2,[F0574]SWR2    BDoor   MT2     Alarm
+1ACP01-PDC,575,2,[F0575]O3-2    BDoor   OP      Alarm
+1ACP01-PDC,576,2,[F0576]O3-2    BDoor   MT      Alarm
+1ACP01-PDC,577,2,[F0577]SWR3    BDoor   OP      Alarm
+1ACP01-PDC,578,2,[F0578]SWR3    BDoor   MT      Alarm
+1ACP01-PDC,579,2,[F0579]SWR4    BDoor   OP      Alarm
+1ACP01-PDC,580,2,[F0580]SWR4    BDoor   MT      Alarm
+1ACP01-PDC,581,2,[F0581]A/K     BDoor   OP      Alarm
+1ACP01-PDC,582,2,[F0582]A/K     BDoor   MT1     Alarm
+1ACP01-PDC,583,2,[F0583]A/K     BDoor   MT2     Alarm
+1ACP01-PDC,584,2,[F0584]
+1ACP01-PDC,585,2,[F0585]
+1ACP01-PDC,586,2,[F0586]
+1ACP01-PDC,587,2,[F0587]
+1ACP01-PDC,588,2,[F0588]
+1ACP01-PDC,589,2,[F0589]
+1ACP01-PDC,590,2,[F0590]
+1ACP01-PDC,591,2,[F0591]PRE_SWR Leak    Alarm
+1ACP01-PDC,592,2,[F0592]O3-1    Leak    Alarm
+1ACP01-PDC,593,2,[F0593]SWR1    Leak    Alarm
+1ACP01-PDC,594,2,[F0594]SWR2    Leak    Alarm
+1ACP01-PDC,595,2,[F0595]O3-2    Leak    Alarm
+1ACP01-PDC,596,2,[F0596]SWR3    Leak    Alarm
+1ACP01-PDC,597,2,[F0597]SWR4    Leak    Alarm
+1ACP01-PDC,598,2,[F0598]A/K     Leak    Alarm
+1ACP01-PDC,599,2,[F0599]
+1ACP01-PDC,600,2,[F0600]
+1ACP01-PDC,601,2,[F0601]PRE_SWR Exhaust H_Alarm
+1ACP01-PDC,602,2,[F0602]PRE_SWR Exhaust L_Alarm
+1ACP01-PDC,603,2,[F0603]PRE_SWR SWR FlowH_Alarm
+1ACP01-PDC,604,2,[F0604]PRE_SWR SWR FlowL_Alarm
+1ACP01-PDC,605,2,[F0605]CDA_ION (1_2_3) Press   H_Alarm
+1ACP01-PDC,606,2,[F0606]CDA_ION (1_2_3) Press   L_Alarm
+1ACP01-PDC,607,2,[F0607]CDA_A/C (4_6)   Press   H_Alarm
+1ACP01-PDC,608,2,[F0608]CDA_A/C (4_6)   Press   L_Alarm
+1ACP01-PDC,609,2,[F0609]CDA_NPS Tank    Press   H_Alarm
+1ACP01-PDC,610,2,[F0610]CDA_NPS Tank    Press   L_Alarm
+1ACP01-PDC,611,2,[F0611]PRE_SWR TK1_NPS Press   H_Alarm
+1ACP01-PDC,612,2,[F0612]PRE_SWR TK1_NPS Press   L_Alarm
+1ACP01-PDC,613,2,[F0613]PRE_SWR DCDA    Press   H_Alarm
+1ACP01-PDC,614,2,[F0614]PRE_SWR DCDA    Press   L_Alarm
+1ACP01-PDC,615,2,[F0615]O3-1    Exhaust H_Alarm
+1ACP01-PDC,616,2,[F0616]O3-1    Exhaust L_Alarm
+1ACP01-PDC,617,2,[F0617]O3-1    O3 SWR  Flow    H_Alarm
+1ACP01-PDC,618,2,[F0618]O3-1    O3 SWR  Flow    L_Alarm
+1ACP01-PDC,619,2,[F0619]O3-1    UPW SWR Flow    H_Alarm
+1ACP01-PDC,620,2,[F0620]O3-1    UPW SWR Flow    L_Alarm
+1ACP01-PDC,621,2,[F0621]O3-1    UPW SPL Resist_ H_Alarm
+1ACP01-PDC,622,2,[F0622]O3-1    UPW SPL Resist_ L_Alarm
+1ACP01-PDC,623,2,[F0623]CDA_A/C (7_8)   Press   H_Alarm
+1ACP01-PDC,624,2,[F0624]CDA_A/C (7_8)   Press   L_Alarm
+1ACP01-PDC,625,2,[F0625]SWR1    Exhaust H_Alarm
+1ACP01-PDC,626,2,[F0626]SWR1    Exhaust L_Alarm
+1ACP01-PDC,627,2,[F0627]SWR1    UPW SWR Flow    H_Alarm
+1ACP01-PDC,628,2,[F0628]SWR1    UPW SWR Flow    L_Alarm
+1ACP01-PDC,629,2,[F0629]CDA_A/C 9_10_11 Press   H_Alarm
+1ACP01-PDC,630,2,[F0630]CDA_A/C 9_10_11 Press   L_Alarm
+1ACP01-PDC,631,2,[F0631]SWR2    Exhaust H_Alarm
+1ACP01-PDC,632,2,[F0632]SWR2    Exhaust L_Alarm
+1ACP01-PDC,633,2,[F0633]SWR2 UPWUP SWR  Flow    H_Alarm
+1ACP01-PDC,634,2,[F0634]SWR2 UPWUP SWR  Flow    L_Alarm
+1ACP01-PDC,635,2,[F0635]SWR2 UPWLO SWR  Flow    H_Alarm
+1ACP01-PDC,636,2,[F0636]SWR2 UPWLO SWR  Flow    L_Alarm
+1ACP01-PDC,637,2,[F0637]CDA_A/C 12_13_14Press   H_Alarm
+1ACP01-PDC,638,2,[F0638]CDA_A/C 12_13_14Press   L_Alarm
+1ACP01-PDC,639,2,[F0639]CDA_A/C (15_16) Press   H_Alarm
+1ACP01-PDC,640,2,[F0640]CDA_A/C (15_16) Press   L_Alarm
+1ACP01-PDC,641,2,[F0641]
+1ACP01-PDC,642,2,[F0642]
+1ACP01-PDC,643,2,[F0643]O3-2    Exhaust H_Alarm
+1ACP01-PDC,644,2,[F0644]O3-2    Exhaust L_Alarm
+1ACP01-PDC,645,2,[F0645]O3-2    O3 SWR  Flow    H_Alarm
+1ACP01-PDC,646,2,[F0646]O3-2    O3 SWR  Flow    L_Alarm
+1ACP01-PDC,647,2,[F0647]O3-2    UPW SWR Flow    H_Alarm
+1ACP01-PDC,648,2,[F0648]O3-2    UPW SWR Flow    L_Alarm
+1ACP01-PDC,649,2,[F0649]O3-2    UPW SPL Resist_ H_Alarm
+1ACP01-PDC,650,2,[F0650]O3-2    UPW SPL Resist_ L_Alarm
+1ACP01-PDC,651,2,[F0651]SWR3    Exhaust H_Alarm
+1ACP01-PDC,652,2,[F0652]SWR3    Exhaust L_Alarm
+1ACP01-PDC,653,2,[F0653]SWR3    UPW SWR Flow    H_Alarm
+1ACP01-PDC,654,2,[F0654]SWR3    UPW SWR Flow    L_Alarm
+1ACP01-PDC,655,2,[F0655]SWR3 UPWAqua SWRFlow    H_Alarm
+1ACP01-PDC,656,2,[F0656]SWR3 UPWAqua SWRFlow    L_Alarm
+1ACP01-PDC,657,2,[F0657]CDA_MJ  (20)    Press   H_Alarm
+1ACP01-PDC,658,2,[F0658]CDA_MJ  (20)    Press   L_Alarm
+1ACP01-PDC,659,2,[F0659]CDA_A/C 17_18_19Press   H_Alarm
+1ACP01-PDC,660,2,[F0660]CDA_A/C 17_18_19Press   L_Alarm
+1ACP01-PDC,661,2,[F0661]SWR3 TK2NPS     Press   H_Alarm
+1ACP01-PDC,662,2,[F0662]SWR3 TK2NPS     Press   L_Alarm
+1ACP01-PDC,663,2,[F0663]SWR4-1  Exhaust H_Alarm
+1ACP01-PDC,664,2,[F0664]SWR4-1  Exhaust L_Alarm
+1ACP01-PDC,665,2,[F0665]SWR4-2  Exhaust H_Alarm
+1ACP01-PDC,666,2,[F0666]SWR4-2  Exhaust L_Alarm
+1ACP01-PDC,667,2,[F0667]SWR4    UPW SWR Flow    H_Alarm
+1ACP01-PDC,668,2,[F0668]SWR4    UPW SWR Flow    L_Alarm
+1ACP01-PDC,669,2,[F0669]SWR4 UPWAqua SWRFlow    H_Alarm
+1ACP01-PDC,670,2,[F0670]SWR4 UPWAqua SWRFlow    L_Alarm
+1ACP01-PDC,671,2,[F0671]SWR4    UPW SPL Resist_ H_Alarm
+1ACP01-PDC,672,2,[F0672]SWR4    UPW SPL Resist_ L_Alarm
+1ACP01-PDC,673,2,[F0673]SWR4 TK3NPS     Press   H_Alarm
+1ACP01-PDC,674,2,[F0674]SWR4 TK3NPS     Press   L_Alarm
+1ACP01-PDC,675,2,[F0675]A/K-1   Exhaust H_Alarm
+1ACP01-PDC,676,2,[F0676]A/K-1   Exhaust L_Alarm
+1ACP01-PDC,677,2,[F0677]A/K-2   Exhaust H_Alarm
+1ACP01-PDC,678,2,[F0678]A/K-2   Exhaust L_Alarm
+1ACP01-PDC,679,2,[F0679]A/K     UP CDA  Flow    H_Alarm
+1ACP01-PDC,680,2,[F0680]A/K     UP CDA  Flow    L_Alarm
+1ACP01-PDC,681,2,[F0681]A/K     LO CDA  Flow    H_Alarm
+1ACP01-PDC,682,2,[F0682]A/K     LO CDA  Flow    L_Alarm
+1ACP01-PDC,683,2,[F0683]A/K     UP CDA  Press   H_Alarm
+1ACP01-PDC,684,2,[F0684]A/K     UP CDA  Press   L_Alarm
+1ACP01-PDC,685,2,[F0685]A/K     LO CDA  Press   H_Alarm
+1ACP01-PDC,686,2,[F0686]A/K     LO CDA  Press   L_Alarm
+1ACP01-PDC,687,2,[F0687]
+1ACP01-PDC,688,2,[F0688]
+1ACP01-PDC,689,2,[F0689]
+1ACP01-PDC,690,2,[F0690]
+1ACP01-PDC,691,2,[F0691]
+1ACP01-PDC,692,2,[F0692]
+1ACP01-PDC,693,2,[F0693]
+1ACP01-PDC,694,2,[F0694]
+1ACP01-PDC,695,2,[F0695]
+1ACP01-PDC,696,2,[F0696]
+1ACP01-PDC,697,2,[F0697]
+1ACP01-PDC,698,2,[F0698]
+1ACP01-PDC,699,2,[F0699]
+1ACP01-PDC,700,2,[F0700]
+1ACP01-PDC,701,2,[F0701]PRE_SWR Exhaust H_Stop
+1ACP01-PDC,702,2,[F0702]PRE_SWR Exhaust L_Stop
+1ACP01-PDC,703,2,[F0703]PRE_SWR SWR FlowH_Stop
+1ACP01-PDC,704,2,[F0704]PRE_SWR SWR FlowL_Stop
+1ACP01-PDC,705,2,[F0705]CDA_ION (1_2_3) Press   H_Stop
+1ACP01-PDC,706,2,[F0706]CDA_ION (1_2_3) Press   L_Stop
+1ACP01-PDC,707,2,[F0707]CDA_A/C (4_6)   Press   H_Stop
+1ACP01-PDC,708,2,[F0708]CDA_A/C (4_6)   Press   L_Stop
+1ACP01-PDC,709,2,[F0709]CDA_NPS Tank    Press   H_Stop
+1ACP01-PDC,710,2,[F0710]CDA_NPS Tank    Press   L_Stop
+1ACP01-PDC,711,2,[F0711]PRE_SWR TK1_NPS Press   H_Stop
+1ACP01-PDC,712,2,[F0712]PRE_SWR TK1_NPS Press   L_Stop
+1ACP01-PDC,713,2,[F0713]PRE_SWR DCDA    Press   H_Stop
+1ACP01-PDC,714,2,[F0714]PRE_SWR DCDA    Press   L_Stop
+1ACP01-PDC,715,2,[F0715]O3-1    Exhaust H_Stop
+1ACP01-PDC,716,2,[F0716]O3-1    Exhaust L_Stop
+1ACP01-PDC,717,2,[F0717]O3-1    O3 SWR  Flow    H_Stop
+1ACP01-PDC,718,2,[F0718]O3-1    O3 SWR  Flow    L_Stop
+1ACP01-PDC,719,2,[F0719]O3-1    UPW SWR Flow    H_Stop
+1ACP01-PDC,720,2,[F0720]O3-1    UPW SWR Flow    L_Stop
+1ACP01-PDC,721,2,[F0721]O3-1    UPW SPL Resist_ H_Stop
+1ACP01-PDC,722,2,[F0722]O3-1    UPW SPL Resist_ L_Stop
+1ACP01-PDC,723,2,[F0723]CDA_A/C (7_8)   Press   H_Stop
+1ACP01-PDC,724,2,[F0724]CDA_A/C (7_8)   Press   L_Stop
+1ACP01-PDC,725,2,[F0725]SWR1    Exhaust H_Stop
+1ACP01-PDC,726,2,[F0726]SWR1    Exhaust L_Stop
+1ACP01-PDC,727,2,[F0727]SWR1    UPW SWR Flow    H_Stop
+1ACP01-PDC,728,2,[F0728]SWR1    UPW SWR Flow    L_Stop
+1ACP01-PDC,729,2,[F0729]CDA_A/C 9_10_11 Press   H_Stop
+1ACP01-PDC,730,2,[F0730]CDA_A/C 9_10_11 Press   L_Stop
+1ACP01-PDC,731,2,[F0731]SWR2    Exhaust H_Stop
+1ACP01-PDC,732,2,[F0732]SWR2    Exhaust L_Stop
+1ACP01-PDC,733,2,[F0733]SWR2 UPWUP SWR  Flow    H_Stop
+1ACP01-PDC,734,2,[F0734]SWR2 UPWUP SWR  Flow    L_Stop
+1ACP01-PDC,735,2,[F0735]SWR2 UPWLO SWR  Flow    H_Stop
+1ACP01-PDC,736,2,[F0736]SWR2 UPWLO SWR  Flow    L_Stop
+1ACP01-PDC,737,2,[F0737]CDA_A/C 12_13_14Press   H_Stop
+1ACP01-PDC,738,2,[F0738]CDA_A/C 12_13_14Press   L_Stop
+1ACP01-PDC,739,2,[F0739]CDA_A/C (15_16) Press   H_Stop
+1ACP01-PDC,740,2,[F0740]CDA_A/C (15_16) Press   L_Stop
+1ACP01-PDC,741,2,[F0741]
+1ACP01-PDC,742,2,[F0742]
+1ACP01-PDC,743,2,[F0743]O3-2    Exhaust H_Stop
+1ACP01-PDC,744,2,[F0744]O3-2    Exhaust L_Stop
+1ACP01-PDC,745,2,[F0745]O3-2    O3 SWR  Flow    H_Stop
+1ACP01-PDC,746,2,[F0746]O3-2    O3 SWR  Flow    L_Stop
+1ACP01-PDC,747,2,[F0747]O3-2    UPW SWR Flow    H_Stop
+1ACP01-PDC,748,2,[F0748]O3-2    UPW SWR Flow    L_Stop
+1ACP01-PDC,749,2,[F0749]O3-2    UPW SPL Resist_ H_Stop
+1ACP01-PDC,750,2,[F0750]O3-2    UPW SPL Resist_ L_Stop
+1ACP01-PDC,751,2,[F0751]SWR3    Exhaust H_Stop
+1ACP01-PDC,752,2,[F0752]SWR3    Exhaust L_Stop
+1ACP01-PDC,753,2,[F0753]SWR3    UPW SWR Flow    H_Stop
+1ACP01-PDC,754,2,[F0754]SWR3    UPW SWR Flow    L_Stop
+1ACP01-PDC,755,2,[F0755]SWR3 UPWAqua SWRFlow    H_Stop
+1ACP01-PDC,756,2,[F0756]SWR3 UPWAqua SWRFlow    L_Stop
+1ACP01-PDC,757,2,[F0757]CDA_MJ  (20)    Press   H_Stop
+1ACP01-PDC,758,2,[F0758]CDA_MJ  (20)    Press   L_Stop
+1ACP01-PDC,759,2,[F0759]CDA_A/C 17_18_19Press   H_Stop
+1ACP01-PDC,760,2,[F0760]CDA_A/C 17_18_19Press   L_Stop
+1ACP01-PDC,761,2,[F0761]SWR3 TK2NPS     Press   H_Stop
+1ACP01-PDC,762,2,[F0762]SWR3 TK2NPS     Press   L_Stop
+1ACP01-PDC,763,2,[F0763]SWR4-1  Exhaust H_Stop
+1ACP01-PDC,764,2,[F0764]SWR4-1  Exhaust L_Stop
+1ACP01-PDC,765,2,[F0765]SWR4-2  Exhaust H_Stop
+1ACP01-PDC,766,2,[F0766]SWR4-2  Exhaust L_Stop
+1ACP01-PDC,767,2,[F0767]SWR4    UPW SWR Flow    H_Stop
+1ACP01-PDC,768,2,[F0768]SWR4    UPW SWR Flow    L_Stop
+1ACP01-PDC,769,2,[F0769]SWR4 UPWAqua SWRFlow    H_Stop
+1ACP01-PDC,770,2,[F0770]SWR4 UPWAqua SWRFlow    L_Stop
+1ACP01-PDC,771,2,[F0771]SWR4    UPW SPL Resist_ H_Stop
+1ACP01-PDC,772,2,[F0772]SWR4    UPW SPL Resist_ L_Stop
+1ACP01-PDC,773,2,[F0773]SWR4 TK3NPS     Press   H_Stop
+1ACP01-PDC,774,2,[F0774]SWR4 TK3NPS     Press   L_Stop
+1ACP01-PDC,775,2,[F0775]A/K-1   Exhaust H_Stop
+1ACP01-PDC,776,2,[F0776]A/K-1   Exhaust L_Stop
+1ACP01-PDC,777,2,[F0777]A/K-2   Exhaust H_Stop
+1ACP01-PDC,778,2,[F0778]A/K-2   Exhaust L_Stop
+1ACP01-PDC,779,2,[F0779]A/K     UP CDA  Flow    H_Stop
+1ACP01-PDC,780,2,[F0780]A/K     UP CDA  Flow    L_Stop
+1ACP01-PDC,781,2,[F0781]A/K     LO CDA  Flow    H_Stop
+1ACP01-PDC,782,2,[F0782]A/K     LO CDA  Flow    L_Stop
+1ACP01-PDC,783,2,[F0783]A/K     UP CDA  Press   H_Stop
+1ACP01-PDC,784,2,[F0784]A/K     UP CDA  Press   L_Stop
+1ACP01-PDC,785,2,[F0785]A/K     LO CDA  Press   H_Stop
+1ACP01-PDC,786,2,[F0786]A/K     LO CDA  Press   L_Stop
+1ACP01-PDC,787,2,[F0787]
+1ACP01-PDC,788,2,[F0788]
+1ACP01-PDC,789,2,[F0789]
+1ACP01-PDC,790,2,[F0790]
+1ACP01-PDC,791,2,[F0791]
+1ACP01-PDC,792,2,[F0792]
+1ACP01-PDC,793,2,[F0793]
+1ACP01-PDC,794,2,[F0794]
+1ACP01-PDC,795,2,[F0795]
+1ACP01-PDC,796,2,[F0796]
+1ACP01-PDC,797,2,[F0797]
+1ACP01-PDC,798,2,[F0798]
+1ACP01-PDC,799,2,[F0799]
+1ACP01-PDC,800,2,[F0800]
+1ACP01-PDC,801,2,[F0801]PRE_SWR TK1 PumpAlarm
+1ACP01-PDC,802,2,[F0802]PRE_SWR TK1 PumpStatus  Alarm
+1ACP01-PDC,803,2,[F0803]PRE_SWR Flow    Minimum Alarm
+1ACP01-PDC,804,2,[F0804]SWR3    TK2 PumpAlarm
+1ACP01-PDC,805,2,[F0805]SWR3    TK2 PumpStatus  Alarm
+1ACP01-PDC,806,2,[F0806]SWR2    Flow    Minimum Alarm
+1ACP01-PDC,807,2,[F0807]SWR4    TK3 PumpAlarm
+1ACP01-PDC,808,2,[F0808]SWR4    TK3 PumpStatus  Alarm
+1ACP01-PDC,809,2,[F0809]SWR3    Flow    Minimum Alarm
+1ACP01-PDC,810,2,[F0810]
+1ACP01-PDC,811,2,[F0811]Tank01  HH LevelAlarm
+1ACP01-PDC,812,2,[F0812]Tank01  L Level Alarm
+1ACP01-PDC,813,2,[F0813]Tank01  Range   Over    Alarm
+1ACP01-PDC,814,2,[F0814]Tank01  HH LevelSensor  Alarm
+1ACP01-PDC,815,2,[F0815]Tank01  H Level Sensor  Alarm
+1ACP01-PDC,816,2,[F0816]Tank01  M Level Sensor  Alarm
+1ACP01-PDC,817,2,[F0817]Tank01  L Level Sensor  Alarm
+1ACP01-PDC,818,2,[F0818]
+1ACP01-PDC,819,2,[F0819]
+1ACP01-PDC,820,2,[F0820]
+1ACP01-PDC,821,2,[F0821]Tank01  H Level Charge  Alarm
+1ACP01-PDC,822,2,[F0822]Tank01  M Level Charge  Alarm
+1ACP01-PDC,823,2,[F0823]Tank01  L Level Charge  Alarm
+1ACP01-PDC,824,2,[F0824]
+1ACP01-PDC,825,2,[F0825]
+1ACP01-PDC,826,2,[F0826]Tank02  HH LevelAlarm
+1ACP01-PDC,827,2,[F0827]Tank02  L Level Alarm
+1ACP01-PDC,828,2,[F0828]Tank02  Range   Over    Alarm
+1ACP01-PDC,829,2,[F0829]Tank02  HH LevelSensor  Alarm
+1ACP01-PDC,830,2,[F0830]Tank02  H Level Sensor  Alarm
+1ACP01-PDC,831,2,[F0831]Tank02  M Level Sensor  Alarm
+1ACP01-PDC,832,2,[F0832]Tank02  L Level Sensor  Alarm
+1ACP01-PDC,833,2,[F0833]
+1ACP01-PDC,834,2,[F0834]
+1ACP01-PDC,835,2,[F0835]
+1ACP01-PDC,836,2,[F0836]Tank02  H Level Charge  Alarm
+1ACP01-PDC,837,2,[F0837]Tank02  M Level Charge  Alarm
+1ACP01-PDC,838,2,[F0838]Tank02  L Level Charge  Alarm
+1ACP01-PDC,839,2,[F0839]
+1ACP01-PDC,840,2,[F0840]
+1ACP01-PDC,841,2,[F0841]Tank03  HH LevelAlarm
+1ACP01-PDC,842,2,[F0842]Tank03  L Level Alarm
+1ACP01-PDC,843,2,[F0843]Tank03  Range   Over    Alarm
+1ACP01-PDC,844,2,[F0844]Tank03  HH LevelSensor  Alarm
+1ACP01-PDC,845,2,[F0845]Tank03  H Level Sensor  Alarm
+1ACP01-PDC,846,2,[F0846]Tank03  M Level Sensor  Alarm
+1ACP01-PDC,847,2,[F0847]Tank03  L Level Sensor  Alarm
+1ACP01-PDC,848,2,[F0848]
+1ACP01-PDC,849,2,[F0849]
+1ACP01-PDC,850,2,[F0850]
+1ACP01-PDC,851,2,[F0851]Tank03  H Level Charge  Alarm
+1ACP01-PDC,852,2,[F0852]Tank03  M Level Charge  Alarm
+1ACP01-PDC,853,2,[F0853]Tank03  L Level Charge  Alarm
+1ACP01-PDC,854,2,[F0854]
+1ACP01-PDC,855,2,[F0855]
+1ACP01-PDC,856,2,[F0856]AK      CDA FlowBalance Alarm
+1ACP01-PDC,857,2,[F0857]AK      CDA Pre Balance Alarm
+1ACP01-PDC,858,2,[F0858]
+1ACP01-PDC,859,2,[F0859]
+1ACP01-PDC,860,2,[F0860]
+1ACP01-PDC,861,2,[F0861]SWR1_TOPION1    RUN     Alarm
+1ACP01-PDC,862,2,[F0862]SWR1_TOPION1    LOW_ION ALM
+1ACP01-PDC,863,2,[F0863]SWR1_TOPION1    HIGH    VOLT ALM
+1ACP01-PDC,864,2,[F0864]SWR1_TOPION1    TIP_CLN ALM
+1ACP01-PDC,865,2,[F0865]SWR1_TOPION2    RUN     Alarm
+1ACP01-PDC,866,2,[F0866]SWR1_TOPION2    LOW_ION ALM
+1ACP01-PDC,867,2,[F0867]SWR1_TOPION2    HIGH    VOLT ALM
+1ACP01-PDC,868,2,[F0868]SWR1_TOPION2    TIP_CLN ALM
+1ACP01-PDC,869,2,[F0869]SWR2_TOPION     RUN     Alarm
+1ACP01-PDC,870,2,[F0870]SWR2_TOPION     LOW_ION ALM
+1ACP01-PDC,871,2,[F0871]SWR2_TOPION     HIGH    VOLT ALM
+1ACP01-PDC,872,2,[F0872]SWR2_TOPION     TIP_CLN ALM
+1ACP01-PDC,873,2,[F0873]AK_TOP  ION     RUN     Alarm
+1ACP01-PDC,874,2,[F0874]AK_TOP  ION     LOW_ION ALM
+1ACP01-PDC,875,2,[F0875]AK_TOP  ION     HIGH    VOLT ALM
+1ACP01-PDC,876,2,[F0876]AK_TOP  ION     TIP_CLN ALM
+1ACP01-PDC,877,2,[F0877]AK_MID  ION     RUN     Alarm
+1ACP01-PDC,878,2,[F0878]AK_MID  ION     LOW_ION ALM
+1ACP01-PDC,879,2,[F0879]AK_MID  ION     HIGH    VOLT ALM
+1ACP01-PDC,880,2,[F0880]AK_MID  ION     TIP_CLN ALM
+1ACP01-PDC,881,2,[F0881]
+1ACP01-PDC,882,2,[F0882]
+1ACP01-PDC,883,2,[F0883]
+1ACP01-PDC,884,2,[F0884]
+1ACP01-PDC,885,2,[F0885]
+1ACP01-PDC,886,2,[F0886]
+1ACP01-PDC,887,2,[F0887]
+1ACP01-PDC,888,2,[F0888]
+1ACP01-PDC,889,2,[F0889]
+1ACP01-PDC,890,2,[F0890]
+1ACP01-PDC,891,2,[F0891]
+1ACP01-PDC,892,2,[F0892]
+1ACP01-PDC,893,2,[F0893]
+1ACP01-PDC,894,2,[F0894]
+1ACP01-PDC,895,2,[F0895]
+1ACP01-PDC,896,2,[F0896]
+1ACP01-PDC,897,2,[F0897]
+1ACP01-PDC,898,2,[F0898]
+1ACP01-PDC,899,2,[F0899]
+1ACP01-PDC,900,2,[F0900]HPMJ    EMO     Alarm
+1ACP01-PDC,901,2,[F0901]HPMJ    Leak    Alarm
+1ACP01-PDC,902,2,[F0902]HPMJ    InverterAlarm
+1ACP01-PDC,903,2,[F0903]HPMJ    InverterELB TripAlarm
+1ACP01-PDC,904,2,[F0904]HPMJ    InverterMC Trip Alarm
+1ACP01-PDC,905,2,[F0905]HPMJ    InverterMC On   Alarm
+1ACP01-PDC,906,2,[F0906]HPMJ    CP03    Trip    Alarm
+1ACP01-PDC,907,2,[F0907]HPMJ    FLT-In  Press   H_Alarm
+1ACP01-PDC,908,2,[F0908]HPMJ    FLT-In  Press   L_Alarm
+1ACP01-PDC,909,2,[F0909]HPMJ    FLT-Out Press   H_Alarm
+1ACP01-PDC,910,2,[F0910]HPMJ    FLT-Out Press   L_Alarm
+1ACP01-PDC,911,2,[F0911]HPMJ    Shower  Flow    H_Alarm
+1ACP01-PDC,912,2,[F0912]HPMJ    Shower  Flow    L_Alarm
+1ACP01-PDC,913,2,[F0913]HPMJ    Main DI Press   H_Alarm
+1ACP01-PDC,914,2,[F0914]HPMJ    Main DI Press   L_Alarm
+1ACP01-PDC,915,2,[F0915]HPMJ    Resisty H_Alarm
+1ACP01-PDC,916,2,[F0916]HPMJ    Resisty L_Alarm
+1ACP01-PDC,917,2,[F0917]HPMJ FLTDiffere_Press   H_Alarm
+1ACP01-PDC,918,2,[F0918]HPMJ    Main CO2Press   H_Alarm
+1ACP01-PDC,919,2,[F0919]HPMJ    Main CO2Press   L_Alarm
+1ACP01-PDC,920,2,[F0920]HPMJ    InverterLoad    H_Alarm
+1ACP01-PDC,921,2,[F0921]
+1ACP01-PDC,922,2,[F0922]
+1ACP01-PDC,923,2,[F0923]
+1ACP01-PDC,924,2,[F0924]
+1ACP01-PDC,925,2,[F0925]
+1ACP01-PDC,926,2,[F0926]
+1ACP01-PDC,927,2,[F0927]
+1ACP01-PDC,928,2,[F0928]
+1ACP01-PDC,929,2,[F0929]
+1ACP01-PDC,930,2,[F0930]
+1ACP01-PDC,931,2,[F0931]
+1ACP01-PDC,932,2,[F0932]
+1ACP01-PDC,933,2,[F0933]
+1ACP01-PDC,934,2,[F0934]
+1ACP01-PDC,935,2,[F0935]
+1ACP01-PDC,936,2,[F0936]
+1ACP01-PDC,937,2,[F0937]
+1ACP01-PDC,938,2,[F0938]
+1ACP01-PDC,939,2,[F0939]
+1ACP01-PDC,940,2,[F0940]
+1ACP01-PDC,941,2,[F0941]
+1ACP01-PDC,942,2,[F0942]
+1ACP01-PDC,943,2,[F0943]
+1ACP01-PDC,944,2,[F0944]
+1ACP01-PDC,945,2,[F0945]
+1ACP01-PDC,946,2,[F0946]
+1ACP01-PDC,947,2,[F0947]
+1ACP01-PDC,948,2,[F0948]
+1ACP01-PDC,949,2,[F0949]
+1ACP01-PDC,950,2,[F0950]
+1ACP01-PDC,951,2,[F0951]IN CV   Scan    Broken  Alarm
+1ACP01-PDC,952,2,[F0952]OUT CV  Scan    Broken  Alarm
+1ACP01-PDC,953,2,[F0953]
+1ACP01-PDC,954,2,[F0954]
+1ACP01-PDC,955,2,[F0955]
+1ACP01-PDC,956,2,[F0956]Module  Ready   Timeout Alarm
+1ACP01-PDC,957,2,[F0957]
+1ACP01-PDC,958,2,[F0958]
+1ACP01-PDC,959,2,[F0959]
+1ACP01-PDC,960,2,[F0960]TIC     Communi_Alarm
+1ACP01-PDC,961,2,[F0961]Intergr_Communi_Alarm
+1ACP01-PDC,962,2,[F0962]
+1ACP01-PDC,963,2,[F0963]
+1ACP01-PDC,964,2,[F0964]
+1ACP01-PDC,965,2,[F0965]
+1ACP01-PDC,966,2,[F0966]AK      Hepa    Alarm
+1ACP01-PDC,967,2,[F0967]
+1ACP01-PDC,968,2,[F0968]
+1ACP01-PDC,969,2,[F0969]
+1ACP01-PDC,970,2,[F0970]
+1ACP01-PDC,971,2,[F0971]ElavatorServo   Driver  Alarm
+1ACP01-PDC,972,2,[F0972]ElavatorServo   CP Trip Alarm
+1ACP01-PDC,973,2,[F0973]ElavatorUP      Limit   Alarm
+1ACP01-PDC,974,2,[F0974]ElavatorDown    Limit   Alarm
+1ACP01-PDC,975,2,[F0975]ElavatorOrigin  Timeout Alarm
+1ACP01-PDC,976,2,[F0976]ElavatorPos.Mov Timeout Alarm
+1ACP01-PDC,977,2,[F0977]ElavatorServo   Axis1   Alarm
+1ACP01-PDC,978,2,[F0978]
+1ACP01-PDC,979,2,[F0979]ElavatorCV UP   P-SensorAlarm
+1ACP01-PDC,980,2,[F0980]ElavatorCV Down P-SensorAlarm
+1ACP01-PDC,981,2,[F0981]RB1 Up  Servo   Driver  Alarm
+1ACP01-PDC,982,2,[F0982]RB1 Up  Servo   CP Trip Alarm
+1ACP01-PDC,983,2,[F0983]RB1 Up  Servo   + Limit Alarm
+1ACP01-PDC,984,2,[F0984]RB1 Up  Servo   - Limit Alarm
+1ACP01-PDC,985,2,[F0985]RB1 Up  Servo   PositionAlarm
+1ACP01-PDC,986,2,[F0986]RB1 Up  Servo   Origin  Alarm
+1ACP01-PDC,987,2,[F0987]RB1 Up  Servo   QD75AxisAlarm
+1ACP01-PDC,988,2,[F0988]
+1ACP01-PDC,989,2,[F0989]
+1ACP01-PDC,990,2,[F0990]
+1ACP01-PDC,991,2,[F0991]RB1 LO  Servo   Driver  Alarm
+1ACP01-PDC,992,2,[F0992]RB1 LO  Servo   CP Trip Alarm
+1ACP01-PDC,993,2,[F0993]RB1 LO  Servo   + Limit Alarm
+1ACP01-PDC,994,2,[F0994]RB1 LO  Servo   - Limit Alarm
+1ACP01-PDC,995,2,[F0995]RB1 LO  Servo   PositionAlarm
+1ACP01-PDC,996,2,[F0996]RB1 LO  Servo   Origin  Alarm
+1ACP01-PDC,997,2,[F0997]RB1 LO  Servo   QD75AxisAlarm
+1ACP01-PDC,998,2,[F0998]
+1ACP01-PDC,999,2,[F0999]
+1ACP01-PDC,1000,2,[F1000]
+1ACP01-PDC,1001,2,[F1001]RB2 Up  Servo   Driver  Alarm
+1ACP01-PDC,1002,2,[F1002]RB2 Up  Servo   CP Trip Alarm
+1ACP01-PDC,1003,2,[F1003]RB2 Up  Servo   + Limit Alarm
+1ACP01-PDC,1004,2,[F1004]RB2 Up  Servo   - Limit Alarm
+1ACP01-PDC,1005,2,[F1005]RB2 Up  Servo   PositionAlarm
+1ACP01-PDC,1006,2,[F1006]RB2 Up  Servo   Origin  Alarm
+1ACP01-PDC,1007,2,[F1007]RB2 Up  Servo   QD75AxisAlarm
+1ACP01-PDC,1008,2,[F1008]
+1ACP01-PDC,1009,2,[F1009]
+1ACP01-PDC,1010,2,[F1010]
+1ACP01-PDC,1011,2,[F1011]RB2 LO  Servo   Driver  Alarm
+1ACP01-PDC,1012,2,[F1012]RB2 LO  Servo   CP Trip Alarm
+1ACP01-PDC,1013,2,[F1013]RB2 LO  Servo   + Limit Alarm
+1ACP01-PDC,1014,2,[F1014]RB2 LO  Servo   - Limit Alarm
+1ACP01-PDC,1015,2,[F1015]RB2 LO  Servo   PositionAlarm
+1ACP01-PDC,1016,2,[F1016]RB2 LO  Servo   Origin  Alarm
+1ACP01-PDC,1017,2,[F1017]RB2 LO  Servo   QD75AxisAlarm
+1ACP01-PDC,1018,2,[F1018]
+1ACP01-PDC,1019,2,[F1019]
+1ACP01-PDC,1020,2,[F1020]
+1ACP01-PDC,1021,2,[F1021]R/B     Motor   CP Trip Alarm
+1ACP01-PDC,1022,2,[F1022]R/B1    UP MotorDriver  Alarm
+1ACP01-PDC,1023,2,[F1023]R/B1    LO MotorDriver  Alarm
+1ACP01-PDC,1024,2,[F1024]R/B2    UP MotorDriver  Alarm
+1ACP01-PDC,1025,2,[F1025]R/B2    LO MotorDriver  Alarm
+1ACP01-PDC,1026,2,[F1026]
+1ACP01-PDC,1027,2,[F1027]
+1ACP01-PDC,1028,2,[F1028]
+1ACP01-PDC,1029,2,[F1029]
+1ACP01-PDC,1030,2,[F1030]
+1ACP01-PDC,1031,2,[F1031]HF Pipe OSC     CP Trip Alarm
+1ACP01-PDC,1032,2,[F1032]HF Pipe OSC1    Driver  Alarm
+1ACP01-PDC,1033,2,[F1033]HF Pipe OSC1    Origin  T/O ALM
+1ACP01-PDC,1034,2,[F1034]HF Pipe OSC1    Cycle   Alarm
+1ACP01-PDC,1035,2,[F1035]
+1ACP01-PDC,1036,2,[F1036]
+1ACP01-PDC,1037,2,[F1037]
+1ACP01-PDC,1038,2,[F1038]
+1ACP01-PDC,1039,2,[F1039]
+1ACP01-PDC,1040,2,[F1040]
+1ACP01-PDC,1041,2,[F1041]EUV     Remote  Change  Alarm
+1ACP01-PDC,1042,2,[F1042]EUV LampOn FaultAlarm   [UEUV]
+1ACP01-PDC,1043,2,[F1043]EUV     Ready   Alarm   [URDY]
+1ACP01-PDC,1044,2,[F1044]EUV     No      Caution Alarm
+1ACP01-PDC,1045,2,[F1045]EUV     Lamp On AbnormalAlarm
+1ACP01-PDC,1046,2,[F1046]EUV     Circuit Protect Alarm
+1ACP01-PDC,1047,2,[F1047]EUV     ElectricCircuit Alarm
+1ACP01-PDC,1048,2,[F1048]EUV     PowerOffAlarm   [UFLT]
+1ACP01-PDC,1049,2,[F1049]EUV N2  Over    PressureAlarm
+1ACP01-PDC,1050,2,[F1050]EUV     N2 CDA  Low-P   (UWNL)
+1ACP01-PDC,1051,2,[F1051]EUV     House   Tempera_Alarm
+1ACP01-PDC,1052,2,[F1052]EUV     House   Open    Alarm
+1ACP01-PDC,1053,2,[F1053]EUV     Transfo_Tempere_Alarm
+1ACP01-PDC,1054,2,[F1054]EUV     ElectricBox OpenAlarm
+1ACP01-PDC,1055,2,[F1055]EUV     Chamber Leak    Alarm
+1ACP01-PDC,1056,2,[F1056]EUV     Control_Alarm   [UCPU]
+1ACP01-PDC,1057,2,[F1057]EUV     Emer_OffAlarm   [UEMO]
+1ACP01-PDC,1058,2,[F1058]EUV     Recipe  Applica_Alarm
+1ACP01-PDC,1059,2,[F1059]
+1ACP01-PDC,1060,2,[F1060]
+1ACP01-PDC,1061,2,[F1061]
+1ACP01-PDC,1062,2,[F1062]
+1ACP01-PDC,1063,2,[F1063]
+1ACP01-PDC,1064,2,[F1064]
+1ACP01-PDC,1065,2,[F1065]EUV     House   SRU     Alarm
+1ACP01-PDC,1066,2,[F1066]EUV     House   Up      Alarm
+1ACP01-PDC,1067,2,[F1067]EUV     House   Down    Alarm
+1ACP01-PDC,1068,2,[F1068]
+1ACP01-PDC,1069,2,[F1069]
+1ACP01-PDC,1070,2,[F1070]
+1ACP01-PDC,1071,2,[F1071]EUV     Exhaust1H_Alarm
+1ACP01-PDC,1072,2,[F1072]EUV     Exhaust1L_Alarm
+1ACP01-PDC,1073,2,[F1073]EUV     Exhaust2H_Alarm
+1ACP01-PDC,1074,2,[F1074]EUV     Exhaust2L_Alarm
+1ACP01-PDC,1075,2,[F1075]EUV_A/C CDA     Press   H_Alarm
+1ACP01-PDC,1076,2,[F1076]EUV_A/C CDA     Press   L_Alarm
+1ACP01-PDC,1077,2,[F1077]EUV_IN  CDA     Flow    H_Alarm
+1ACP01-PDC,1078,2,[F1078]EUV_IN  CDA     Flow    L_Alarm
+1ACP01-PDC,1079,2,[F1079]EUV_IN  N2      Flow    H_Alarm
+1ACP01-PDC,1080,2,[F1080]EUV_IN  N2      Flow    L_Alarm
+1ACP01-PDC,1081,2,[F1081]
+1ACP01-PDC,1082,2,[F1082]
+1ACP01-PDC,1083,2,[F1083]
+1ACP01-PDC,1084,2,[F1084]
+1ACP01-PDC,1085,2,[F1085]
+1ACP01-PDC,1086,2,[F1086]
+1ACP01-PDC,1087,2,[F1087]
+1ACP01-PDC,1088,2,[F1088]
+1ACP01-PDC,1089,2,[F1089]
+1ACP01-PDC,1090,2,[F1090]
+1ACP01-PDC,1091,2,[F1091]EUV     Exhaust1H_Stop
+1ACP01-PDC,1092,2,[F1092]EUV     Exhaust1L_Stop
+1ACP01-PDC,1093,2,[F1093]EUV     Exhaust2H_Stop
+1ACP01-PDC,1094,2,[F1094]EUV     Exhaust2L_Stop
+1ACP01-PDC,1095,2,[F1095]EUV_A/C CDA     Press   H_Stop
+1ACP01-PDC,1096,2,[F1096]EUV_A/C CDA     Press   L_Stop
+1ACP01-PDC,1097,2,[F1097]EUV_IN  CDA     Flow    H_Stop
+1ACP01-PDC,1098,2,[F1098]EUV_IN  CDA     Flow    L_Stop
+1ACP01-PDC,1099,2,[F1099]EUV_IN  N2      Flow    H_Stop
+1ACP01-PDC,1100,2,[F1100]EUV_IN  N2      Flow    L_Stop
+1ACP01-PDC,1101,2,[F1101]
+1ACP01-PDC,1102,2,[F1102]
+1ACP01-PDC,1103,2,[F1103]
+1ACP01-PDC,1104,2,[F1104]
+1ACP01-PDC,1105,2,[F1105]O3      Communi_Alarm
+1ACP01-PDC,1106,2,[F1106]
+1ACP01-PDC,1107,2,[F1107]
+1ACP01-PDC,1108,2,[F1108]
+1ACP01-PDC,1109,2,[F1109]
+1ACP01-PDC,1110,2,[F1110]ELEV_TOPFFU1    Alarm
+1ACP01-PDC,1111,2,[F1111]ELEV_TOPFFU2    Alarm
+1ACP01-PDC,1112,2,[F1112]ELEV_TOPFFU3    Alarm
+1ACP01-PDC,1113,2,[F1113]IN_OUT  MID_FFU1Alarm
+1ACP01-PDC,1114,2,[F1114]IN_OUT  MID_FFU2Alarm
+1ACP01-PDC,1115,2,[F1115]IN_OUT  MID_FFU3Alarm
+1ACP01-PDC,1116,2,[F1116]IN_OUT  TOP_FFU1Alarm
+1ACP01-PDC,1117,2,[F1117]IN_OUT  TOP_FFU2Alarm
+1ACP01-PDC,1118,2,[F1118]IN_OUT  TOP_FFU3Alarm
+1ACP01-PDC,1119,2,[F1119]PRE_SWR TOP_FFU1Alarm
+1ACP01-PDC,1120,2,[F1120]PRE_SWR TOP_FFU2Alarm
+1ACP01-PDC,1121,2,[F1121]O3-1    TOP_FFU1Alarm
+1ACP01-PDC,1122,2,[F1122]HF      TOP_FFU1Alarm
+1ACP01-PDC,1123,2,[F1123]HF      TOP_FFU2Alarm
+1ACP01-PDC,1124,2,[F1124]HF      TOP_FFU3Alarm
+1ACP01-PDC,1125,2,[F1125]SWR2    TOP_FFU1Alarm
+1ACP01-PDC,1126,2,[F1126]SWR2    TOP_FFU2Alarm
+1ACP01-PDC,1127,2,[F1127]O3-2    TOP_FFU1Alarm
+1ACP01-PDC,1128,2,[F1128]SWR3    TOP_FFU2Alarm
+1ACP01-PDC,1129,2,[F1129]SWR4    TOP_FFU2Alarm
+1ACP01-PDC,1130,2,[F1130]A/K     TOP_FFU1Alarm
+1ACP01-PDC,1131,2,[F1131]
+1ACP01-PDC,1132,2,[F1132]
+1ACP01-PDC,1133,2,[F1133]
+1ACP01-PDC,1134,2,[F1134]
+1ACP01-PDC,1135,2,[F1135]
+1ACP01-PDC,1136,2,[F1136]
+1ACP01-PDC,1137,2,[F1137]
+1ACP01-PDC,1138,2,[F1138]
+1ACP01-PDC,1139,2,[F1139]
+1ACP01-PDC,1140,2,[F1140]
+1ACP01-PDC,1141,2,[F1141]
+1ACP01-PDC,1142,2,[F1142]
+1ACP01-PDC,1143,2,[F1143]
+1ACP01-PDC,1144,2,[F1144]
+1ACP01-PDC,1145,2,[F1145]
+1ACP01-PDC,1146,2,[F1146]
+1ACP01-PDC,1147,2,[F1147]
+1ACP01-PDC,1148,2,[F1148]
+1ACP01-PDC,1149,2,[F1149]
+1ACP01-PDC,1150,2,[F1150]
+1ACP01-PDC,1151,2,[F1151]HF      BDOOR   OP1     Alarm
+1ACP01-PDC,1152,2,[F1152]HF      BDOOR   MT1     Alarm
+1ACP01-PDC,1153,2,[F1153]HF      BDOOR   OP2     Alarm
+1ACP01-PDC,1154,2,[F1154]HF      BDOOR   MT2     Alarm
+1ACP01-PDC,1155,2,[F1155]HF      BDDOR   SRU     Alarm
+1ACP01-PDC,1156,2,[F1156]
+1ACP01-PDC,1157,2,[F1157]
+1ACP01-PDC,1158,2,[F1158]
+1ACP01-PDC,1159,2,[F1159]
+1ACP01-PDC,1160,2,[F1160]
+1ACP01-PDC,1161,2,[F1161]HF      Leak    Alarm
+1ACP01-PDC,1162,2,[F1162]
+1ACP01-PDC,1163,2,[F1163]
+1ACP01-PDC,1164,2,[F1164]
+1ACP01-PDC,1165,2,[F1165]
+1ACP01-PDC,1166,2,[F1166]
+1ACP01-PDC,1167,2,[F1167]
+1ACP01-PDC,1168,2,[F1168]
+1ACP01-PDC,1169,2,[F1169]
+1ACP01-PDC,1170,2,[F1170]
+1ACP01-PDC,1171,2,[F1171]HF CCSS Ready   Alarm
+1ACP01-PDC,1172,2,[F1172]HF TK   Ready   Timeout Alarm
+1ACP01-PDC,1173,2,[F1173]
+1ACP01-PDC,1174,2,[F1174]
+1ACP01-PDC,1175,2,[F1175]
+1ACP01-PDC,1176,2,[F1176]
+1ACP01-PDC,1177,2,[F1177]
+1ACP01-PDC,1178,2,[F1178]
+1ACP01-PDC,1179,2,[F1179]
+1ACP01-PDC,1180,2,[F1180]
+1ACP01-PDC,1181,2,[F1181]HF Tank1SCR     Alarm
+1ACP01-PDC,1182,2,[F1182]HF Tank1Heater  SRUReadyAlarm
+1ACP01-PDC,1183,2,[F1183]HF Tank1Heater  ELB TripAlarm
+1ACP01-PDC,1184,2,[F1184]HF Tank1Heater  MC ON   Alarm
+1ACP01-PDC,1185,2,[F1185]HF Tank1Heater  MC OFF  Alarm
+1ACP01-PDC,1186,2,[F1186]HF Tank1Temp    Deviati_Alarm
+1ACP01-PDC,1187,2,[F1187]HF Tank1TIC     Alarm:  Control
+1ACP01-PDC,1188,2,[F1188]HF Tank1TIC     Alarm:  Monitor
+1ACP01-PDC,1189,2,[F1189]
+1ACP01-PDC,1190,2,[F1190]
+1ACP01-PDC,1191,2,[F1191]HF Tank2SCR     Alarm
+1ACP01-PDC,1192,2,[F1192]HF Tank2Heater  SRUReadyAlarm
+1ACP01-PDC,1193,2,[F1193]HF Tank2Heater  ELB TripAlarm
+1ACP01-PDC,1194,2,[F1194]HF Tank2Heater  MC ON   Alarm
+1ACP01-PDC,1195,2,[F1195]HF Tank2Heater  MC OFF  Alarm
+1ACP01-PDC,1196,2,[F1196]HF Tank2Temp    Deviati_Alarm
+1ACP01-PDC,1197,2,[F1197]HF Tank2TIC     Alarm:  Control
+1ACP01-PDC,1198,2,[F1198]HF Tank2TIC     Alarm:  Monitor
+1ACP01-PDC,1199,2,[F1199]
+1ACP01-PDC,1200,2,[F1200]
+1ACP01-PDC,1201,2,[F1201]
+1ACP01-PDC,1202,2,[F1202]
+1ACP01-PDC,1203,2,[F1203]
+1ACP01-PDC,1204,2,[F1204]
+1ACP01-PDC,1205,2,[F1205]
+1ACP01-PDC,1206,2,[F1206]
+1ACP01-PDC,1207,2,[F1207]
+1ACP01-PDC,1208,2,[F1208]
+1ACP01-PDC,1209,2,[F1209]
+1ACP01-PDC,1210,2,[F1210]
+1ACP01-PDC,1211,2,[F1211]HF Tank1HH LevelAlarm
+1ACP01-PDC,1212,2,[F1212]HF Tank1L  LevelAlarm
+1ACP01-PDC,1213,2,[F1213]HF Tank1Level   Range   Alarm
+1ACP01-PDC,1214,2,[F1214]HF Tank1HH I/L  Level   Alarm
+1ACP01-PDC,1215,2,[F1215]HF Tank1L  I/L  Level   Alarm
+1ACP01-PDC,1216,2,[F1216]HF Tank1HH LevelSensor  Alarm
+1ACP01-PDC,1217,2,[F1217]HF Tank1H Level Sensor  Alarm
+1ACP01-PDC,1218,2,[F1218]HF Tank1MH LevelSensor  Alarm
+1ACP01-PDC,1219,2,[F1219]HF Tank1ML LevelSensor  Alarm
+1ACP01-PDC,1220,2,[F1220]HF Tank1L Level Sensor  Alarm
+1ACP01-PDC,1221,2,[F1221]HF Tank1LL LevelSensor  Alarm
+1ACP01-PDC,1222,2,[F1222]HF Tank1H-SupplyTimeout Alarm
+1ACP01-PDC,1223,2,[F1223]HF Tank1MHSupplyTimeout Alarm
+1ACP01-PDC,1224,2,[F1224]HF Tank1MLSupplyTimeout Alarm
+1ACP01-PDC,1225,2,[F1225]HF Tank1L-SupplyTimeout Alarm
+1ACP01-PDC,1226,2,[F1226]HF Tank1LLSupplyTimeout Alarm
+1ACP01-PDC,1227,2,[F1227]HF Tank1Drain   Timeout Alarm
+1ACP01-PDC,1228,2,[F1228]
+1ACP01-PDC,1229,2,[F1229]
+1ACP01-PDC,1230,2,[F1230]
+1ACP01-PDC,1231,2,[F1231]HF Tank2HH LevelAlarm
+1ACP01-PDC,1232,2,[F1232]HF Tank2L  LevelAlarm
+1ACP01-PDC,1233,2,[F1233]HF Tank2Level   Range   Alarm
+1ACP01-PDC,1234,2,[F1234]HF Tank2HH I/L  Level   Alarm
+1ACP01-PDC,1235,2,[F1235]HF Tank2L  I/L  Level   Alarm
+1ACP01-PDC,1236,2,[F1236]HF Tank2HH LevelSensor  Alarm
+1ACP01-PDC,1237,2,[F1237]HF Tank2H Level Sensor  Alarm
+1ACP01-PDC,1238,2,[F1238]HF Tank2MH LevelSensor  Alarm
+1ACP01-PDC,1239,2,[F1239]HF Tank2ML LevelSensor  Alarm
+1ACP01-PDC,1240,2,[F1240]HF Tank2L Level Sensor  Alarm
+1ACP01-PDC,1241,2,[F1241]HF Tank2LL LevelSensor  Alarm
+1ACP01-PDC,1242,2,[F1242]HF Tank2H-SupplyTimeout Alarm
+1ACP01-PDC,1243,2,[F1243]HF Tank2MHSupplyTimeout Alarm
+1ACP01-PDC,1244,2,[F1244]HF Tank2MLSupplyTimeout Alarm
+1ACP01-PDC,1245,2,[F1245]HF Tank2L-SupplyTimeout Alarm
+1ACP01-PDC,1246,2,[F1246]HF Tank2LLSupplyTimeout Alarm
+1ACP01-PDC,1247,2,[F1247]HF Tank2Drain   Timeout Alarm
+1ACP01-PDC,1248,2,[F1248]
+1ACP01-PDC,1249,2,[F1249]
+1ACP01-PDC,1250,2,[F1250]
+1ACP01-PDC,1251,2,[F1251]HF Tank1LiSupplyCOMP    Timeout
+1ACP01-PDC,1252,2,[F1252]HF Tank1LiSupplyTime[H] Alarm
+1ACP01-PDC,1253,2,[F1253]HF Tank1LiSupplyCount[H]Alarm
+1ACP01-PDC,1254,2,[F1254]HF Tank1LiSupplyTime[D] Alarm
+1ACP01-PDC,1255,2,[F1255]HF Tank1LiSupplyCount[D]Alarm
+1ACP01-PDC,1256,2,[F1256]
+1ACP01-PDC,1257,2,[F1257]
+1ACP01-PDC,1258,2,[F1258]O3      READY   ALARM
+1ACP01-PDC,1259,2,[F1259]
+1ACP01-PDC,1260,2,[F1260]
+1ACP01-PDC,1261,2,[F1261]HF Tank2LiSupplyCOMP    Timeout
+1ACP01-PDC,1262,2,[F1262]HF Tank2LiSupplyTime[H] Alarm
+1ACP01-PDC,1263,2,[F1263]HF Tank2LiSupplyCount[H]Alarm
+1ACP01-PDC,1264,2,[F1264]HF Tank2LiSupplyTime[D] Alarm
+1ACP01-PDC,1265,2,[F1265]HF Tank2LiSupplyCount[D]Alarm
+1ACP01-PDC,1266,2,[F1266]
+1ACP01-PDC,1267,2,[F1267]
+1ACP01-PDC,1268,2,[F1268]
+1ACP01-PDC,1269,2,[F1269]
+1ACP01-PDC,1270,2,[F1270]
+1ACP01-PDC,1271,2,[F1271]HF Tank1HH LevelAlarm:SB
+1ACP01-PDC,1272,2,[F1272]HF Tank1L  LevelAlarm:SB
+1ACP01-PDC,1273,2,[F1273]HF Tank1Level   Range   Alarm:SB
+1ACP01-PDC,1274,2,[F1274]HF Tank1HH I/L  Level   Alarm:SB
+1ACP01-PDC,1275,2,[F1275]HF Tank1L  I/L  Level   Alarm:SB
+1ACP01-PDC,1276,2,[F1276]HF Tank1HH LevelSensor  Alarm:SB
+1ACP01-PDC,1277,2,[F1277]HF Tank1H Level Sensor  Alarm:SB
+1ACP01-PDC,1278,2,[F1278]HF Tank1MH LevelSensor  Alarm:SB
+1ACP01-PDC,1279,2,[F1279]HF Tank1ML LevelSensor  Alarm:SB
+1ACP01-PDC,1280,2,[F1280]HF Tank1L Level Sensor  Alarm:SB
+1ACP01-PDC,1281,2,[F1281]HF Tank1LL LevelSensor  Alarm:SB
+1ACP01-PDC,1282,2,[F1282]
+1ACP01-PDC,1283,2,[F1283]
+1ACP01-PDC,1284,2,[F1284]
+1ACP01-PDC,1285,2,[F1285]
+1ACP01-PDC,1286,2,[F1286]
+1ACP01-PDC,1287,2,[F1287]
+1ACP01-PDC,1288,2,[F1288]
+1ACP01-PDC,1289,2,[F1289]
+1ACP01-PDC,1290,2,[F1290]
+1ACP01-PDC,1291,2,[F1291]HF Tank2HH LevelAlarm:SB
+1ACP01-PDC,1292,2,[F1292]HF Tank2L  LevelAlarm:SB
+1ACP01-PDC,1293,2,[F1293]HF Tank2Level   Range   Alarm:SB
+1ACP01-PDC,1294,2,[F1294]HF Tank2HH I/L  Level   Alarm:SB
+1ACP01-PDC,1295,2,[F1295]HF Tank2L  I/L  Level   Alarm:SB
+1ACP01-PDC,1296,2,[F1296]HF Tank2HH LevelSensor  Alarm:SB
+1ACP01-PDC,1297,2,[F1297]HF Tank2H Level Sensor  Alarm:SB
+1ACP01-PDC,1298,2,[F1298]HF Tank2MH LevelSensor  Alarm:SB
+1ACP01-PDC,1299,2,[F1299]HF Tank2ML LevelSensor  Alarm:SB
+1ACP01-PDC,1300,2,[F1300]HF Tank2L Level Sensor  Alarm:SB
+1ACP01-PDC,1301,2,[F1301]HF Tank2LL LevelSensor  Alarm:SB
+1ACP01-PDC,1302,2,[F1302]
+1ACP01-PDC,1303,2,[F1303]
+1ACP01-PDC,1304,2,[F1304]
+1ACP01-PDC,1305,2,[F1305]
+1ACP01-PDC,1306,2,[F1306]
+1ACP01-PDC,1307,2,[F1307]
+1ACP01-PDC,1308,2,[F1308]
+1ACP01-PDC,1309,2,[F1309]
+1ACP01-PDC,1310,2,[F1310]
+1ACP01-PDC,1311,2,[F1311]HF SWR  Pump    Alarm
+1ACP01-PDC,1312,2,[F1312]HF SWR  Pump    Status  Alarm
+1ACP01-PDC,1313,2,[F1313]HF TK1  Cir_PumpAlarm
+1ACP01-PDC,1314,2,[F1314]HF TK1  Cir_PumpStatus  Alarm
+1ACP01-PDC,1315,2,[F1315]HF TK2  Cir_PumpAlarm
+1ACP01-PDC,1316,2,[F1316]HF TK2  Cir_PumpStatus  Alarm
+1ACP01-PDC,1317,2,[F1317]
+1ACP01-PDC,1318,2,[F1318]
+1ACP01-PDC,1319,2,[F1319]
+1ACP01-PDC,1320,2,[F1320]
+1ACP01-PDC,1321,2,[F1321]HF Zone SWR FlowMinimum Alarm
+1ACP01-PDC,1322,2,[F1322]
+1ACP01-PDC,1323,2,[F1323]
+1ACP01-PDC,1324,2,[F1324]
+1ACP01-PDC,1325,2,[F1325]
+1ACP01-PDC,1326,2,[F1326]
+1ACP01-PDC,1327,2,[F1327]
+1ACP01-PDC,1328,2,[F1328]
+1ACP01-PDC,1329,2,[F1329]
+1ACP01-PDC,1330,2,[F1330]
+1ACP01-PDC,1331,2,[F1331]HF Tank1ExchangeAlarm
+1ACP01-PDC,1332,2,[F1332]HF Tank1ExchangeTimeout Alarm
+1ACP01-PDC,1333,2,[F1333]HF Tank2ExchangeAlarm
+1ACP01-PDC,1334,2,[F1334]HF Tank2ExchangeTimeout Alarm
+1ACP01-PDC,1335,2,[F1335]
+1ACP01-PDC,1336,2,[F1336]
+1ACP01-PDC,1337,2,[F1337]
+1ACP01-PDC,1338,2,[F1338]
+1ACP01-PDC,1339,2,[F1339]
+1ACP01-PDC,1340,2,[F1340]
+1ACP01-PDC,1341,2,[F1341]HF      Exhaust H_Alarm
+1ACP01-PDC,1342,2,[F1342]HF      Exhaust L_Alarm
+1ACP01-PDC,1343,2,[F1343]HF UP1  SWR FlowH_Alarm
+1ACP01-PDC,1344,2,[F1344]HF UP1  SWR FlowL_Alarm
+1ACP01-PDC,1345,2,[F1345]HF UP2  SWR FlowH_Alarm
+1ACP01-PDC,1346,2,[F1346]HF UP2  SWR FlowL_Alarm
+1ACP01-PDC,1347,2,[F1347]HF Low  SWR FlowH_Alarm
+1ACP01-PDC,1348,2,[F1348]HF Low  SWR FlowL_Alarm
+1ACP01-PDC,1349,2,[F1349]HF TK1  L_Drain Flow    H_Alarm
+1ACP01-PDC,1350,2,[F1350]HF TK1  L_Drain Flow    L_Alarm
+1ACP01-PDC,1351,2,[F1351]HF TK2  L_Drain Flow    H_Alarm
+1ACP01-PDC,1352,2,[F1352]HF TK2  L_Drain Flow    L_Alarm
+1ACP01-PDC,1353,2,[F1353]
+1ACP01-PDC,1354,2,[F1354]
+1ACP01-PDC,1355,2,[F1355]
+1ACP01-PDC,1356,2,[F1356]HF TK1  PCW IN  Flow    H_Alarm
+1ACP01-PDC,1357,2,[F1357]HF TK1  PCW IN  Flow    L_Alarm
+1ACP01-PDC,1358,2,[F1358]HF TK2  PCW IN  Flow    H_Alarm
+1ACP01-PDC,1359,2,[F1359]HF TK2  PCW IN  Flow    L_Alarm
+1ACP01-PDC,1360,2,[F1360]HF TK1  Conduct_H_Alarm
+1ACP01-PDC,1361,2,[F1361]HF TK1  Conduct_L_Alarm
+1ACP01-PDC,1362,2,[F1362]HF TK2  Conduct_H_Alarm
+1ACP01-PDC,1363,2,[F1363]HF TK2  Conduct_L_Alarm
+1ACP01-PDC,1364,2,[F1364]HF TK1  NPS     Press   H_Alarm
+1ACP01-PDC,1365,2,[F1365]HF TK1  NPS     Press   L_Alarm
+1ACP01-PDC,1366,2,[F1366]HF TK2  NPS     Press   H_Alarm
+1ACP01-PDC,1367,2,[F1367]HF TK2  NPS     Press   L_Alarm
+1ACP01-PDC,1368,2,[F1368]
+1ACP01-PDC,1369,2,[F1369]
+1ACP01-PDC,1370,2,[F1370]
+1ACP01-PDC,1371,2,[F1371]HF Tank1Control Temp_H  Alarm
+1ACP01-PDC,1372,2,[F1372]HF Tank1Control Temp_L  Alarm
+1ACP01-PDC,1373,2,[F1373]HF Tank1Monitor Temp_H  Alarm
+1ACP01-PDC,1374,2,[F1374]HF Tank1Monitor Temp_L  Alarm
+1ACP01-PDC,1375,2,[F1375]HF Tank2Control Temp_H  Alarm
+1ACP01-PDC,1376,2,[F1376]HF Tank2Control Temp_L  Alarm
+1ACP01-PDC,1377,2,[F1377]HF Tank2Monitor Temp_H  Alarm
+1ACP01-PDC,1378,2,[F1378]HF Tank2Monitor Temp_L  Alarm
+1ACP01-PDC,1379,2,[F1379]
+1ACP01-PDC,1380,2,[F1380]
+1ACP01-PDC,1381,2,[F1381]
+1ACP01-PDC,1382,2,[F1382]
+1ACP01-PDC,1383,2,[F1383]
+1ACP01-PDC,1384,2,[F1384]
+1ACP01-PDC,1385,2,[F1385]
+1ACP01-PDC,1386,2,[F1386]
+1ACP01-PDC,1387,2,[F1387]
+1ACP01-PDC,1388,2,[F1388]
+1ACP01-PDC,1389,2,[F1389]
+1ACP01-PDC,1390,2,[F1390]
+1ACP01-PDC,1391,2,[F1391]HF      Exhaust H_Stop
+1ACP01-PDC,1392,2,[F1392]HF      Exhaust L_Stop
+1ACP01-PDC,1393,2,[F1393]HF UP1  SWR FlowH_Stop
+1ACP01-PDC,1394,2,[F1394]HF UP1  SWR FlowL_Stop
+1ACP01-PDC,1395,2,[F1395]HF UP2  SWR FlowH_Stop
+1ACP01-PDC,1396,2,[F1396]HF UP2  SWR FlowL_Stop
+1ACP01-PDC,1397,2,[F1397]HF Low  SWR FlowH_Stop
+1ACP01-PDC,1398,2,[F1398]HF Low  SWR FlowL_Stop
+1ACP01-PDC,1399,2,[F1399]HF TK1  L_Drain Flow    H_Stop
+1ACP01-PDC,1400,2,[F1400]HF TK1  L_Drain Flow    L_Stop
+1ACP01-PDC,1401,2,[F1401]HF TK2  L_Drain Flow    H_Stop
+1ACP01-PDC,1402,2,[F1402]HF TK2  L_Drain Flow    L_Stop
+1ACP01-PDC,1403,2,[F1403]
+1ACP01-PDC,1404,2,[F1404]
+1ACP01-PDC,1405,2,[F1405]
+1ACP01-PDC,1406,2,[F1406]HF TK1  PCW IN  Flow    H_Stop
+1ACP01-PDC,1407,2,[F1407]HF TK1  PCW IN  Flow    L_Stop
+1ACP01-PDC,1408,2,[F1408]HF TK2  PCW IN  Flow    H_Stop
+1ACP01-PDC,1409,2,[F1409]HF TK2  PCW IN  Flow    L_Stop
+1ACP01-PDC,1410,2,[F1410]HF TK1  Conduct_H_Stop
+1ACP01-PDC,1411,2,[F1411]HF TK1  Conduct_L_Stop
+1ACP01-PDC,1412,2,[F1412]HF TK2  Conduct_H_Stop
+1ACP01-PDC,1413,2,[F1413]HF TK2  Conduct_L_Stop
+1ACP01-PDC,1414,2,[F1414]HF TK1  NPS     Press   H_Stop
+1ACP01-PDC,1415,2,[F1415]HF TK1  NPS     Press   L_Stop
+1ACP01-PDC,1416,2,[F1416]HF TK2  NPS     Press   H_Stop
+1ACP01-PDC,1417,2,[F1417]HF TK2  NPS     Press   L_Stop
+1ACP01-PDC,1418,2,[F1418]
+1ACP01-PDC,1419,2,[F1419]
+1ACP01-PDC,1420,2,[F1420]
+1ACP01-PDC,1421,2,[F1421]HF Tank1Control Temp_H  Stop
+1ACP01-PDC,1422,2,[F1422]HF Tank1Control Temp_L  Stop
+1ACP01-PDC,1423,2,[F1423]HF Tank1Monitor Temp_H  Stop
+1ACP01-PDC,1424,2,[F1424]HF Tank1Monitor Temp_L  Stop
+1ACP01-PDC,1425,2,[F1425]HF Tank2Control Temp_H  Stop
+1ACP01-PDC,1426,2,[F1426]HF Tank2Control Temp_L  Stop
+1ACP01-PDC,1427,2,[F1427]HF Tank2Monitor Temp_H  Stop
+1ACP01-PDC,1428,2,[F1428]HF Tank2Monitor Temp_L  Stop
+1ACP01-PDC,1429,2,[F1429]
+1ACP01-PDC,1430,2,[F1430]
+1ACP01-PDC,1431,2,[F1431]
+1ACP01-PDC,1432,2,[F1432]
+1ACP01-PDC,1433,2,[F1433]
+1ACP01-PDC,1434,2,[F1434]
+1ACP01-PDC,1435,2,[F1435]
+1ACP01-PDC,1436,2,[F1436]
+1ACP01-PDC,1437,2,[F1437]
+1ACP01-PDC,1438,2,[F1438]
+1ACP01-PDC,1439,2,[F1439]
+1ACP01-PDC,1440,2,[F1440]
+1ACP01-PDC,1441,2,[F1441]
+1ACP01-PDC,1442,2,[F1442]
+1ACP01-PDC,1443,2,[F1443]
+1ACP01-PDC,1444,2,[F1444]
+1ACP01-PDC,1445,2,[F1445]
+1ACP01-PDC,1446,2,[F1446]
+1ACP01-PDC,1447,2,[F1447]
+1ACP01-PDC,1448,2,[F1448]
+1ACP01-PDC,1449,2,[F1449]
+1ACP01-PDC,1450,2,[F1450]
+1ACP01-PDC,1451,2,[F1451]Recipe  Number  Alarm
+1ACP01-PDC,1452,2,[F1452]Recipe  Range   Alarm
+1ACP01-PDC,1453,2,[F1453]
+1ACP01-PDC,1454,2,[F1454]
+1ACP01-PDC,1455,2,[F1455]
+1ACP01-PDC,1456,2,[F1456]
+1ACP01-PDC,1457,2,[F1457]
+1ACP01-PDC,1458,2,[F1458]
+1ACP01-PDC,1459,2,[F1459]
+1ACP01-PDC,1460,2,[F1460]LD GlassT4      TimeOut Alarm
+1ACP01-PDC,1461,2,[F1461]LD GlassT6      TimeOut Alarm
+1ACP01-PDC,1462,2,[F1462]ULD T3  TimeOut Alarm
+1ACP01-PDC,1463,2,[F1463]ULD T5  TimeOut Alarm
+1ACP01-PDC,1464,2,[F1464]ULD T1  TimeOut Alarm
+1ACP01-PDC,1465,2,[F1465]
+1ACP01-PDC,1466,2,[F1466]
+1ACP01-PDC,1467,2,[F1467]
+1ACP01-PDC,1468,2,[F1468]
+1ACP01-PDC,1469,2,[F1469]
+1ACP01-PDC,1470,2,[F1470]
+1ACP01-PDC,1471,2,[F1471]
+1ACP01-PDC,1472,2,[F1472]
+1ACP01-PDC,1473,2,[F1473]
+1ACP01-PDC,1474,2,[F1474]
+1ACP01-PDC,1475,2,[F1475]
+1ACP01-PDC,1476,2,[F1476]
+1ACP01-PDC,1477,2,[F1477]
+1ACP01-PDC,1478,2,[F1478]
+1ACP01-PDC,1479,2,[F1479]
+1ACP01-PDC,1480,2,[F1480]
+1ACP01-PDC,1481,2,[F1481]
+1ACP01-PDC,1482,2,[F1482]
+1ACP01-PDC,1483,2,[F1483]
+1ACP01-PDC,1484,2,[F1484]
+1ACP01-PDC,1485,2,[F1485]
+1ACP01-PDC,1486,2,[F1486]
+1ACP01-PDC,1487,2,[F1487]
+1ACP01-PDC,1488,2,[F1488]
+1ACP01-PDC,1489,2,[F1489]
+1ACP01-PDC,1490,2,[F1490]
+1ACP01-PDC,1491,2,[F1491]
+1ACP01-PDC,1492,2,[F1492]
+1ACP01-PDC,1493,2,[F1493]
+1ACP01-PDC,1494,2,[F1494]
+1ACP01-PDC,1495,2,[F1495]
+1ACP01-PDC,1496,2,[F1496]
+1ACP01-PDC,1497,2,[F1497]
+1ACP01-PDC,1498,2,[F1498]
+1ACP01-PDC,1499,2,[F1499]
+1ACP01-PDC,1500,1,[F1500]
+1ACP01-PDC,1501,1,[F1501]PLC     Battery Low     Warning
+1ACP01-PDC,1502,1,[F1502]
+1ACP01-PDC,1503,1,[F1503]
+1ACP01-PDC,1504,1,[F1504]
+1ACP01-PDC,1505,1,[F1505]
+1ACP01-PDC,1506,1,[F1506]
+1ACP01-PDC,1507,1,[F1507]
+1ACP01-PDC,1508,1,[F1508]
+1ACP01-PDC,1509,1,[F1509]
+1ACP01-PDC,1510,1,[F1510]
+1ACP01-PDC,1511,1,[F1511]Out CV  Unload  Timeout Warning
+1ACP01-PDC,1512,1,[F1512]
+1ACP01-PDC,1513,1,[F1513]
+1ACP01-PDC,1514,1,[F1514]
+1ACP01-PDC,1515,1,[F1515]
+1ACP01-PDC,1516,1,[F1516]
+1ACP01-PDC,1517,1,[F1517]
+1ACP01-PDC,1518,1,[F1518]
+1ACP01-PDC,1519,1,[F1519]
+1ACP01-PDC,1520,1,[F1520]
+1ACP01-PDC,1521,1,[F1521]
+1ACP01-PDC,1522,1,[F1522]
+1ACP01-PDC,1523,1,[F1523]
+1ACP01-PDC,1524,1,[F1524]
+1ACP01-PDC,1525,1,[F1525]
+1ACP01-PDC,1526,1,[F1526]
+1ACP01-PDC,1527,1,[F1527]
+1ACP01-PDC,1528,1,[F1528]
+1ACP01-PDC,1529,1,[F1529]
+1ACP01-PDC,1530,1,[F1530]
+1ACP01-PDC,1531,1,[F1531]PRE_SWR Exhaust HWarning
+1ACP01-PDC,1532,1,[F1532]PRE_SWR Exhaust LWarning
+1ACP01-PDC,1533,1,[F1533]PRE_SWR SWR FlowHWarning
+1ACP01-PDC,1534,1,[F1534]PRE_SWR SWR FlowLWarning
+1ACP01-PDC,1535,1,[F1535]CDA_ION (1_2_3) Press   HWarning
+1ACP01-PDC,1536,1,[F1536]CDA_ION (1_2_3) Press   LWarning
+1ACP01-PDC,1537,1,[F1537]CDA_A/C (4_6)   Press   HWarning
+1ACP01-PDC,1538,1,[F1538]CDA_A/C (4_6)   Press   LWarning
+1ACP01-PDC,1539,1,[F1539]CDA_NPS Tank    Press   HWarning
+1ACP01-PDC,1540,1,[F1540]CDA_NPS Tank    Press   LWarning
+1ACP01-PDC,1541,1,[F1541]PRE_SWR TK1_NPS Press   HWarning
+1ACP01-PDC,1542,1,[F1542]PRE_SWR TK1_NPS Press   LWarning
+1ACP01-PDC,1543,1,[F1543]PRE_SWR DCDA    Press   HWarning
+1ACP01-PDC,1544,1,[F1544]PRE_SWR DCDA    Press   LWarning
+1ACP01-PDC,1545,1,[F1545]O3-1    Exhaust HWarning
+1ACP01-PDC,1546,1,[F1546]O3-1    Exhaust LWarning
+1ACP01-PDC,1547,1,[F1547]O3-1    O3 SWR  Flow    HWarning
+1ACP01-PDC,1548,1,[F1548]O3-1    O3 SWR  Flow    LWarning
+1ACP01-PDC,1549,1,[F1549]O3-1    UPW SWR Flow    HWarning
+1ACP01-PDC,1550,1,[F1550]O3-1    UPW SWR Flow    LWarning
+1ACP01-PDC,1551,1,[F1551]O3-1    UPW SPL Resist_ HWarning
+1ACP01-PDC,1552,1,[F1552]O3-1    UPW SPL Resist_ LWarning
+1ACP01-PDC,1553,1,[F1553]CDA_A/C (7_8)   Press   HWarning
+1ACP01-PDC,1554,1,[F1554]CDA_A/C (7_8)   Press   LWarning
+1ACP01-PDC,1555,1,[F1555]SWR1    Exhaust HWarning
+1ACP01-PDC,1556,1,[F1556]SWR1    Exhaust LWarning
+1ACP01-PDC,1557,1,[F1557]SWR1    UPW SWR Flow    HWarning
+1ACP01-PDC,1558,1,[F1558]SWR1    UPW SWR Flow    LWarning
+1ACP01-PDC,1559,1,[F1559]CDA_A/C 9_10_11 Press   HWarning
+1ACP01-PDC,1560,1,[F1560]CDA_A/C 9_10_11 Press   LWarning
+1ACP01-PDC,1561,1,[F1561]SWR2    Exhaust HWarning
+1ACP01-PDC,1562,1,[F1562]SWR2    Exhaust LWarning
+1ACP01-PDC,1563,1,[F1563]SWR2 UPWUP SWR  Flow    HWarning
+1ACP01-PDC,1564,1,[F1564]SWR2 UPWUP SWR  Flow    LWarning
+1ACP01-PDC,1565,1,[F1565]SWR2 UPWLO SWR  Flow    HWarning
+1ACP01-PDC,1566,1,[F1566]SWR2 UPWLO SWR  Flow    LWarning
+1ACP01-PDC,1567,1,[F1567]CDA_A/C 12_13_14Press   HWarning
+1ACP01-PDC,1568,1,[F1568]CDA_A/C 12_13_14Press   LWarning
+1ACP01-PDC,1569,1,[F1569]CDA_A/C (15_16) Press   HWarning
+1ACP01-PDC,1570,1,[F1570]CDA_A/C (15_16) Press   LWarning
+1ACP01-PDC,1571,1,[F1571]
+1ACP01-PDC,1572,1,[F1572]
+1ACP01-PDC,1573,1,[F1573]O3-2    Exhaust HWarning
+1ACP01-PDC,1574,1,[F1574]O3-2    Exhaust LWarning
+1ACP01-PDC,1575,1,[F1575]O3-2    O3 SWR  Flow    HWarning
+1ACP01-PDC,1576,1,[F1576]O3-2    O3 SWR  Flow    LWarning
+1ACP01-PDC,1577,1,[F1577]O3-2    UPW SWR Flow    HWarning
+1ACP01-PDC,1578,1,[F1578]O3-2    UPW SWR Flow    LWarning
+1ACP01-PDC,1579,1,[F1579]O3-2    UPW SPL Resist_ HWarning
+1ACP01-PDC,1580,1,[F1580]O3-2    UPW SPL Resist_ LWarning
+1ACP01-PDC,1581,1,[F1581]SWR3    Exhaust HWarning
+1ACP01-PDC,1582,1,[F1582]SWR3    Exhaust LWarning
+1ACP01-PDC,1583,1,[F1583]SWR3    UPW SWR Flow    HWarning
+1ACP01-PDC,1584,1,[F1584]SWR3    UPW SWR Flow    LWarning
+1ACP01-PDC,1585,1,[F1585]SWR3 UPWAqua SWRFlow    HWarning
+1ACP01-PDC,1586,1,[F1586]SWR3 UPWAqua SWRFlow    LWarning
+1ACP01-PDC,1587,1,[F1587]CDA_MJ  (20)    Press   HWarning
+1ACP01-PDC,1588,1,[F1588]CDA_MJ  (20)    Press   LWarning
+1ACP01-PDC,1589,1,[F1589]CDA_A/C 17_18_19Press   HWarning
+1ACP01-PDC,1590,1,[F1590]CDA_A/C 17_18_19Press   LWarning
+1ACP01-PDC,1591,1,[F1591]SWR3 TK2NPS     Press   HWarning
+1ACP01-PDC,1592,1,[F1592]SWR3 TK2NPS     Press   LWarning
+1ACP01-PDC,1593,1,[F1593]SWR4-1  Exhaust HWarning
+1ACP01-PDC,1594,1,[F1594]SWR4-1  Exhaust LWarning
+1ACP01-PDC,1595,1,[F1595]SWR4-2  Exhaust HWarning
+1ACP01-PDC,1596,1,[F1596]SWR4-2  Exhaust LWarning
+1ACP01-PDC,1597,1,[F1597]SWR4    UPW SWR Flow    HWarning
+1ACP01-PDC,1598,1,[F1598]SWR4    UPW SWR Flow    LWarning
+1ACP01-PDC,1599,1,[F1599]SWR4 UPWAqua SWRFlow    HWarning
+1ACP01-PDC,1600,1,[F1600]SWR4 UPWAqua SWRFlow    LWarning
+1ACP01-PDC,1601,1,[F1601]SWR4    UPW SPL Resist_ HWarning
+1ACP01-PDC,1602,1,[F1602]SWR4    UPW SPL Resist_ LWarning
+1ACP01-PDC,1603,1,[F1603]SWR4 TK3NPS     Press   HWarning
+1ACP01-PDC,1604,1,[F1604]SWR4 TK3NPS     Press   LWarning
+1ACP01-PDC,1605,1,[F1605]A/K-1   Exhaust HWarning
+1ACP01-PDC,1606,1,[F1606]A/K-1   Exhaust LWarning
+1ACP01-PDC,1607,1,[F1607]A/K-2   Exhaust HWarning
+1ACP01-PDC,1608,1,[F1608]A/K-2   Exhaust LWarning
+1ACP01-PDC,1609,1,[F1609]A/K     UP CDA  Flow    HWarning
+1ACP01-PDC,1610,1,[F1610]A/K     UP CDA  Flow    LWarning
+1ACP01-PDC,1611,1,[F1611]A/K     LO CDA  Flow    HWarning
+1ACP01-PDC,1612,1,[F1612]A/K     LO CDA  Flow    LWarning
+1ACP01-PDC,1613,1,[F1613]A/K     UP CDA  Press   HWarning
+1ACP01-PDC,1614,1,[F1614]A/K     UP CDA  Press   LWarning
+1ACP01-PDC,1615,1,[F1615]A/K     LO CDA  Press   HWarning
+1ACP01-PDC,1616,1,[F1616]A/K     LO CDA  Press   LWarning
+1ACP01-PDC,1617,1,[F1617]
+1ACP01-PDC,1618,1,[F1618]
+1ACP01-PDC,1619,1,[F1619]
+1ACP01-PDC,1620,1,[F1620]
+1ACP01-PDC,1621,1,[F1621]
+1ACP01-PDC,1622,1,[F1622]
+1ACP01-PDC,1623,1,[F1623]
+1ACP01-PDC,1624,1,[F1624]
+1ACP01-PDC,1625,1,[F1625]
+1ACP01-PDC,1626,1,[F1626]
+1ACP01-PDC,1627,1,[F1627]
+1ACP01-PDC,1628,1,[F1628]
+1ACP01-PDC,1629,1,[F1629]
+1ACP01-PDC,1630,1,[F1630]
+1ACP01-PDC,1631,1,[F1631]PRE_SWR UPW     Filter  Timeout
+1ACP01-PDC,1632,1,[F1632]O31&SWR1UPW     Filter  Timeout
+1ACP01-PDC,1633,1,[F1633]SWR2    UPW     Filter  Timeout
+1ACP01-PDC,1634,1,[F1634]O3-2    UPW     Filter  Timeout
+1ACP01-PDC,1635,1,[F1635]SWR3    UPW     Filter  Timeout
+1ACP01-PDC,1636,1,[F1636]SWR4    UPW     Filter  Timeout
+1ACP01-PDC,1637,1,[F1637]A/K UP  CDA     Filter  Timeout
+1ACP01-PDC,1638,1,[F1638]A/K LO  CDA     Filter  Timeout
+1ACP01-PDC,1639,1,[F1639]SWR3 MJ CDA     Filter  Timeout
+1ACP01-PDC,1640,1,[F1640]EUV     N2      Filter  Timeout
+1ACP01-PDC,1641,1,[F1641]P_SWR INA/C CDA Filter  Timeout
+1ACP01-PDC,1642,1,[F1642]CDA ION (1_2_3) Filter  Timeout
+1ACP01-PDC,1643,1,[F1643]CDA A/C (4_6)   Filter  Timeout
+1ACP01-PDC,1644,1,[F1644]CDA A/C (7_8)   Filter  Timeout
+1ACP01-PDC,1645,1,[F1645]CDA A/C 9_10_11 Filter  Timeout
+1ACP01-PDC,1646,1,[F1646]CDA A/C 12_13_14Filter  Timeout
+1ACP01-PDC,1647,1,[F1647]CDA A/C (15_16) Filter  Timeout
+1ACP01-PDC,1648,1,[F1648]CDA A/C 17_18_19Filter  Timeout
+1ACP01-PDC,1649,1,[F1649]
+1ACP01-PDC,1650,1,[F1650]
+1ACP01-PDC,1651,1,[F1651]SWR1_TOPION1    RUN     Warning
+1ACP01-PDC,1652,1,[F1652]SWR1_TOPION1    LOW_ION WAR
+1ACP01-PDC,1653,1,[F1653]SWR1_TOPION1    HIGH    VOLT WAR
+1ACP01-PDC,1654,1,[F1654]SWR1_TOPION1    TIP_CLN WAR
+1ACP01-PDC,1655,1,[F1655]SWR1_TOPION2    RUN     Warning
+1ACP01-PDC,1656,1,[F1656]SWR1_TOPION2    LOW_ION WAR
+1ACP01-PDC,1657,1,[F1657]SWR1_TOPION2    HIGH    VOLT WAR
+1ACP01-PDC,1658,1,[F1658]SWR1_TOPION2    TIP_CLN WAR
+1ACP01-PDC,1659,1,[F1659]SWR2_TOPION     RUN     Warning
+1ACP01-PDC,1660,1,[F1660]SWR2_TOPION     LOW_ION WAR
+1ACP01-PDC,1661,1,[F1661]SWR2_TOPION     HIGH    VOLT WAR
+1ACP01-PDC,1662,1,[F1662]SWR2_TOPION     TIP_CLN WAR
+1ACP01-PDC,1663,1,[F1663]AK_TOP  ION     RUN     Warning
+1ACP01-PDC,1664,1,[F1664]AK_TOP  ION     LOW_ION WAR
+1ACP01-PDC,1665,1,[F1665]AK_TOP  ION     HIGH    VOLT WAR
+1ACP01-PDC,1666,1,[F1666]AK_TOP  ION     TIP_CLN WAR
+1ACP01-PDC,1667,1,[F1667]AK_MID  ION     RUN     Warning
+1ACP01-PDC,1668,1,[F1668]AK_MID  ION     LOW_ION WAR
+1ACP01-PDC,1669,1,[F1669]AK_MID  ION     HIGH    VOLT WAR
+1ACP01-PDC,1670,1,[F1670]AK_MID  ION     TIP_CLN WAR
+1ACP01-PDC,1671,1,[F1671]
+1ACP01-PDC,1672,1,[F1672]
+1ACP01-PDC,1673,1,[F1673]
+1ACP01-PDC,1674,1,[F1674]
+1ACP01-PDC,1675,1,[F1675]HPMJ PLCBattery Low     Warning
+1ACP01-PDC,1676,1,[F1676]HPMJ    FLT-In  Press   HWarning
+1ACP01-PDC,1677,1,[F1677]HPMJ    FLT-In  Press   LWarning
+1ACP01-PDC,1678,1,[F1678]HPMJ    FLT-Out Press   HWarning
+1ACP01-PDC,1679,1,[F1679]HPMJ    FLT-Out Press   LWarning
+1ACP01-PDC,1680,1,[F1680]HPMJ    Shower  Flow    HWarning
+1ACP01-PDC,1681,1,[F1681]HPMJ    Shower  Flow    LWarning
+1ACP01-PDC,1682,1,[F1682]HPMJPumpPacking Change  Timeover
+1ACP01-PDC,1683,1,[F1683]HPMJ    Filter  Change  Timeover
+1ACP01-PDC,1684,1,[F1684]HPMJ    Main DI Press   HWarning
+1ACP01-PDC,1685,1,[F1685]HPMJ    Main DI Press   LWarning
+1ACP01-PDC,1686,1,[F1686]HPMJ    Resisty HWarning
+1ACP01-PDC,1687,1,[F1687]HPMJ    Resisty LWarning
+1ACP01-PDC,1688,1,[F1688]HPMJ    Mel/Net Communi_Warning
+1ACP01-PDC,1689,1,[F1689]HPMJ FLTDiffere_Press   HWarning
+1ACP01-PDC,1690,1,[F1690]HPMJ    Main CO2Press   HWarning
+1ACP01-PDC,1691,1,[F1691]HPMJ    Main CO2Press   LWarning
+1ACP01-PDC,1692,1,[F1692]HPMJ    InverterLoad    HWarning
+1ACP01-PDC,1693,1,[F1693]HPMJ CO2Bubbler Change  Timeover
+1ACP01-PDC,1694,1,[F1694]Main DI Setting Range   Over
+1ACP01-PDC,1695,1,[F1695]FLTInOutPressSetRangOverParamet_
+1ACP01-PDC,1696,1,[F1696]FLT Out PressSetRangOverPPID
+1ACP01-PDC,1697,1,[F1697]
+1ACP01-PDC,1698,1,[F1698]
+1ACP01-PDC,1699,1,[F1699]
+1ACP01-PDC,1700,1,[F1700]
+1ACP01-PDC,1701,1,[F1701]EUV     Exhaust1HWarning
+1ACP01-PDC,1702,1,[F1702]EUV     Exhaust1LWarning
+1ACP01-PDC,1703,1,[F1703]EUV     Exhaust2HWarning
+1ACP01-PDC,1704,1,[F1704]EUV     Exhaust2LWarning
+1ACP01-PDC,1705,1,[F1705]EUV_A/C CDA     Press   HWarning
+1ACP01-PDC,1706,1,[F1706]EUV_A/C CDA     Press   LWarning
+1ACP01-PDC,1707,1,[F1707]EUV_IN  CDA     Flow    HWarning
+1ACP01-PDC,1708,1,[F1708]EUV_IN  CDA     Flow    LWarning
+1ACP01-PDC,1709,1,[F1709]EUV_IN  N2      Flow    Hwarning
+1ACP01-PDC,1710,1,[F1710]EUV_IN  N2      Flow    Lwarning
+1ACP01-PDC,1711,1,[F1711]
+1ACP01-PDC,1712,1,[F1712]
+1ACP01-PDC,1713,1,[F1713]
+1ACP01-PDC,1714,1,[F1714]
+1ACP01-PDC,1715,1,[F1715]
+1ACP01-PDC,1716,1,[F1716]
+1ACP01-PDC,1717,1,[F1717]
+1ACP01-PDC,1718,1,[F1718]
+1ACP01-PDC,1719,1,[F1719]
+1ACP01-PDC,1720,1,[F1720]
+1ACP01-PDC,1721,1,[F1721]PRE_SWR RB1 UP  Life    Timeout
+1ACP01-PDC,1722,1,[F1722]PRE_SWR RB1 LO  Life    Timeout
+1ACP01-PDC,1723,1,[F1723]PRE_SWR RB2 UP  Life    Timeout
+1ACP01-PDC,1724,1,[F1724]PRE_SWR RB2 LO  Life    Timeout
+1ACP01-PDC,1725,1,[F1725]
+1ACP01-PDC,1726,1,[F1726]
+1ACP01-PDC,1727,1,[F1727]
+1ACP01-PDC,1728,1,[F1728]
+1ACP01-PDC,1729,1,[F1729]
+1ACP01-PDC,1730,1,[F1730]
+1ACP01-PDC,1731,1,[F1731]EUV     Lamp 1  Use TimeTimeover
+1ACP01-PDC,1732,1,[F1732]EUV     Lamp 2  Use TimeTimeover
+1ACP01-PDC,1733,1,[F1733]
+1ACP01-PDC,1734,1,[F1734]
+1ACP01-PDC,1735,1,[F1735]
+1ACP01-PDC,1736,1,[F1736]Lamp 1  [RD]    L Warn
+1ACP01-PDC,1737,1,[F1737]Lamp 2  [RD]    L Warn
+1ACP01-PDC,1738,1,[F1738]
+1ACP01-PDC,1739,1,[F1739]
+1ACP01-PDC,1740,1,[F1740]
+1ACP01-PDC,1741,1,[F1741]
+1ACP01-PDC,1742,1,[F1742]
+1ACP01-PDC,1743,1,[F1743]
+1ACP01-PDC,1744,1,[F1744]
+1ACP01-PDC,1745,1,[F1745]
+1ACP01-PDC,1746,1,[F1746]
+1ACP01-PDC,1747,1,[F1747]
+1ACP01-PDC,1748,1,[F1748]
+1ACP01-PDC,1749,1,[F1749]
+1ACP01-PDC,1750,1,[F1750]
+1ACP01-PDC,1751,1,[F1751]
+1ACP01-PDC,1752,1,[F1752]
+1ACP01-PDC,1753,1,[F1753]
+1ACP01-PDC,1754,1,[F1754]
+1ACP01-PDC,1755,1,[F1755]
+1ACP01-PDC,1756,1,[F1756]
+1ACP01-PDC,1757,1,[F1757]
+1ACP01-PDC,1758,1,[F1758]
+1ACP01-PDC,1759,1,[F1759]
+1ACP01-PDC,1760,1,[F1760]
+1ACP01-PDC,1761,1,[F1761]
+1ACP01-PDC,1762,1,[F1762]
+1ACP01-PDC,1763,1,[F1763]
+1ACP01-PDC,1764,1,[F1764]
+1ACP01-PDC,1765,1,[F1765]
+1ACP01-PDC,1766,1,[F1766]
+1ACP01-PDC,1767,1,[F1767]
+1ACP01-PDC,1768,1,[F1768]
+1ACP01-PDC,1769,1,[F1769]
+1ACP01-PDC,1770,1,[F1770]
+1ACP01-PDC,1771,1,[F1771]
+1ACP01-PDC,1772,1,[F1772]
+1ACP01-PDC,1773,1,[F1773]
+1ACP01-PDC,1774,1,[F1774]
+1ACP01-PDC,1775,1,[F1775]
+1ACP01-PDC,1776,1,[F1776]
+1ACP01-PDC,1777,1,[F1777]
+1ACP01-PDC,1778,1,[F1778]
+1ACP01-PDC,1779,1,[F1779]
+1ACP01-PDC,1780,1,[F1780]
+1ACP01-PDC,1781,1,[F1781]
+1ACP01-PDC,1782,1,[F1782]
+1ACP01-PDC,1783,1,[F1783]
+1ACP01-PDC,1784,1,[F1784]
+1ACP01-PDC,1785,1,[F1785]
+1ACP01-PDC,1786,1,[F1786]
+1ACP01-PDC,1787,1,[F1787]
+1ACP01-PDC,1788,1,[F1788]
+1ACP01-PDC,1789,1,[F1789]
+1ACP01-PDC,1790,1,[F1790]
+1ACP01-PDC,1791,1,[F1791]
+1ACP01-PDC,1792,1,[F1792]
+1ACP01-PDC,1793,1,[F1793]
+1ACP01-PDC,1794,1,[F1794]
+1ACP01-PDC,1795,1,[F1795]
+1ACP01-PDC,1796,1,[F1796]
+1ACP01-PDC,1797,1,[F1797]
+1ACP01-PDC,1798,1,[F1798]
+1ACP01-PDC,1799,1,[F1799]
+1ACP01-PDC,1800,1,[F1800]
+1ACP01-PDC,1801,1,[F1801]
+1ACP01-PDC,1802,1,[F1802]
+1ACP01-PDC,1803,1,[F1803]
+1ACP01-PDC,1804,1,[F1804]
+1ACP01-PDC,1805,1,[F1805]
+1ACP01-PDC,1806,1,[F1806]
+1ACP01-PDC,1807,1,[F1807]
+1ACP01-PDC,1808,1,[F1808]
+1ACP01-PDC,1809,1,[F1809]
+1ACP01-PDC,1810,1,[F1810]
+1ACP01-PDC,1811,1,[F1811]
+1ACP01-PDC,1812,1,[F1812]
+1ACP01-PDC,1813,1,[F1813]
+1ACP01-PDC,1814,1,[F1814]
+1ACP01-PDC,1815,1,[F1815]
+1ACP01-PDC,1816,1,[F1816]
+1ACP01-PDC,1817,1,[F1817]
+1ACP01-PDC,1818,1,[F1818]
+1ACP01-PDC,1819,1,[F1819]
+1ACP01-PDC,1820,1,[F1820]
+1ACP01-PDC,1821,1,[F1821]
+1ACP01-PDC,1822,1,[F1822]
+1ACP01-PDC,1823,1,[F1823]
+1ACP01-PDC,1824,1,[F1824]
+1ACP01-PDC,1825,1,[F1825]
+1ACP01-PDC,1826,1,[F1826]
+1ACP01-PDC,1827,1,[F1827]
+1ACP01-PDC,1828,1,[F1828]
+1ACP01-PDC,1829,1,[F1829]
+1ACP01-PDC,1830,1,[F1830]
+1ACP01-PDC,1831,1,[F1831]HF      Exhaust HWarning
+1ACP01-PDC,1832,1,[F1832]HF      Exhaust LWarning
+1ACP01-PDC,1833,1,[F1833]HF UP1  SWR FlowHWarning
+1ACP01-PDC,1834,1,[F1834]HF UP1  SWR FlowLWarning
+1ACP01-PDC,1835,1,[F1835]HF UP2  SWR FlowHWarning
+1ACP01-PDC,1836,1,[F1836]HF UP2  SWR FlowLWarning
+1ACP01-PDC,1837,1,[F1837]HF Low  SWR FlowHWarning
+1ACP01-PDC,1838,1,[F1838]HF Low  SWR FlowLWarning
+1ACP01-PDC,1839,1,[F1839]HF TK1  L_Drain Flow    HWarning
+1ACP01-PDC,1840,1,[F1840]HF TK1  L_Drain Flow    LWarning
+1ACP01-PDC,1841,1,[F1841]HF TK2  L_Drain Flow    HWarning
+1ACP01-PDC,1842,1,[F1842]HF TK2  L_Drain Flow    LWarning
+1ACP01-PDC,1843,1,[F1843]
+1ACP01-PDC,1844,1,[F1844]
+1ACP01-PDC,1845,1,[F1845]
+1ACP01-PDC,1846,1,[F1846]HF TK1  PCW IN  Flow    HWarning
+1ACP01-PDC,1847,1,[F1847]HF TK1  PCW IN  Flow    LWarning
+1ACP01-PDC,1848,1,[F1848]HF TK2  PCW IN  Flow    HWarning
+1ACP01-PDC,1849,1,[F1849]HF TK2  PCW IN  Flow    LWarning
+1ACP01-PDC,1850,1,[F1850]HF TK1  Conduct_HWarning
+1ACP01-PDC,1851,1,[F1851]HF TK1  Conduct_LWarning
+1ACP01-PDC,1852,1,[F1852]HF TK2  Conduct_HWarning
+1ACP01-PDC,1853,1,[F1853]HF TK2  Conduct_LWarning
+1ACP01-PDC,1854,1,[F1854]HF TK1  NPS     Press   HWarning
+1ACP01-PDC,1855,1,[F1855]HF TK1  NPS     Press   LWarning
+1ACP01-PDC,1856,1,[F1856]HF TK2  NPS     Press   HWarning
+1ACP01-PDC,1857,1,[F1857]HF TK2  NPS     Press   LWarning
+1ACP01-PDC,1858,1,[F1858]
+1ACP01-PDC,1859,1,[F1859]
+1ACP01-PDC,1860,1,[F1860]
+1ACP01-PDC,1861,1,[F1861]HF Tank1Control Temp_H  Warning
+1ACP01-PDC,1862,1,[F1862]HF Tank1Control Temp_L  Warning
+1ACP01-PDC,1863,1,[F1863]HF Tank1Monitor Temp_H  Warning
+1ACP01-PDC,1864,1,[F1864]HF Tank1Monitor Temp_L  Warning
+1ACP01-PDC,1865,1,[F1865]HF Tank2Control Temp_H  Warning
+1ACP01-PDC,1866,1,[F1866]HF Tank2Control Temp_L  Warning
+1ACP01-PDC,1867,1,[F1867]HF Tank2Monitor Temp_H  Warning
+1ACP01-PDC,1868,1,[F1868]HF Tank2Monitor Temp_L  Warning
+1ACP01-PDC,1869,1,[F1869]
+1ACP01-PDC,1870,1,[F1870]HF      Filter1 Timeout Warning
+1ACP01-PDC,1871,1,[F1871]HF      Filter2 Timeout Warning
+1ACP01-PDC,1872,1,[F1872]HF      Filter3 Timeout Warning
+1ACP01-PDC,1873,1,[F1873]HF      Filter4 Timeout Warning
+1ACP01-PDC,1874,1,[F1874]
+1ACP01-PDC,1875,1,[F1875]
+1ACP01-PDC,1876,1,[F1876]
+1ACP01-PDC,1877,1,[F1877]
+1ACP01-PDC,1878,1,[F1878]
+1ACP01-PDC,1879,1,[F1879]
+1ACP01-PDC,1880,1,[F1880]
+1ACP01-PDC,1881,1,[F1881]
+1ACP01-PDC,1882,1,[F1882]
+1ACP01-PDC,1883,1,[F1883]
+1ACP01-PDC,1884,1,[F1884]
+1ACP01-PDC,1885,1,[F1885]
+1ACP01-PDC,1886,1,[F1886]
+1ACP01-PDC,1887,1,[F1887]
+1ACP01-PDC,1888,1,[F1888]
+1ACP01-PDC,1889,1,[F1889]
+1ACP01-PDC,1890,1,[F1890]
+1ACP01-PDC,1891,1,[F1891]
+1ACP01-PDC,1892,1,[F1892]
+1ACP01-PDC,1893,1,[F1893]
+1ACP01-PDC,1894,1,[F1894]
+1ACP01-PDC,1895,1,[F1895]
+1ACP01-PDC,1896,1,[F1896]
+1ACP01-PDC,1897,1,[F1897]
+1ACP01-PDC,1898,1,[F1898]
+1ACP01-PDC,1899,1,[F1899]
+1ACP01-PDC,1900,1,[F1900]
+1ACP01-PDC,1901,1,[F1901]
+1ACP01-PDC,1902,1,[F1902]
+1ACP01-PDC,1903,1,[F1903]
+1ACP01-PDC,1904,1,[F1904]
+1ACP01-PDC,1905,1,[F1905]
+1ACP01-PDC,1906,1,[F1906]
+1ACP01-PDC,1907,1,[F1907]
+1ACP01-PDC,1908,1,[F1908]
+1ACP01-PDC,1909,1,[F1909]
+1ACP01-PDC,1910,1,[F1910]
+1ACP01-PDC,1911,1,[F1911]
+1ACP01-PDC,1912,1,[F1912]
+1ACP01-PDC,1913,1,[F1913]
+1ACP01-PDC,1914,1,[F1914]
+1ACP01-PDC,1915,1,[F1915]
+1ACP01-PDC,1916,1,[F1916]
+1ACP01-PDC,1917,1,[F1917]
+1ACP01-PDC,1918,1,[F1918]
+1ACP01-PDC,1919,1,[F1919]
+1ACP01-PDC,1920,1,[F1920]
+1ACP01-PDC,1921,1,[F1921]
+1ACP01-PDC,1922,1,[F1922]
+1ACP01-PDC,1923,1,[F1923]
+1ACP01-PDC,1924,1,[F1924]
+1ACP01-PDC,1925,1,[F1925]
+1ACP01-PDC,1926,1,[F1926]
+1ACP01-PDC,1927,1,[F1927]
+1ACP01-PDC,1928,1,[F1928]
+1ACP01-PDC,1929,1,[F1929]
+1ACP01-PDC,1930,1,[F1930]
+1ACP01-PDC,1931,1,[F1931]
+1ACP01-PDC,1932,1,[F1932]
+1ACP01-PDC,1933,1,[F1933]
+1ACP01-PDC,1934,1,[F1934]
+1ACP01-PDC,1935,1,[F1935]
+1ACP01-PDC,1936,1,[F1936]
+1ACP01-PDC,1937,1,[F1937]
+1ACP01-PDC,1938,1,[F1938]
+1ACP01-PDC,1939,1,[F1939]
+1ACP01-PDC,1940,1,[F1940]
+1ACP01-PDC,1941,1,[F1941]
+1ACP01-PDC,1942,1,[F1942]
+1ACP01-PDC,1943,1,[F1943]
+1ACP01-PDC,1944,1,[F1944]
+1ACP01-PDC,1945,1,[F1945]
+1ACP01-PDC,1946,1,[F1946]
+1ACP01-PDC,1947,1,[F1947]
+1ACP01-PDC,1948,1,[F1948]
+1ACP01-PDC,1949,1,[F1949]
+1ACP01-PDC,1950,1,[F1950]
+1ACP01-PDC,1951,1,[F1951]Process Data    Report  TM Alarm
+1ACP01-PDC,1952,1,[F1952]Process Data    Report  NG
+1ACP01-PDC,1953,1,[F1953]Glass   Rec/SendReport  TM
+1ACP01-PDC,1954,1,[F1954]Glass   Rec/SendReport  NG
+1ACP01-PDC,1955,1,[F1955]Glass   Data    Request TM
+1ACP01-PDC,1956,1,[F1956]Alarm   Report  TM
+1ACP01-PDC,1957,1,[F1957]Alarm   Report  NG
+1ACP01-PDC,1958,1,[F1958]Glass   Erase   Report  TM
+1ACP01-PDC,1959,1,[F1959]Glass   Erase   Report  NG
+1ACP01-PDC,1960,1,[F1960]
+1ACP01-PDC,1961,1,[F1961]
+1ACP01-PDC,1962,1,[F1962]
+1ACP01-PDC,1963,1,[F1963]
+1ACP01-PDC,1964,1,[F1964]
+1ACP01-PDC,1965,1,[F1965]
+1ACP01-PDC,1966,1,[F1966]
+1ACP01-PDC,1967,1,[F1967]
+1ACP01-PDC,1968,1,[F1968]
+1ACP01-PDC,1969,1,[F1969]
+1ACP01-PDC,1970,1,[F1970]
+1ACP01-PDC,1971,1,[F1971]
+1ACP01-PDC,1972,1,[F1972]
+1ACP01-PDC,1973,1,[F1973]
+1ACP01-PDC,1974,1,[F1974]
+1ACP01-PDC,1975,1,[F1975]
+1ACP01-PDC,1976,1,[F1976]
+1ACP01-PDC,1977,1,[F1977]
+1ACP01-PDC,1978,1,[F1978]
+1ACP01-PDC,1979,1,[F1979]
+1ACP01-PDC,1980,1,[F1980]
+1ACP01-PDC,1981,1,[F1981]Master  Alive   OFF     Warning
+1ACP01-PDC,1982,1,[F1982]RecipeIDRequest No ExistWarning
+1ACP01-PDC,1983,1,[F1983]Recipe  Modify  CM ReplyDelay
+1ACP01-PDC,1984,1,[F1984]M-PC    ON/OFF  Request TM
+1ACP01-PDC,1985,1,[F1985]M-PC    ON/OFF  Request NG
+1ACP01-PDC,1986,1,[F1986]
+1ACP01-PDC,1987,1,[F1987]
+1ACP01-PDC,1988,1,[F1988]
+1ACP01-PDC,1989,1,[F1989]
+1ACP01-PDC,1990,1,[F1990]LD GlassT2      TimeOut Warning
+1ACP01-PDC,1991,1,[F1991]ULD T1  TimeOut Warning
+1ACP01-PDC,1992,1,[F1992]
+1ACP01-PDC,1993,1,[F1993]
+1ACP01-PDC,1994,1,[F1994]
+1ACP01-PDC,1995,1,[F1995]
+1ACP01-PDC,1996,1,[F1996]
+1ACP01-PDC,1997,1,[F1997]
+1ACP01-PDC,1998,1,[F1998]
+1ACP01-PDC,1999,1,[F1999]
+1ACP01-PDC,2000,1,[F2000]

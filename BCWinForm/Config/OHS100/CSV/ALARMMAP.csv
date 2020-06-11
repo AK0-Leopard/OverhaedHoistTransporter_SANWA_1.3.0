@@ -1,0 +1,5 @@
+EQPT_REAL_ID,ALARM_ID,ALARM_LVL,ALARM_DESC
+OHS,1,2,A0001:Main Safty Relay Action
+OHS,2,2,A0002:Main CDA Pressure to low
+OHS,3,2,A0003:Main CDA Pressure to low
+OHS,4,2,A0004:Operation Not on
