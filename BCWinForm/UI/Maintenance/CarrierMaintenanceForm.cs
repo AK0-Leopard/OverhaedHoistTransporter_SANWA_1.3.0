@@ -122,7 +122,8 @@ namespace com.mirle.ibg3k0.bc.winform.UI
                     return;
                 }
 
-                if (cst_id.Length == CARRIER_ID_FIX_LENGTH)
+                //if (cst_id.Length == CARRIER_ID_FIX_LENGTH)
+                if (cst_id.Length != CARRIER_ID_FIX_LENGTH)
                 {
                     MessageBox.Show($"Plaese check carrier id of length, it need {CARRIER_ID_FIX_LENGTH} words", "Carrier remove fail.", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return;

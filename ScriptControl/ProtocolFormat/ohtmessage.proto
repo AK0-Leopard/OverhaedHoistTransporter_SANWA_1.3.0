@@ -412,6 +412,7 @@ message Timestamp {
 	string CurrentSecID = 9;
 	uint32 Sec_Distance = 10;
 	BCRReadResult BCRReadResult =11;
+	uint32 PositionChcekTimes = 12;
   }
 
   message ID_36_TRANS_EVENT_RESPONSE {

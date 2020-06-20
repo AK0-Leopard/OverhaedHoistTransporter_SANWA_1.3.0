@@ -851,8 +851,15 @@ namespace com.mirle.ibg3k0.sc.BLL
                                     }
                                     if (isSuccess && !SCUtility.isEmpty(bestSuitableVh.OHTC_CMD))
                                     {
-                                        AVEHICLE VhCatchObj = scApp.getEQObjCacheManager().getVehicletByVHID(bestSuitableVh.VEHICLE_ID);
+                                        //AVEHICLE VhCatchObj = scApp.getEQObjCacheManager().getVehicletByVHID(bestSuitableVh.VEHICLE_ID);
                                         isSuccess = bestSuitableVh.sned_Str37(bestSuitableVh.OHTC_CMD, CMDCancelType.CmdCancel);
+                                        //再命令取消失敗後，要去確認一下目前VH的AVEHICLE Table跟ACMD_OHTC Table是否有發生已無ACMD_OHTC
+                                        //但AVEHICLE Table卻還有殘留的資料，
+                                        //如果沒有匹配則需要強制更新AVEHICLE Table，使它資料一致
+                                        if (!isSuccess)
+                                        {
+                                            Task.Run(() => scApp.VehicleService.vhCommandExcuteStatusCheck(bestSuitableVh.VEHICLE_ID));
+                                        }
                                     }
                                     if (isSuccess)
                                     {
@@ -1637,6 +1644,15 @@ namespace com.mirle.ibg3k0.sc.BLL
             using (DBConnection_EF con = DBConnection_EF.GetUContext())
             {
                 count = cmd_ohtcDAO.getVhExcuteCMDConut(con, vh_id);
+            }
+            return count != 0;
+        }
+        public bool isCMD_OHTCExcutedByVh(string vh_id)
+        {
+            int count = 0;
+            using (DBConnection_EF con = DBConnection_EF.GetUContext())
+            {
+                count = cmd_ohtcDAO.getVhExcutedCMDConut(con, vh_id);
             }
             return count != 0;
         }

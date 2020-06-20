@@ -441,7 +441,7 @@ namespace com.mirle.ibg3k0.sc.Service
                     line.HasSpecifySeriousAlarmHappend || line.HasSeriousAlarmHappend || line.SCStats != ALINE.TSCState.AUTO;
                 bool need_trun_on_buzzer =
                     line.HasSpecifySeriousAlarmHappend || line.HasSeriousAlarmHappend;
-                Task.Run(() => Lighthouse.setFourColorLightRedWithBuzzer(need_trun_on_buzzer, need_trun_on_red_light));
+                Task.Run(() => Lighthouse?.setFourColorLightRedWithBuzzer(need_trun_on_buzzer, need_trun_on_red_light));
             }
         }
 

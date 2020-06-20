@@ -94,7 +94,7 @@ namespace com.mirle.ibg3k0.bc.winform.UI
 
             var minRoute = Reutrn[0].Split('=');
             string[] minRouteSeg = minRoute[0].Split(',');
-             evtSegmentSelected(minRouteSeg);
+             //evtSegmentSelected(minRouteSeg);
         }
 
         private string[] loadAllAdr()

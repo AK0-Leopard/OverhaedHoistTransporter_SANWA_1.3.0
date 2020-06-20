@@ -141,9 +141,9 @@ namespace com.mirle.ibg3k0.sc.Data.DAO
 
 
 
-        public void deleteUserByID(DBConnection_EF conn, string user_id) 
+        public void deleteUserByID(DBConnection_EF conn, string user_id)
         {
-            try 
+            try
             {
                 UASUSR rtnUser = null;
                 var query = from user in conn.UASUSR

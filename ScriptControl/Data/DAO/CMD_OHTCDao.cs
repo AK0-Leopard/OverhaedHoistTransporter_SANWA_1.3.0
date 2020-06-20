@@ -147,6 +147,17 @@ namespace com.mirle.ibg3k0.sc.Data.DAO
         }
 
 
+        public int getVhExcutedCMDConut(DBConnection_EF con, string vh_id)
+        {
+            var query = from cmd in con.ACMD_OHTC
+                        where cmd.VH_ID == vh_id.Trim() &&
+                        cmd.CMD_STAUS >= E_CMD_STATUS.Execution &&
+                        cmd.CMD_STAUS < E_CMD_STATUS.NormalEnd
+                        select cmd;
+            return query.Count();
+        }
+
+
         public int getExecuteByFromAdrIsParkAdr(DBConnection_EF con, string adr)
         {
             var query = from cmd in con.ACMD_OHTC

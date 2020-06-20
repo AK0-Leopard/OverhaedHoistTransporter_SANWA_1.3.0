@@ -12,6 +12,8 @@
 //                                                     帶入錯誤的ID問題(帶到MCS的Command而非OHTC的Command)。
 // 2020/01/15    Kevin Wei      N/A            A0.02   當因為產生"tryGenerateCmd_OHTC_Details"失敗時，
 //                                                     會結束掉當前命令且若是MCS命令會將其改回Queue的狀態。
+// 2020/06/02    Kevin Wei      N/A            A0.03   加入當發生Table:AVEHICLE 與 Table:ACMD_OHTC狀態不匹配時，
+//                                                     會再次檢查兩邊的狀態，以防發生在趕車時，無法順利趕走的問題。(因為有命令殘留)
 //**********************************************************************************
 using com.mirle.ibg3k0.bcf.App;
 using com.mirle.ibg3k0.bcf.Common;
@@ -696,7 +698,6 @@ namespace com.mirle.ibg3k0.sc.Service
 
                 scApp.VehicleBLL.setAndPublishPositionReportInfo2Redis(vh.VEHICLE_ID, receive_gpp);
                 scApp.VehicleBLL.getAndProcPositionReportFromRedis(vh.VEHICLE_ID);
-
                 if (!scApp.VehicleBLL.doUpdateVehicleStatus(vh, cstID,
                                        modeStat, actionStat,
                                        blockingStat, pauseStat, obstacleStat, hidStat, errorStat, loadCSTStatus))
@@ -704,7 +705,50 @@ namespace com.mirle.ibg3k0.sc.Service
                     isSuccess = false;
                 }
             }
+            vhCommandExcuteStatusCheck(vh.VEHICLE_ID);
             return isSuccess;
+        }
+
+        /// <summary>
+        /// 如果在車子已有回報是無命令狀態下，但在OHXC的AVEHICLE欄位"CMD_OHTC"卻還有命令時，
+        /// 則需要在檢查在ACMD_OHTC是否已無命令，如果也沒有的話，則要將AVEHICLE改成正確的
+        /// </summary>
+        /// <param name="vh"></param>
+        public void vhCommandExcuteStatusCheck(string vhID)
+        {
+            try
+            {
+                AVEHICLE vh = scApp.VehicleBLL.cache.getVhByID(vhID);
+                VHActionStatus actionStat = vh.ACT_STATUS;
+                bool has_ohtc_cmd = !SCUtility.isEmpty(vh.OHTC_CMD);
+                if (has_ohtc_cmd &&
+                    actionStat == VHActionStatus.NoCommand)
+                {
+                    bool has_excuted_cmd_in_cmd_table = scApp.CMDBLL.isCMD_OHTCExcutedByVh(vh.VEHICLE_ID);
+                    if (has_excuted_cmd_in_cmd_table)
+                    {
+                        LogHelper.Log(logger: logger, LogLevel: LogLevel.Info, Class: nameof(VehicleService), Device: DEVICE_NAME_OHx,
+                           Data: $"[AVEHICLE - Act Status:{actionStat}] with [AVEHICLE - OHTC_CMD:{SCUtility.Trim(vh.OHTC_CMD, true)}] status mismatch," +
+                                 $"but in Table: CMD_OHTC has cmd excuted, pass this one check",
+                           VehicleID: vh?.VEHICLE_ID,
+                           CarrierID: vh?.CST_ID);
+                        //Not thing...
+                    }
+                    else
+                    {
+                        LogHelper.Log(logger: logger, LogLevel: LogLevel.Info, Class: nameof(VehicleService), Device: DEVICE_NAME_OHx,
+                           Data: $"[AVEHICLE - Act Status:{actionStat}] with [AVEHICLE - OHTC_CMD:{SCUtility.Trim(vh.OHTC_CMD, true)}] status mismatch," +
+                                 $"force update vehicle excute status",
+                           VehicleID: vh?.VEHICLE_ID,
+                           CarrierID: vh?.CST_ID);
+                        scApp.VehicleBLL.updateVehicleExcuteCMD(vh.VEHICLE_ID, string.Empty, string.Empty);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                logger.Error(ex, "Exception:");
+            }
         }
 
         public bool ModeChangeRequest(string vh_id, OperatingVHMode mode)
@@ -3280,6 +3324,49 @@ namespace com.mirle.ibg3k0.sc.Service
             }
         }
 
+        public void ProcessErrorVehicleOnTheWayScenario()
+        {
+            try
+            {
+                //1.歷遍所有的Segment，如果
+                //  a.該Segment是Enable則判斷是否有故障車在上面，若是則將其Disable(System)
+                //  b.該Segment是Disable則判斷是否已經沒有故障車在上面，若是則需要將其Enable(System)
+                var segments = scApp.SegmentBLL.cache.GetSegments();
+                foreach (var segment in segments)
+                {
+                    if (segment.DISABLE_FLAG_SYSTEM == false)
+                    {
+                        var vhs = scApp.VehicleBLL.cache.loadVhsBySegmentID(segment.SEG_NUM);
+                        var on_segment_error_vhs = vhs.Where(vh => vh.IsError).ToList();
+                        if (on_segment_error_vhs.Count != 0)
+                        {
+                            scApp.RoadControlService.doEnableDisableSegment
+                                (segment.SEG_NUM,
+                                 E_PORT_STATUS.OutOfService,
+                                 ASEGMENT.DisableType.System,
+                                 SECSConst.LANECUTTYPE_LaneCutVehicle);
+                        }
+                    }
+                    else
+                    {
+                        var vhs = scApp.VehicleBLL.cache.loadVhsBySegmentID(segment.SEG_NUM);
+                        var on_segment_error_vhs = vhs.Where(vh => vh.IsError).ToList();
+                        if (on_segment_error_vhs.Count == 0)
+                        {
+                            scApp.RoadControlService.doEnableDisableSegment
+                                (segment.SEG_NUM,
+                                 E_PORT_STATUS.InService,
+                                 ASEGMENT.DisableType.System,
+                                 SECSConst.LANECUTTYPE_LaneCutVehicle);
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                logger.Error(ex, "Exception:");
+            }
+        }
 
         public bool tryReleaseBlockZone(string vh_id, string release_adr, bool isThrowException, out ABLOCKZONEMASTER releaseBlockMaster)
         {
@@ -3536,6 +3623,7 @@ namespace com.mirle.ibg3k0.sc.Service
                     return;
                 }
             }
+            vhCommandExcuteStatusCheck(eqpt.VEHICLE_ID);
 
             //if (modeStat == VHModeStatus.AutoMtl)
             //{
