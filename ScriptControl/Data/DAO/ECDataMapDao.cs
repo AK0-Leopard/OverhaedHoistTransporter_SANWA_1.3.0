@@ -98,13 +98,13 @@ namespace com.mirle.ibg3k0.sc.Data.DAO
         /// Loads all default ec data.
         /// </summary>
         /// <returns>List&lt;ECDataMap&gt;.</returns>
-        public List<ECDataMap> loadAllDefaultECData()
+        public List<AECDATAMAP> loadAllDefaultECData(SCApplication scApp)
         {
             try
             {
-                DataTable dt = SCApplication.getInstance().OHxCConfig.Tables["ECDATAMAP"];
+                DataTable dt = scApp.OHxCConfig.Tables["ECDATAMAP"];
                 var query = from c in dt.AsEnumerable()
-                            select new ECDataMap
+                            select new AECDATAMAP
                             {
                                 EQPT_REAL_ID = c.Field<string>("EQPT_REAL_ID"),
                                 ECID = c.Field<string>("ECID"),
@@ -127,14 +127,14 @@ namespace com.mirle.ibg3k0.sc.Data.DAO
         /// </summary>
         /// <param name="ecid">The ecid.</param>
         /// <returns>ECDataMap.</returns>
-        public ECDataMap getDefaultByECID(string ecid)
+        public AECDATAMAP getDefaultByECID(string ecid)
         {
             try
             {
                 DataTable dt = SCApplication.getInstance().OHxCConfig.Tables["SVDATAMAP"];
                 var query = from c in dt.AsEnumerable()
                             where c.Field<string>("ECID").Trim() == ecid.Trim().Trim()
-                            select new ECDataMap
+                            select new AECDATAMAP
                             {
                                 EQPT_REAL_ID = c.Field<string>("EQPT_REAL_ID"),
                                 ECID = c.Field<string>("ECID"),

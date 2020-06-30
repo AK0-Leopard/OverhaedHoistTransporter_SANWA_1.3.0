@@ -1401,20 +1401,20 @@ namespace com.mirle.ibg3k0.sc.BLL
         /// </summary>
         /// <param name="ecidList">The ecid list.</param>
         /// <returns>List&lt;ECDataMap&gt;.</returns>
-        public List<ECDataMap> loadDefaultECDataList(List<string> ecidList)
+        public List<AECDATAMAP> loadDefaultECDataList(List<string> ecidList)
         {
-            List<ECDataMap> rtnList = new List<ECDataMap>();
+            List<AECDATAMAP> rtnList = new List<AECDATAMAP>();
             try
             {
                 if (ecidList == null || ecidList.Count == 0)
                 {
-                    rtnList = ecDataMapDao.loadAllDefaultECData();
+                    rtnList = ecDataMapDao.loadAllDefaultECData(scApp);
                 }
                 else
                 {
                     foreach (string ecid in ecidList)
                     {
-                        ECDataMap item = ecDataMapDao.getDefaultByECID(ecid.Trim());
+                        AECDATAMAP item = ecDataMapDao.getDefaultByECID(ecid.Trim());
                         if (item == null) { continue; }
                         rtnList.Add(item);
                     }
@@ -1451,44 +1451,7 @@ namespace com.mirle.ibg3k0.sc.BLL
             rtnMsg = string.Empty;
             try
             {
-                if (ecDataMapList != null && ecDataMapList.Count > 0
-                    && scApp.getEQObjCacheManager().getLine().Host_Control_State != SCAppConstants.LineHostControlState.HostControlState.EQ_Off_line)
-                {
-                    foreach (AECDATAMAP item in ecDataMapList)
-                    {
-                        if (BCFUtility.isMatche(item.ECID, SCAppConstants.ECID_DEVICE_ID))
-                        {
-                            rtnMsg = string.Format("{0}.Can't Modify EC[{1}] in Online Mode.", SECSConst.EAC_Denied_Busy, SCAppConstants.ECID_DEVICE_ID);
-                            return false;
-                        }
-                        else if (BCFUtility.isMatche(item.ECID, SCAppConstants.ECID_T3))
-                        {
-                            rtnMsg = string.Format("{0}.Can't Modify EC[{1}] in Online Mode.", SECSConst.EAC_Denied_Busy, SCAppConstants.ECID_T3);
-                            return false;
-                        }
-                        else if (BCFUtility.isMatche(item.ECID, SCAppConstants.ECID_T5))
-                        {
-                            rtnMsg = string.Format("{0}.Can't Modify EC[{1}] in Online Mode.", SECSConst.EAC_Denied_Busy, SCAppConstants.ECID_T5);
-                            return false;
-                        }
-                        else if (BCFUtility.isMatche(item.ECID, SCAppConstants.ECID_T6))
-                        {
-                            rtnMsg = string.Format("{0}.Can't Modify EC[{1}] in Online Mode.", SECSConst.EAC_Denied_Busy, SCAppConstants.ECID_T6);
-                            return false;
-                        }
-                        else if (BCFUtility.isMatche(item.ECID, SCAppConstants.ECID_T7))
-                        {
-                            rtnMsg = string.Format("{0}.Can't Modify EC[{1}] in Online Mode.", SECSConst.EAC_Denied_Busy, SCAppConstants.ECID_T7);
-                            return false;
-                        }
-                        else if (BCFUtility.isMatche(item.ECID, SCAppConstants.ECID_T8))
-                        {
-                            rtnMsg = string.Format("{0}.Can't Modify EC[{1}] in Online Mode.", SECSConst.EAC_Denied_Busy, SCAppConstants.ECID_T8);
-                            return false;
-                        }
-                    }
-                }
-                //A0.05 End
+
 
                 //A0.06 Begin
                 if (ecDataMapList != null && ecDataMapList.Count > 0)
@@ -1518,7 +1481,9 @@ namespace com.mirle.ibg3k0.sc.BLL
                 {
                     foreach (AECDATAMAP item in ecDataMapList)
                     {
-                        ecDataMapDao.updateECData(conn, item);
+                        AECDATAMAP tmpItem = ecDataMapDao.getByECID(conn, true, item.ECID);
+                        tmpItem.ECV = item.ECV;
+                        ecDataMapDao.updateECData(conn, tmpItem);
                         scApp.BCSystemBLL.updateSystemParameter(item.ECID, item.ECV, true);
                     }
                 }

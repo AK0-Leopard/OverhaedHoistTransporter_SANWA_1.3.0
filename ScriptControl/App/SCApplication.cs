@@ -877,7 +877,94 @@ namespace com.mirle.ibg3k0.sc.App
         /// </summary>
         public void loadECDataToSystem()
         {
-            //not implement
+            List<AECDATAMAP> ecDataMaps = lineBLL.loadDefaultECDataList(null);
+
+            //logger.Info(string.Format("ReBuild DB flag:[{0}]", bcfApplication.IsReBuildDB)); //A0.21
+            //if (bcfApplication.IsReBuildDB && ecDataMaps != null && ecDataMaps.Count > 0)
+            //{
+            //    string updateEcRtnMsg = string.Empty;
+            //    if (!lineBLL.updateECData(ecDataMaps, out updateEcRtnMsg))
+            //    {
+            //        logger.Warn(updateEcRtnMsg);
+            //    }
+            //}
+
+            //Equipment indexerEQPT = eqObjCacheManager.getIndexerEquipment();
+
+            List<AECDATAMAP> lstECIDTemp = new List<AECDATAMAP>();
+            foreach (AECDATAMAP ecdataMap in ecDataMaps)
+            {
+                if (lineBLL.getECData(ecdataMap.ECID) == null)
+                {
+                    lstECIDTemp.Add(new AECDATAMAP()
+                    {
+                        EQPT_REAL_ID = BC_ID,
+                        ECID = ecdataMap.ECID.Trim(),
+                        ECMIN = ecdataMap.ECMIN.Trim(),
+                        ECMAX = ecdataMap.ECMAX.Trim(),
+                        ECV = ecdataMap.ECV.Trim(),
+                        ECNAME = ecdataMap.ECNAME.Trim()
+                    });
+                }
+            }
+            lineBLL.insertNewECData(lstECIDTemp);
+
+            ecDataMaps = lineBLL.loadECDataList(BC_ID);
+
+
+            foreach (AECDATAMAP item in ecDataMaps)
+            {
+
+                if (BCFUtility.isMatche(item.ECID, SCAppConstants.ECID_CONVERSATION_TIMEOUT))
+                {
+                    if (SystemParameter.SECSConversactionTimeout != Convert.ToInt32(item.ECV))
+                    {
+                        SystemParameter.setSECSConversactionTimeout(Convert.ToInt32(item.ECV));
+                    }
+                }
+                else if (BCFUtility.isMatche(item.ECID, SCAppConstants.ECID_MAX_ALLOW_ACTION_TIME_SECOND))
+                {
+                    if (SystemParameter.MaxAllowActionTimeSec != Convert.ToInt32(item.ECV))
+                    {
+                        SystemParameter.setMaxAllowActionTime(Convert.ToInt32(item.ECV));
+                    }
+                }
+                else if (BCFUtility.isMatche(item.ECID, SCAppConstants.ECID_HEARTBEAT))
+                {
+                    try
+                    {
+                        int hearbeat = 0;
+                        int.TryParse(item.ECV.Trim(), out hearbeat);
+                        SystemParameter.setHeartBeatSec(hearbeat);
+                    }
+                    catch (Exception ex)      //A0.10
+                    {
+                        logger.Error(ex, "Exception");      //A0.10
+                    }
+                }
+                //M0.01 End
+                //else if (BCFUtility.isMatche(item.ECID, SCAppConstants.ECID_N2_Pre_Move_Stage))
+                //{
+                //    try
+                //    {
+                //        SystemParameter.Dcs_N2PreMoveStage = item.ECV.Trim();
+                //    }
+                //    catch (Exception) { }
+                //}
+                //else if (BCFUtility.isMatche(item.ECID, SCAppConstants.ECID_N3_Pre_Move_Stage))
+                //{
+                //    try
+                //    {
+                //        SystemParameter.Dcs_N3PreMoveStage = item.ECV.Trim();
+                //    }
+                //    catch (Exception) { }
+                //}
+            }
+            //if (restartSecsAgent)
+            //{
+            //    agent.refreshConnection();
+            //}
+
         }
 
         /// <summary>
@@ -1117,6 +1204,7 @@ namespace com.mirle.ibg3k0.sc.App
                 loadCSVToDataset(ohxcConfig, "APSETTING");
                 loadCSVToDataset(ohxcConfig, "RETURNCODEMAP");
                 loadCSVToDataset(ohxcConfig, "EQPTLOCATIONINFO");
+                loadCSVToDataset(ohxcConfig, "ECDATAMAP");
                 logger.Info("init bc_Config success");
             }
             else
@@ -1972,7 +2060,9 @@ namespace com.mirle.ibg3k0.sc.App
         /// <summary>
         /// The control state keep time sec
         /// </summary>
+        public static int MaxAllowActionTimeSec = 1200;
         public static int ControlStateKeepTimeSec = 0;
+
         /// <summary>
         /// The heart beat sec
         /// </summary>
@@ -2004,10 +2094,10 @@ namespace com.mirle.ibg3k0.sc.App
         /// <summary>
         /// Sets the control state keep time.
         /// </summary>
-        /// <param name="keepTimeSec">The keep time sec.</param>
-        public static void setControlStateKeepTime(int keepTimeSec)
+        /// <param name="allowTimeSec">The keep time sec.</param>
+        public static void setMaxAllowActionTime(int allowTimeSec)
         {
-            ControlStateKeepTimeSec = keepTimeSec;
+            MaxAllowActionTimeSec = allowTimeSec;
         }
 
         /// <summary>

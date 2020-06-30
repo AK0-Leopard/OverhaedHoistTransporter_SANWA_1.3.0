@@ -1287,7 +1287,8 @@ namespace com.mirle.ibg3k0.sc
                             vh.onLongTimeNoCommuncation();
                         }
                         double action_time = vh.CurrentCommandExcuteTime.Elapsed.TotalSeconds;
-                        if (action_time > AVEHICLE.MAX_ALLOW_ACTION_TIME_SECOND)
+                        //if (action_time > AVEHICLE.MAX_ALLOW_ACTION_TIME_SECOND)
+                        if (action_time > SystemParameter.MaxAllowActionTimeSec)
                         {
                             vh.onLongTimeInaction(vh.OHTC_CMD);
                         }

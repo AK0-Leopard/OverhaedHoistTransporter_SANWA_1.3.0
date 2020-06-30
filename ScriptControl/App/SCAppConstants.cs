@@ -39,7 +39,7 @@ namespace com.mirle.ibg3k0.sc.App
         /// <summary>
         /// The eci d_ contro l_ stat e_ keepin g_ time
         /// </summary>
-        public static readonly string ECID_CONTROL_STATE_KEEPING_TIME = "0001";
+        public static readonly string ECID_MAX_ALLOW_ACTION_TIME_SECOND = "0001";
         /// <summary>
         /// The eci d_ ge m_ initia l_ contro l_ state
         /// </summary>
@@ -82,7 +82,7 @@ namespace com.mirle.ibg3k0.sc.App
         /// </summary>
         public static readonly string[] SYSTEM_DEFAULT_ECID =
         {
-            ECID_CONTROL_STATE_KEEPING_TIME,
+            ECID_MAX_ALLOW_ACTION_TIME_SECOND,
             ECID_GEM_INITIAL_CONTROL_STATE,
             ECID_DEVICE_ID,
             ECID_HEARTBEAT,

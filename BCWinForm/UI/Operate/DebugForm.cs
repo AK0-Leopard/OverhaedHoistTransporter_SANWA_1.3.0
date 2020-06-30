@@ -28,6 +28,7 @@ namespace com.mirle.ibg3k0.bc.winform.UI
         List<RadioButton> radioButtons = new List<RadioButton>();
         List<BLOCKZONEQUEUE> blocked_queues = null;
         AEQPT MTSMTL = null;
+        AECDATAMAP maxAllowActionTimeECData = null;
         public DebugForm(BCMainForm _mainForm)
         {
             InitializeComponent();
@@ -97,6 +98,13 @@ namespace com.mirle.ibg3k0.bc.winform.UI
             cb_Cache_data_Name.Items.Add("APORTSTATION");
             dgv_cache_object_data.AutoGenerateColumns = false;
             comboBox_HID_control.SelectedIndex = 0;
+            maxAllowActionTimeECData = bcApp.SCApplication.LineBLL.getECData(SCAppConstants.ECID_MAX_ALLOW_ACTION_TIME_SECOND);
+            if (maxAllowActionTimeECData != null)
+            {
+                MaxAllowActionTimeSecond_Max_txb.Text = maxAllowActionTimeECData.ECMAX;
+                MaxAllowActionTimeSecond_Min_txb.Text = maxAllowActionTimeECData.ECMIN;
+                MaxAllowActionTimeSecond_Current_txb.Text = maxAllowActionTimeECData.ECV;
+            }
         }
 
         private void DebugForm_Load(object sender, EventArgs e)
@@ -1329,6 +1337,24 @@ namespace com.mirle.ibg3k0.bc.winform.UI
         private void lbl_id_37_cmdID_value_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void MaxAllowActionTimeSecond_Set_btn_Click(object sender, EventArgs e)
+        {
+            List<AECDATAMAP> aECDATAMAPs = new List<AECDATAMAP>();
+            if (!int.TryParse(MaxAllowActionTimeSecond_Current_txb.Text, out int test))
+            {
+                MessageBox.Show("Please enter number.");
+                return;
+            }
+            maxAllowActionTimeECData.ECV = MaxAllowActionTimeSecond_Current_txb.Text;
+            aECDATAMAPs.Add(maxAllowActionTimeECData);
+            string returnMsg = string.Empty;
+            bcApp.SCApplication.LineBLL.updateECData(aECDATAMAPs, out returnMsg, false);
+            if (!string.IsNullOrWhiteSpace(returnMsg))
+            {
+                MessageBox.Show(returnMsg);
+            }
         }
     }
 }
