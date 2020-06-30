@@ -308,6 +308,12 @@ namespace com.mirle.ibg3k0.sc.BLL
                         bestParkDetailTemp = findFitParkZoneDetailInParkMater(zone_master_temp);
                         if (bestParkDetailTemp != null)
                         {
+                            if (SCUtility.isMatche(vh_current_adr, bestParkDetailTemp.ADR_ID))
+                            {
+                                LogHelper.Log(logger: logger, LogLevel: LogLevel.Debug, Class: nameof(ParkBLL), Device: "OHTC",
+                                   Data: $"try find the park adr.,but current:{vh_current_adr} with want to parking adr is same,pass this one");
+                                continue;
+                            }
                             bsetParkDeatil = bestParkDetailTemp;
                             isSuccess = true;
                             result = FindParkResult.Success;

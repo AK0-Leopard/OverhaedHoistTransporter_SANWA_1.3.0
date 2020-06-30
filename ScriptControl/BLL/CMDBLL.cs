@@ -2361,7 +2361,9 @@ namespace com.mirle.ibg3k0.sc.BLL
             _vhCatchObject.CmdType = acmd_ohtc.CMD_TPYE;
 
             _vhCatchObject.PredictPath = min_route_seq;
-            _vhCatchObject.WillPassSectionID = min_route_seq.ToList();
+            var min_route_temp = min_route_seq.Select(route => SCUtility.Trim(route, true));
+            //_vhCatchObject.WillPassSectionID = min_route_seq.ToList();
+            _vhCatchObject.WillPassSectionID = min_route_temp.ToList();
             _vhCatchObject.CyclingPath = cycle_run_sections;
             _vhCatchObject.vh_CMD_Status = E_CMD_STATUS.Execution;
             _vhCatchObject.Action();

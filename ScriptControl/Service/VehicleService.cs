@@ -230,6 +230,11 @@ namespace com.mirle.ibg3k0.sc.Service
             leave_section?.Leave(vh.VEHICLE_ID);
             entry_section?.Entry(vh.VEHICLE_ID);
 
+            if (vh.WillPassSectionID != null)
+            {
+                vh.WillPassSectionID.Remove(SCUtility.Trim(leave_section.SEC_ID, true));
+            }
+
             //if (leave_section != null && entry_section != null)
             //{
             //    if (SCUtility.isMatche(leave_section.TO_ADR_ID, entry_section.FROM_ADR_ID))
@@ -1511,7 +1516,8 @@ namespace com.mirle.ibg3k0.sc.Service
                                 scApp.CMDBLL.update_CMD_DetailLeaveTime(vh.OHTC_CMD, last_adr_id, last_sec_id);
                                 List<string> willPassSecID = null;
                                 vh.procProgress_Percen = scApp.CMDBLL.getAndUpdateVhCMDProgress(vh.VEHICLE_ID, out willPassSecID);
-                                vh.WillPassSectionID = willPassSecID;
+                                var will_pass_tmp = willPassSecID.Select(route => SCUtility.Trim(route, true));
+                                vh.WillPassSectionID = will_pass_tmp.ToList();
                                 //scApp.VehicleBLL.NetworkQualityTest(vh.VEHICLE_ID, current_adr_id, current_sec_id, 0);
                             }
                             //vh.onLocationChange(current_sec_id, last_sec_id);
@@ -3308,7 +3314,8 @@ namespace com.mirle.ibg3k0.sc.Service
                             AVEHICLE next_vh_on_seg = seg.GetNextVehicle(vh);
                             if (next_vh_on_seg != null)
                             {
-                                scApp.VehicleBLL.whenVhObstacle(next_vh_on_seg.VEHICLE_ID);
+                                //scApp.VehicleBLL.whenVhObstacle(next_vh_on_seg.VEHICLE_ID);
+                                scApp.VehicleBLL.whenVhObstacle(next_vh_on_seg.VEHICLE_ID, vh.VEHICLE_ID);
                             }
                         }
                     }

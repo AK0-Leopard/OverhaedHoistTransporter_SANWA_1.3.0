@@ -1977,13 +1977,30 @@ namespace com.mirle.ibg3k0.sc.BLL
         //    }
         //    return isSuccess;
         //}
-
         public void whenVhObstacle(string obstacleVhID)
+        {
+            whenVhObstacle(obstacleVhID, "");
+        }
+
+
+        public void whenVhObstacle(string obstacleVhID, string blockedVhID)
         {
             AVEHICLE obstacleVh = scApp.VehicleBLL.getVehicleByID(obstacleVhID);
             if (obstacleVh != null &&
                 SCUtility.isEmpty(obstacleVh.OHTC_CMD))
             {
+                AVEHICLE bloccked_vh = scApp.VehicleBLL.getVehicleByID(blockedVhID);
+                if (bloccked_vh != null && bloccked_vh.WillPassSectionID != null)
+                {
+                    //如果被擋住的VH會通過擋路車子的所在位置，而且他還有大於5段Section要行走
+                    //則代表需要將目前的車子都先移到別的停車位才好。
+                    if (bloccked_vh.WillPassSectionID.Count > 5&&
+                        bloccked_vh.WillPassSectionID.Contains(SCUtility.Trim(obstacleVh.CUR_SEC_ID, true)))
+                    {
+                        FindParkZoneOrCycleRunZoneNew(obstacleVh);
+                        return;
+                    }
+                }
                 if (obstacleVh.IS_PARKING &&
                     !SCUtility.isEmpty(obstacleVh.PARK_ADR_ID))
                 {
