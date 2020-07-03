@@ -69,10 +69,12 @@ namespace com.mirle.ibg3k0.sc.Common
                     {
                         try
                         {
-                            string[] Blocked_Vhs = getMessageList(messageValue);
-                            foreach (string blocked_vh in Blocked_Vhs)
+                            string blocked_vh_id = vh_id;
+                            string[] obstacles_vh_ids = getMessageList(messageValue);
+                            foreach (string obstacles_vh in obstacles_vh_ids)
                             {
-                                app.VehicleBLL.whenVhObstacle(blocked_vh);
+                                //app.VehicleBLL.whenVhObstacle(blocked_vh);
+                                app.VehicleBLL.whenVhObstacle(obstacles_vh, blocked_vh_id);
                             }
                         }
                         catch (Exception ex)
