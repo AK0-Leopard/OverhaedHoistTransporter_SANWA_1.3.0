@@ -44,6 +44,14 @@ namespace com.mirle.ibg3k0.sc.Data.DAO
             return query.ToList();
         }
 
+        public List<string> loadAllCMDID(DBConnection_EF con)
+        {
+            var query = from block in con.ACMD_OHTC
+                        orderby block.CMD_START_TIME
+                        select block.CMD_ID;
+            return query.ToList();
+        }
+
         public List<ACMD_OHTC> loadAllQueue_Auto(DBConnection_EF con)
         {
             string sGen_type = ((int)(App.SCAppConstants.GenOHxCCommandType.Auto)).ToString();

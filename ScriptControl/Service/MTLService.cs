@@ -383,7 +383,6 @@ namespace com.mirle.ibg3k0.sc.Service
                 mtx.DokingMaintainDevice.SetCarInMoving(false);
             }
         }
-
         public (bool isSuccess, string result) processCarOutScenario(MaintainSpace mtx, AVEHICLE preCarOutVh)
         {
             string pre_car_out_vh_id = preCarOutVh.VEHICLE_ID;

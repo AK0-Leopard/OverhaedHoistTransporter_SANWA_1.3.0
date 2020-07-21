@@ -293,7 +293,8 @@ namespace com.mirle.ibg3k0.sc.Data.ValueDefMapAction
                         if (scApp.getEQObjCacheManager().getLine().SCStats == ALINE.TSCState.PAUSING
                             || scApp.getEQObjCacheManager().getLine().SCStats == ALINE.TSCState.PAUSED)
                         {
-                            s2f50_stage.HCACK = SECSConst.HCACK_Rejected_Already_Requested;
+                            //s2f50_stage.HCACK = SECSConst.HCACK_Rejected_Already_Requested;
+                            s2f50_stage.HCACK = SECSConst.HCACK_Current_Not_Able_Execute;
                         }
                         else
                         {
@@ -354,7 +355,7 @@ namespace com.mirle.ibg3k0.sc.Data.ValueDefMapAction
                         }
                         else
                         {
-                            s2f42.HCACK = SECSConst.HCACK_Not_Able_Execute;
+                            s2f42.HCACK = SECSConst.HCACK_Current_Not_Able_Execute;
                             needToResume = false;
                         }
                         break;
@@ -366,7 +367,7 @@ namespace com.mirle.ibg3k0.sc.Data.ValueDefMapAction
                         }
                         else
                         {
-                            s2f42.HCACK = SECSConst.HCACK_Not_Able_Execute;
+                            s2f42.HCACK = SECSConst.HCACK_Current_Not_Able_Execute;
                             needToResume = false;
                         }
                         break;
@@ -460,7 +461,7 @@ namespace com.mirle.ibg3k0.sc.Data.ValueDefMapAction
                     if (cmd_mcs.COMMANDSTATE < ACMD_MCS.COMMAND_STATUS_BIT_INDEX_LOAD_COMPLETE ||
                         cmd_mcs.COMMANDSTATE >= ACMD_MCS.COMMAND_STATUS_BIT_INDEX_UNLOAD_ARRIVE)
                     {
-                        check_result = SECSConst.HCACK_Not_Able_Execute;
+                        check_result = SECSConst.HCACK_Current_Not_Able_Execute;
                         is_ok = false;
                         //string current_status = ACMD_MCS.COMMAND_STATUS_BIT_To_String(cmd_mcs.COMMANDSTATE);
                         LogHelper.Log(logger: logger, LogLevel: LogLevel.Debug, Class: nameof(COSTMCSDefaultMapAction), Device: DEVICE_NAME_MCS,
@@ -498,7 +499,7 @@ namespace com.mirle.ibg3k0.sc.Data.ValueDefMapAction
                 {
                     if (cmd_mcs.TRANSFERSTATE == E_TRAN_STATUS.PreInitial)  //A0.03
                     {                                                       //A0.03
-                        check_result = SECSConst.HCACK_Not_Able_Execute;    //A0.03
+                        check_result = SECSConst.HCACK_Current_Not_Able_Execute;    //A0.03
                         is_ok = false;                                      //A0.03
                         LogHelper.Log(logger: logger, LogLevel: LogLevel.Debug, Class: nameof(COSTMCSDefaultMapAction), Device: DEVICE_NAME_MCS,
                            Data: $"Process mcs command [Cancle] can't excute, because mcs command id:{command_id} current transfer status:{cmd_mcs.TRANSFERSTATE},ohtc reply:{check_result}",
@@ -516,7 +517,7 @@ namespace com.mirle.ibg3k0.sc.Data.ValueDefMapAction
                     //else if (cmd_mcs.TRANSFERSTATE >= E_TRAN_STATUS.Transferring)
                     else if (cmd_mcs.COMMANDSTATE >= ACMD_MCS.COMMAND_STATUS_BIT_INDEX_LOAD_ARRIVE)
                     {
-                        check_result = SECSConst.HCACK_Not_Able_Execute;
+                        check_result = SECSConst.HCACK_Current_Not_Able_Execute;
                         is_ok = false;
                         string current_status = ACMD_MCS.COMMAND_STATUS_BIT_To_String(cmd_mcs.COMMANDSTATE);
                         LogHelper.Log(logger: logger, LogLevel: LogLevel.Debug, Class: nameof(COSTMCSDefaultMapAction), Device: DEVICE_NAME_MCS,
@@ -738,37 +739,47 @@ namespace com.mirle.ibg3k0.sc.Data.ValueDefMapAction
         private S6F11.RPTINFO.RPTITEM.VIDITEM_254_SV buildUnitAlarmStatListItem()
         {
             List<ALARM> occurred_alarms = scApp.AlarmBLL.getCurrentAlarmsFromRedis();
-            List<ALARM> occurred_error_alarms = occurred_alarms.Where(alarm => alarm.ALAM_LVL == E_ALARM_LVL.Error).ToList();
+            List<ALARM> occurred_error_alarms = occurred_alarms.Where(alarm => alarm.ALAM_LVL == E_ALARM_LVL.Error&&alarm.EQPT_ID.StartsWith("OHx")).ToList();
 
             S6F11.RPTINFO.RPTITEM.VIDITEM_254_SV viditem_254 = new S6F11.RPTINFO.RPTITEM.VIDITEM_254_SV();
             viditem_254.UNIT_ALARMS_INFO_OBJ = new S6F11.RPTINFO.RPTITEM.VIDITEM_254_SV.UNIT_ALARM_INFO[occurred_error_alarms.Count];
             for (int i = 0; i < occurred_error_alarms.Count; i++)
             {
-                AVEHICLE vh = scApp.getEQObjCacheManager().getVehicletByVHID(occurred_error_alarms[i].EQPT_ID);
-                int current_adr = 0;
-                int.TryParse(vh.CUR_ADR_ID, out current_adr);
-                string uint_id = vh.Real_ID;
-                string vh_current_position = current_adr.ToString();
-                string vh_next_position = "0";
-                string alarm_id = occurred_error_alarms[i].ALAM_CODE;
-                int ialarm_code = 0;
-                int.TryParse(alarm_id, out ialarm_code);
-                string alarm_code = (ialarm_code < 0 ? ialarm_code * -1 : ialarm_code).ToString();
-                string alarm_text = occurred_error_alarms[i].ALAM_DESC;
-                string vh_communication_state = SECSConst.VEHICLE_COMMUNICATION_STATE_Communicating;
-                string mainte_state = SECSConst.MAINTE_STATE_Undefined;
-                viditem_254.UNIT_ALARMS_INFO_OBJ[i] = new S6F11.RPTINFO.RPTITEM.VIDITEM_254_SV.UNIT_ALARM_INFO()
+                try
                 {
-                    UnitID = uint_id,
-                    VehicleCurrentPosition = vh_current_position,
-                    VehicleNextPosition = vh_next_position,
-                    //AlarmID = alarm_id,
-                    AlarmID = alarm_code,
-                    AlarmText = alarm_text,
-                    VehicleCommunicationState = vh_communication_state,
-                    MainteState = mainte_state
-                };
-
+                    AVEHICLE vh = scApp.getEQObjCacheManager().getVehicletByVHID(occurred_error_alarms[i].EQPT_ID);
+                    int current_adr = 0;
+                    int.TryParse(vh.CUR_ADR_ID, out current_adr);
+                    string uint_id = vh.Real_ID;
+                    string vh_current_position = current_adr.ToString();
+                    string vh_next_position = "0";
+                    string alarm_id = occurred_error_alarms[i].ALAM_CODE;
+                    int ialarm_code = 0;
+                    int.TryParse(alarm_id, out ialarm_code);
+                    string alarm_code = (ialarm_code < 0 ? ialarm_code * -1 : ialarm_code).ToString();
+                    string alarm_text = occurred_error_alarms[i].ALAM_DESC;
+                    string vh_communication_state = SECSConst.VEHICLE_COMMUNICATION_STATE_Communicating;
+                    string mainte_state = SECSConst.MAINTE_STATE_Undefined;
+                    viditem_254.UNIT_ALARMS_INFO_OBJ[i] = new S6F11.RPTINFO.RPTITEM.VIDITEM_254_SV.UNIT_ALARM_INFO()
+                    {
+                        UnitID = uint_id,
+                        VehicleCurrentPosition = vh_current_position,
+                        VehicleNextPosition = vh_next_position,
+                        //AlarmID = alarm_id,
+                        AlarmID = alarm_code,
+                        AlarmText = alarm_text,
+                        VehicleCommunicationState = vh_communication_state,
+                        MainteState = mainte_state
+                    };
+                }
+                catch (Exception ex)
+                {
+                    viditem_254 = new S6F11.RPTINFO.RPTITEM.VIDITEM_254_SV();
+                    viditem_254.UNIT_ALARMS_INFO_OBJ = new S6F11.RPTINFO.RPTITEM.VIDITEM_254_SV.UNIT_ALARM_INFO[0];
+                    logger.Error("AUOMCSDefaultMapAction has Error[Line Name:{0}],[Error method:{1}],[Error Message:{2}",
+                    line.LINE_ID, "buildUnitAlarmStatListItem", ex.ToString());
+                    return viditem_254;
+                }
             }
 
             return viditem_254;

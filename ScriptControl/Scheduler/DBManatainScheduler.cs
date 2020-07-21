@@ -31,6 +31,7 @@ namespace com.mirle.ibg3k0.sc.Scheduler
 
                         RemoveNDayAgoBlockQueue(BLOCK_QUEUE_KEEP_TIME_N_Day);
 
+                        RemoveOHTCCMDDetail();
                         tx.Complete();
                     }
                 }
@@ -67,6 +68,28 @@ namespace com.mirle.ibg3k0.sc.Scheduler
             if (n_day_ago_block_queue != null && n_day_ago_block_queue.Count > 0)
             {
                 scApp.MapBLL.removeBlockQueueByBatch(n_day_ago_block_queue);
+            }
+        }
+
+        private void RemoveOHTCCMDDetail()
+        {
+            var allCMDDetail = scApp.CMDBLL.LoadAllCMDDetail();
+            var allcmdids = scApp.CMDBLL.loadAllCMDID();
+            List<string> excute_ids = new List<string>();
+            if (allCMDDetail != null && allCMDDetail.Count > 0)
+            {
+                foreach(var detail in allCMDDetail)
+                {
+                    if (excute_ids.Contains(detail.CMD_ID))
+                    {
+                        continue;
+                    }
+                    excute_ids.Add(detail.CMD_ID);
+                    if (!allcmdids.Contains(detail.CMD_ID))
+                    {
+                        scApp.CMDBLL.DeleteCommand_OHTC_DetailByCmdID(detail.CMD_ID);
+                    }
+                }
             }
         }
     }

@@ -331,6 +331,47 @@ namespace com.mirle.ibg3k0.sc.BLL
             {
                 result = FindParkResult.NoParkZone;
             }
+            // mark modify start
+            if(result != FindParkResult.Success)
+            {
+                LogHelper.Log(logger: logger, LogLevel: LogLevel.Debug, Class: nameof(ParkBLL), Device: "OHTC",
+                    Data: $"Start find Park Address Alternative.vh current:{vh_current_adr} Park Type:{scApp.getEQObjCacheManager().getLine().Currnet_Park_Type} Vehicle Type:{e_VH_TYPE}");
+                ParkAdrInfoTarce();
+                List<APARKZONEMASTER> masters = loadByParkTypeID(scApp.getEQObjCacheManager().getLine().Currnet_Park_Type, e_VH_TYPE);
+                if (masters != null && masters.Count > 0)
+                {
+                    foreach (APARKZONEMASTER master in masters)
+                    {
+                        APARKZONEDETAIL bestParkDetailTemp = null;
+                        bestParkDetailTemp = findFitParkZoneDetailInParkMater(master);
+                        if (bestParkDetailTemp != null)
+                        {
+                            if (SCUtility.isMatche(vh_current_adr, bestParkDetailTemp.ADR_ID))
+                            {
+                                LogHelper.Log(logger: logger, LogLevel: LogLevel.Debug, Class: nameof(ParkBLL), Device: "OHTC",
+                                   Data: $"Using find Park Address Alternative,try find the park adr,but current:{vh_current_adr} with want to parking adr is same,pass this one. Park Type:{scApp.getEQObjCacheManager().getLine().Currnet_Park_Type} Vehicle Type:{e_VH_TYPE}");
+                                continue;
+                            }
+                            bsetParkDeatil = bestParkDetailTemp;
+                            isSuccess = true;
+                            result = FindParkResult.Success;
+                            break;
+                        }
+                    }
+                }
+                else
+                {
+                    LogHelper.Log(logger: logger, LogLevel: LogLevel.Debug, Class: nameof(ParkBLL), Device: "OHTC",
+                        Data: $"Using find Park Address Alternative, no park master can be found, Park Type:{scApp.getEQObjCacheManager().getLine().Currnet_Park_Type} Vehicle Type:{e_VH_TYPE}");
+                }
+
+                if (result != FindParkResult.Success)
+                {
+                    LogHelper.Log(logger: logger, LogLevel: LogLevel.Debug, Class: nameof(ParkBLL), Device: "OHTC",
+                       Data: $"Using find Park Address Alternative, still can not found Park Zone, Park Type:{scApp.getEQObjCacheManager().getLine().Currnet_Park_Type} Vehicle Type:{e_VH_TYPE}");
+                }
+                // mark modify end
+            }
             //}
             return result;
         }
@@ -387,7 +428,18 @@ namespace com.mirle.ibg3k0.sc.BLL
                 logger_ParkBllLog.Info(park_warn_info);
             }
         }
-
+        public List<APARKZONEMASTER> loadByParkTypeID(String _park_type_id, E_VH_TYPE vh_type)
+        {
+            List<APARKZONEMASTER> rtnParkZoneMaster = new List<APARKZONEMASTER>();
+            //DBConnection_EF con = DBConnection_EF.GetContext();
+            //using (DBConnection_EF con = new DBConnection_EF())
+            using (DBConnection_EF con = DBConnection_EF.GetUContext())
+            {
+                rtnParkZoneMaster = parkZoneMasterDao.loadByParkTypeID(con
+                         , scApp.getEQObjCacheManager().getLine().Currnet_Park_Type, vh_type);
+            }
+            return rtnParkZoneMaster;
+        }
         public List<APARKZONEMASTER> loadByParkTypeIDAndHasParkSpaceByCount(String _park_type_id, E_VH_TYPE vh_type)
         {
             List<APARKZONEMASTER> rtnParkZoneMaster = new List<APARKZONEMASTER>();

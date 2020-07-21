@@ -10,6 +10,7 @@
 // ------------- -------------  -------------  ------  -----------------------------
 // 2020/01/15    KevinWei       N/A            A0.01   增加當有故障車在路上時，也直接回傳產生命令失敗。
 // 2020/01/15    KevinWei       N/A            A0.02   改由呼叫端去結束命令。
+// 2020/06/30    MarkChou       N/A            A0.03   檢查命令路徑是否有重複的Section，有的話就去前面那個。
 //**********************************************************************************
 
 using com.mirle.ibg3k0.bcf.App;
@@ -18,7 +19,7 @@ using com.mirle.ibg3k0.sc.Common;
 using com.mirle.ibg3k0.sc.Data;
 using com.mirle.ibg3k0.sc.Data.DAO;
 using com.mirle.ibg3k0.sc.Data.DAO.EntityFramework;
-using com.mirle.ibg3k0.sc.Data.SECS;
+using com.mirle.ibg3k0.sc.Data.SECS.CSOT;
 using com.mirle.ibg3k0.sc.Data.ValueDefMapAction;
 using com.mirle.ibg3k0.sc.Data.VO;
 using com.mirle.ibg3k0.sc.ProtocolFormat.OHTMessage;
@@ -106,7 +107,7 @@ namespace com.mirle.ibg3k0.sc.BLL
                 if (cmd_obj != null)
                 {
                     check_result = $"MCS command id:{command_id} already exist.";
-                    return SECSConst.HCACK_Rejected;
+                    return SECSConst.HCACK_Rejected_Already_Requested;
                 }
             }
 
@@ -115,7 +116,7 @@ namespace com.mirle.ibg3k0.sc.BLL
                 if (SCUtility.isMatche(HostSource, HostDestination))
                 {
                     check_result = $"MCS command of source port:{HostSource} and destination port:{HostDestination} is same.";
-                    return SECSConst.HCACK_Rejected;
+                    return SECSConst.HCACK_Param_Invalid;
                 }
             }
 
@@ -128,14 +129,14 @@ namespace com.mirle.ibg3k0.sc.BLL
                     if (carray_vh.HAS_CST == 0)
                     {
                         check_result = $"Vh:{HostSource.Trim()},not carray cst.";
-                        return SECSConst.HCACK_Rejected;
+                        return SECSConst.HCACK_Current_Not_Able_Execute;
                     }
                     else
                     {
                         if (!SCUtility.isMatche(carray_vh.CST_ID, carrier_id))
                         {
                             check_result = $"Vh:{HostSource.Trim()}, current carray cst id:{carray_vh.CST_ID} ,not matche host carrier id:{carrier_id}.";
-                            return SECSConst.HCACK_Rejected;
+                            return SECSConst.HCACK_Current_Not_Able_Execute;
                         }
                     }
                 }
@@ -194,7 +195,7 @@ namespace com.mirle.ibg3k0.sc.BLL
                 if (!IsSegmentInActive_Source || !IsSegmentInActive_Destination)
                 {
                     isSuccess = false;
-                    checkcode = SECSConst.HCACK_Rejected;
+                    checkcode = SECSConst.HCACK_Enabled_Route_Does_Not_Exist;
                 }
             }
             //確認有VH可以派送
@@ -208,17 +209,17 @@ namespace com.mirle.ibg3k0.sc.BLL
                 if (may_be_can_carry_vh == null)
                 {
                     isSuccess = false;
-                    checkcode = SECSConst.HCACK_Rejected;
+                    checkcode = SECSConst.HCACK_Current_Not_Able_Execute;
                     check_result = "Can't find vehicle to carry";
                 }
             }
             //確認Source 2 Traget可以通
             if (!isSourceOnVehicle && isSuccess)
             {
-                if (!scApp.RouteGuide.checkRoadIsWalkable(from_adr, to_adr))
+                if (!scApp.RouteGuide.checkRoadIsWalkableForMCSCommand(from_adr, to_adr))
                 {
                     isSuccess = false;
-                    checkcode = SECSConst.HCACK_Rejected;
+                    checkcode = SECSConst.HCACK_Enabled_Route_Does_Not_Exist;
                     check_result = "The road is not walkable, source to destination ";
                 }
             }
@@ -1538,7 +1539,16 @@ namespace com.mirle.ibg3k0.sc.BLL
             }
             return isSuccess;
         }
-
+        public bool DeleteCommand_OHTC_DetailByCmdID(string cmd_id)
+        {
+            bool isSuccess = false;
+            //using (DBConnection_EF con = new DBConnection_EF())
+            using (DBConnection_EF con = DBConnection_EF.GetUContext())
+            {
+                cmd_ohtc_detailDAO.DeleteByBatch(con, cmd_id);
+            }
+            return isSuccess;
+        }
 
         public bool updateCMD_OHxC_Status2ReadyToReWirte(string cmd_id, out ACMD_OHTC cmd_ohtc)
         {
@@ -1559,8 +1569,17 @@ namespace com.mirle.ibg3k0.sc.BLL
             }
             return isSuccess;
         }
-
-
+        
+        public List<string> loadAllCMDID()
+        {
+            List<string> acmd_ohtcids = null;
+            //using (DBConnection_EF con = new DBConnection_EF())
+            using (DBConnection_EF con = DBConnection_EF.GetUContext())
+            {
+                acmd_ohtcids = cmd_ohtcDAO.loadAllCMDID(con);
+            }
+            return acmd_ohtcids;
+        }
         public List<ACMD_OHTC> loadCMD_OHTCMDStatusIsQueue()
         {
             List<ACMD_OHTC> acmd_ohtcs = null;
@@ -1946,10 +1965,12 @@ namespace com.mirle.ibg3k0.sc.BLL
                     if (ReutrnVh2FromAdr != null)
                     {
                         minRouteSeg_Vh2FromTemp = findBestFitRoute(vehicle.CUR_SEC_ID, ReutrnVh2FromAdr, acmd_ohtc.SOURCE, is_maintain_command);
+                        filterDuplicateAddress(ref minRouteSeg_Vh2FromTemp);
                     }
                     if (ReutrnFromAdr2ToAdr != null)
                     {
                         minRouteSeg_From2ToTemp = findBestFitRoute(vehicle.CUR_SEC_ID, ReutrnFromAdr2ToAdr, acmd_ohtc.DESTINATION, is_maintain_command);
+                        filterDuplicateAddress(ref minRouteSeg_From2ToTemp);
                     }
 
                     if (minRouteSeg_Vh2FromTemp != null && !SCUtility.isEmpty(minRouteSeg_Vh2FromTemp[0]))
@@ -2071,7 +2092,47 @@ namespace com.mirle.ibg3k0.sc.BLL
                 return false;
             }
         }
+        //A0.03 start
+        private void filterDuplicateAddress(ref string[] RouteSectionArr)
+        {
+            if (RouteSectionArr != null && RouteSectionArr.Length >= 2)
+            {
 
+                List<string> addressList = new List<string>();
+                //List<ASECTION> sections = scApp.SectionBLL.cache.GetSections(RouteSectionArr.ToList());
+                for (int i = 0; i < RouteSectionArr.Length; i++)
+                {
+                    ASECTION section = scApp.SectionBLL.cache.GetSection(RouteSectionArr[0]);
+                    if (i == 0)
+                    {
+                        addressList.Add(section.FROM_ADR_ID);
+                    }
+                    addressList.Add(section.TO_ADR_ID);
+                }
+                //string fisrtSec = minRouteSeg_Vh2FromTemp[0];
+                string fisrtAddr = addressList[0];
+
+                for (int i = 1; i < addressList.Count; i++)
+                {
+                    if (addressList[i] == fisrtAddr)
+                    {
+                        string[] tempArr = new string[RouteSectionArr.Length];
+                        for (int j = 0; j < RouteSectionArr.Length; j++)
+                        {
+                            tempArr[j] = RouteSectionArr[j];
+                        }
+                        RouteSectionArr = new string[tempArr.Length - 1];
+                        for (int j = 0; j < RouteSectionArr.Length; j++)
+                        {
+                            RouteSectionArr[j] = tempArr[j + 1];
+                        }
+                        break;
+                    }
+                }
+            }
+
+        }
+        //A0.03 end
         private bool isMaintainCommand(E_CMD_TYPE cmdType)
         {
             switch (cmdType)
@@ -2902,6 +2963,16 @@ namespace com.mirle.ibg3k0.sc.BLL
                 }
             }
             return procProgress_percen;
+        }
+
+        public List<ACMD_OHTC_DETAIL> LoadAllCMDDetail()
+        {
+            List<ACMD_OHTC_DETAIL> cmdDetailList = null;
+            using (DBConnection_EF con = DBConnection_EF.GetUContext())
+            {
+                cmdDetailList = cmd_ohtc_detailDAO.LoadAllDetail(con);
+            }
+            return cmdDetailList;
         }
 
         public bool HasCmdWillPassSegment(string segment_num, out List<string> will_pass_cmd_id)

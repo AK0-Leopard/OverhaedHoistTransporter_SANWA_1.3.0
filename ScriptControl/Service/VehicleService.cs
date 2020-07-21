@@ -1720,10 +1720,10 @@ namespace com.mirle.ibg3k0.sc.Service
                     ProcessBlockOrHIDReq(bcfApp, eqpt, eventType, seq_num, recive_str.RequestBlockID, recive_str.RequestHIDID);
                     break;
                 case EventType.LoadArrivals:
-                case EventType.LoadComplete:
                 case EventType.UnloadArrivals:
                 case EventType.UnloadComplete:
                 case EventType.AdrOrMoveArrivals:
+                case EventType.LoadComplete:
                     PositionReport_ArriveAndComplete(bcfApp, eqpt, seq_num, recive_str.EventType, recive_str.CurrentAdrID, recive_str.CurrentSecID, carrier_id);
                     break;
                 case EventType.Vhloading:
@@ -1745,6 +1745,7 @@ namespace com.mirle.ibg3k0.sc.Service
                     break;
                 case EventType.Bcrread:
                     TransferReportBCRRead(bcfApp, eqpt, seq_num, eventType, carrier_id, bCRReadResult);
+                    PositionReport_ArriveAndComplete(bcfApp, eqpt, seq_num, EventType.LoadComplete, recive_str.CurrentAdrID, recive_str.CurrentSecID, carrier_id);
                     break;
             }
         }
@@ -1865,6 +1866,8 @@ namespace com.mirle.ibg3k0.sc.Service
             {
                 List<AMCSREPORTQUEUE> reportqueues = new List<AMCSREPORTQUEUE>();
                 scApp.ReportBLL.newReportCarrierIDReadReport(eqpt.VEHICLE_ID, reportqueues);
+                //收到LoadComplete先不上報給Host，等BCRRead才報。
+                scApp.ReportBLL.newReportLoadComplete(eqpt.VEHICLE_ID, eqpt.BCRReadResult, reportqueues);
                 scApp.ReportBLL.insertMCSReport(reportqueues);
                 scApp.ReportBLL.newSendMCSMessage(reportqueues);
             }
@@ -2536,7 +2539,9 @@ namespace com.mirle.ibg3k0.sc.Service
                                 isCreatReportInfoSuccess = scApp.ReportBLL.newReportLoadArrivals(eqpt.VEHICLE_ID, reportqueues);
                                 break;
                             case EventType.LoadComplete:
-                                isCreatReportInfoSuccess = scApp.ReportBLL.newReportLoadComplete(eqpt.VEHICLE_ID, eqpt.BCRReadResult, reportqueues);
+                                //收到LoadComplete先不上報給Host，等BCRRead才報。
+                                //isCreatReportInfoSuccess = scApp.ReportBLL.newReportLoadComplete(eqpt.VEHICLE_ID, eqpt.BCRReadResult, reportqueues);
+                                isCreatReportInfoSuccess = true;
                                 break;
                             case EventType.UnloadArrivals:
                                 isCreatReportInfoSuccess = scApp.ReportBLL.newReportUnloadArrivals(eqpt.VEHICLE_ID, reportqueues);
@@ -3815,6 +3820,10 @@ namespace com.mirle.ibg3k0.sc.Service
                 return;
             }
 
+
+
+
+
             string mcs_cmd_result = SECSConst.convert2MCS(completeStatus);
             scApp.VIDBLL.upDateVIDResultCode(eqpt.VEHICLE_ID, mcs_cmd_result);
 
@@ -3929,7 +3938,8 @@ namespace com.mirle.ibg3k0.sc.Service
             }
 
             replyCommandComplete(eqpt, seq_num, finish_ohxc_cmd, finish_mcs_cmd);
-
+            //釋放尚未Release的Block
+            releaseBlockControl(eqpt.VEHICLE_ID);
             //回復結束後，若該筆命令是Mismatch、IDReadFail結束的話則要把原本車上的那顆CST Installed回來。
             if (vhLoadCSTStatus == VhLoadCSTStatus.Exist)
             {
@@ -4761,7 +4771,36 @@ namespace com.mirle.ibg3k0.sc.Service
                 }
             }
         }
+        public void releaseBlockControl(string vh_id)
+        {
 
+            List<BLOCKZONEQUEUE> queueList = scApp.MapBLL.loadNonReleaseBlockQueueByCarID(vh_id);
+            if (queueList != null && queueList.Count > 0)
+            {
+                foreach(BLOCKZONEQUEUE queue in queueList)
+                {
+                    ABLOCKZONEMASTER blockmaster = scApp.MapBLL.getBlockZoneMasterByEntrySecID(queue.ENTRY_SEC_ID);
+                    if (blockmaster != null)
+                    {
+                        List<string> lstSecid = scApp.MapBLL.loadBlockZoneDetailSecIDsByEntrySecID(queue.ENTRY_SEC_ID);
+                        if (!scApp.VehicleBLL.hasVehicleOnSections(lstSecid))
+                        {
+                            using (TransactionScope tx = SCUtility.getTransactionScope())
+                            {
+                                using (DBConnection_EF con = DBConnection_EF.GetUContext())
+                                {
+                                    scApp.MapBLL.updateBlockZoneQueue_AbnormalEnd(queue, SCAppConstants.BlockQueueState.Release);
+                                    scApp.MapBLL.DeleteBlockControlKeyWordToRedisAsync(queue.CAR_ID, queue.ENTRY_SEC_ID);
+                                    tx.Complete();
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            
+
+        }
 
         public void PauseAllVehicleByOHxCPause()
         {

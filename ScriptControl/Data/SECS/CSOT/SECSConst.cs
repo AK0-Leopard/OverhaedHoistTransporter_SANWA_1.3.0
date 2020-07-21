@@ -215,7 +215,7 @@ namespace com.mirle.ibg3k0.sc.Data.SECS.CSOT
         #region HCACK
         public static readonly string HCACK_Confirm_Executed = "0";
         public static readonly string HCACK_Command_Not_Exist = "1";
-        public static readonly string HCACK_Not_Able_Execute = "2";
+        public static readonly string HCACK_Current_Not_Able_Execute = "2";
         public static readonly string HCACK_Param_Invalid = "3";
         public static readonly string HCACK_Confirm = "4";
         public static readonly string HCACK_Rejected_Already_Requested = "5";

@@ -41,7 +41,12 @@ namespace com.mirle.ibg3k0.sc.Data.DAO
             con.Database.ExecuteSqlCommand(sql, cmd_id);
         }
 
-
+        public List<ACMD_OHTC_DETAIL> LoadAllDetail(DBConnection_EF con)
+        {
+            var query = from cmd in con.ACMD_OHTC_DETAIL
+                        select cmd;
+            return query.ToList();
+        }
         public ACMD_OHTC_DETAIL getByID(DBConnection_EF con, String cmd_id)
         {
             var query = from cmd in con.ACMD_OHTC_DETAIL
