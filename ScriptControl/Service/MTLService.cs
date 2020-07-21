@@ -563,9 +563,21 @@ namespace com.mirle.ibg3k0.sc.Service
                     VehicleService.doAbortCommand
                         (pre_car_out_vh, pre_car_out_vh.OHTC_CMD, ProtocolFormat.OHTMessage.CMDCancelType.CmdCancel);
                 }
+                //如果OHT已經在MTS/MTL的Segment上時，
+                //就不能將他的對應訊號關閉
+                if(SCUtility.isMatche(mtx.DeviceSegment,pre_car_out_vh.CUR_SEG_ID))
+                {
+                    LogHelper.Log(logger: logger, LogLevel: LogLevel.Warn, Class: nameof(MTLService), Device: SCAppConstants.DeviceName.DEVICE_NAME_MTx,
+                             Data: $"Process car out cancel request. mtx:{mtx.DeviceID}, pre car out vh:{mtx.PreCarOutVhID}, is force finish:{isForceFinish}," +
+                                   $"But vh current section is in MTL segment:{mtx.DeviceSegment} .can't trun off car out single ",
+                             XID: mtx.DeviceID);
+                    return;
+                }
             }
+
             //mtx.SetCarOutInterlock(false);
             //mtx.PreCarOutVhID = "";
+
             mtx.PreCarOutVhID = "";
             if (mtx is MaintainLift)
             {
