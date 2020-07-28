@@ -10,6 +10,7 @@
 // ------------- -------------  -------------  ------  -----------------------------
 // 2019/11/15    Kevin Wei      N/A            A0.01   修改對於OHT 上報位置的更新，改成僅透過143、132、134的事件，
 //                                                     其中143僅有在1.剛連線時、2.命令發送失敗時、3.手動同步時，才會進行更新
+// 2020/07/28    Mark Chou      N/A            A0.02   filterVh 加入檢查車輛的ACT_STATUS是否為NoCommand。
 //**********************************************************************************
 using com.mirle.ibg3k0.sc.App;
 using com.mirle.ibg3k0.sc.Common;
@@ -995,6 +996,20 @@ namespace com.mirle.ibg3k0.sc.BLL
                        CarrierID: vh.CST_ID);
                 }
             }
+            //A0.02 Start
+            foreach (AVEHICLE vh in vhs.ToList())
+            {
+                if (vh.ACT_STATUS != VHActionStatus.NoCommand)
+                {
+                    vhs.Remove(vh);
+                    LogHelper.Log(logger: logger, LogLevel: LogLevel.Debug, Class: nameof(VehicleBLL), Device: "OHxC",
+                       Data: $"vh id:{vh.VEHICLE_ID} current act status is {vh.ACT_STATUS}," +
+                             $"so filter it out",
+                       VehicleID: vh.VEHICLE_ID,
+                       CarrierID: vh.CST_ID);
+                }
+            }
+            //A0.02 End
             if (vh_type != E_VH_TYPE.None)
             {
                 foreach (AVEHICLE vh in vhs.ToList())

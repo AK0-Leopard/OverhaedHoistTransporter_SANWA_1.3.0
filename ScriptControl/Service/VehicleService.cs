@@ -14,6 +14,7 @@
 //                                                     會結束掉當前命令且若是MCS命令會將其改回Queue的狀態。
 // 2020/06/02    Kevin Wei      N/A            A0.03   加入當發生Table:AVEHICLE 與 Table:ACMD_OHTC狀態不匹配時，
 //                                                     會再次檢查兩邊的狀態，以防發生在趕車時，無法順利趕走的問題。(因為有命令殘留)
+// 2020/07/28    Mark Chou      N/A            A0.04   發送43 Event詢問車輛一律更新車輛狀態，但車輛位置是否更新可由參數決定。
 //**********************************************************************************
 using com.mirle.ibg3k0.bcf.App;
 using com.mirle.ibg3k0.bcf.Common;
@@ -680,7 +681,8 @@ namespace com.mirle.ibg3k0.sc.Service
             SCUtility.RecodeReportInfo(vh.VEHICLE_ID, 0, send_gpp);
             isSuccess = vh.send_S43(send_gpp, out receive_gpp);
             SCUtility.RecodeReportInfo(vh.VEHICLE_ID, 0, receive_gpp, isSuccess.ToString());
-            if (isSync && isSuccess)
+            //A0.04 if (isSync && isSuccess)
+            if (isSuccess) //A0.04
             {
                 string current_adr_id = receive_gpp.CurrentAdrID;
                 VHModeStatus modeStat = DecideVhModeStatus(vh.VEHICLE_ID, current_adr_id, receive_gpp.ModeStatus);
@@ -700,9 +702,13 @@ namespace com.mirle.ibg3k0.sc.Service
                 int obstacleDIST = receive_gpp.ObstDistance;
                 string obstacleVhID = receive_gpp.ObstVehicleID;
 
-
-                scApp.VehicleBLL.setAndPublishPositionReportInfo2Redis(vh.VEHICLE_ID, receive_gpp);
-                scApp.VehicleBLL.getAndProcPositionReportFromRedis(vh.VEHICLE_ID);
+                if(isSync) //A0.04
+                {
+                    scApp.VehicleBLL.setAndPublishPositionReportInfo2Redis(vh.VEHICLE_ID, receive_gpp);
+                    scApp.VehicleBLL.getAndProcPositionReportFromRedis(vh.VEHICLE_ID);
+                }
+                //A0.04 scApp.VehicleBLL.setAndPublishPositionReportInfo2Redis(vh.VEHICLE_ID, receive_gpp);
+                //A0.04 scApp.VehicleBLL.getAndProcPositionReportFromRedis(vh.VEHICLE_ID);
                 if (!scApp.VehicleBLL.doUpdateVehicleStatus(vh, cstID,
                                        modeStat, actionStat,
                                        blockingStat, pauseStat, obstacleStat, hidStat, errorStat, loadCSTStatus))
@@ -3903,6 +3909,19 @@ namespace com.mirle.ibg3k0.sc.Service
                     isSuccess &= scApp.VehicleBLL.doTransferCommandFinish(eqpt.VEHICLE_ID, cmd_id, completeStatus);
                     isSuccess &= scApp.VIDBLL.initialVIDCommandInfo(eqpt.VEHICLE_ID);
 
+                    //釋放尚未Release的Block
+                    //releaseBlockControl(eqpt.VEHICLE_ID);
+                    List<BLOCKZONEQUEUE> queueList = scApp.MapBLL.loadNonReleaseBlockQueueByCarID(eqpt.VEHICLE_ID);
+                    if (queueList != null && queueList.Count > 0)
+                    {
+                        foreach (BLOCKZONEQUEUE queue in queueList)
+                        {
+                            LogHelper.Log(logger: logger, LogLevel: LogLevel.Info, Class: nameof(VehicleService), Device: DEVICE_NAME_OHx,
+                            Data: $"command finish relase block ,block info: {queue.ToString()}");
+                            scApp.MapBLL.updateBlockZoneQueue_AbnormalEnd(queue, SCAppConstants.BlockQueueState.Abnormal_Command_Finish_Release);
+                            scApp.MapBLL.DeleteBlockControlKeyWordToRedisAsync(queue.CAR_ID, queue.ENTRY_SEC_ID);
+                        }
+                    }
 
                     //當發生Vehicle Abort的時候要確認是否有預下給該Vh的命令，
                     //有的話要將他取消，並把原本的MCS命令切回Queue
@@ -3938,8 +3957,7 @@ namespace com.mirle.ibg3k0.sc.Service
             }
 
             replyCommandComplete(eqpt, seq_num, finish_ohxc_cmd, finish_mcs_cmd);
-            //釋放尚未Release的Block
-            releaseBlockControl(eqpt.VEHICLE_ID);
+
             //回復結束後，若該筆命令是Mismatch、IDReadFail結束的話則要把原本車上的那顆CST Installed回來。
             if (vhLoadCSTStatus == VhLoadCSTStatus.Exist)
             {
@@ -4771,36 +4789,12 @@ namespace com.mirle.ibg3k0.sc.Service
                 }
             }
         }
-        public void releaseBlockControl(string vh_id)
-        {
 
-            List<BLOCKZONEQUEUE> queueList = scApp.MapBLL.loadNonReleaseBlockQueueByCarID(vh_id);
-            if (queueList != null && queueList.Count > 0)
-            {
-                foreach(BLOCKZONEQUEUE queue in queueList)
-                {
-                    ABLOCKZONEMASTER blockmaster = scApp.MapBLL.getBlockZoneMasterByEntrySecID(queue.ENTRY_SEC_ID);
-                    if (blockmaster != null)
-                    {
-                        List<string> lstSecid = scApp.MapBLL.loadBlockZoneDetailSecIDsByEntrySecID(queue.ENTRY_SEC_ID);
-                        if (!scApp.VehicleBLL.hasVehicleOnSections(lstSecid))
-                        {
-                            using (TransactionScope tx = SCUtility.getTransactionScope())
-                            {
-                                using (DBConnection_EF con = DBConnection_EF.GetUContext())
-                                {
-                                    scApp.MapBLL.updateBlockZoneQueue_AbnormalEnd(queue, SCAppConstants.BlockQueueState.Release);
-                                    scApp.MapBLL.DeleteBlockControlKeyWordToRedisAsync(queue.CAR_ID, queue.ENTRY_SEC_ID);
-                                    tx.Complete();
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-            
+        //public void releaseBlockControl(string vh_id)
+        //{
 
-        }
+
+        //}
 
         public void PauseAllVehicleByOHxCPause()
         {

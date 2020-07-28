@@ -11,6 +11,7 @@
 // 2020/01/15    KevinWei       N/A            A0.01   增加當有故障車在路上時，也直接回傳產生命令失敗。
 // 2020/01/15    KevinWei       N/A            A0.02   改由呼叫端去結束命令。
 // 2020/06/30    MarkChou       N/A            A0.03   檢查命令路徑是否有重複的Section，有的話就去前面那個。
+// 2020/07/28    MarkChou       N/A            A0.04   派送命令前，先檢查車輛的ACT_STATUS是否為NoCommand
 //**********************************************************************************
 
 using com.mirle.ibg3k0.bcf.App;
@@ -792,10 +793,11 @@ namespace com.mirle.ibg3k0.sc.BLL
                             if (isSourceOnVehicle)
                             {
                                 bestSuitableVh = scApp.VehicleBLL.getVehicleByRealID(hostsource);
-                                if (bestSuitableVh.IsError || bestSuitableVh.MODE_STATUS != VHModeStatus.AutoRemote)
+                                //A0.04 if (bestSuitableVh.IsError || bestSuitableVh.MODE_STATUS != VHModeStatus.AutoRemote) 
+                                if (bestSuitableVh.IsError || bestSuitableVh.MODE_STATUS != VHModeStatus.AutoRemote|| bestSuitableVh.ACT_STATUS != VHActionStatus.NoCommand) //A0.04
                                 {
                                     LogHelper.Log(logger: logger, LogLevel: LogLevel.Debug, Class: nameof(VehicleBLL), Device: "OHxC",
-                                       Data: $"vh id:{bestSuitableVh.VEHICLE_ID} current mode status is {bestSuitableVh.MODE_STATUS},is error flag:{bestSuitableVh.IsError}." +
+                                       Data: $"vh id:{bestSuitableVh.VEHICLE_ID} current mode status is {bestSuitableVh.MODE_STATUS},is error flag:{bestSuitableVh.IsError},act status is {bestSuitableVh.ACT_STATUS}." +
                                              $"can't excute mcs command:{SCUtility.Trim(waitting_excute_mcs_cmd.CMD_ID)}",
                                        VehicleID: bestSuitableVh.VEHICLE_ID,
                                        CarrierID: bestSuitableVh.CST_ID);
@@ -1270,6 +1272,16 @@ namespace com.mirle.ibg3k0.sc.BLL
                     check_result.Result.AppendLine("");
                     check_result.IsSuccess &= false;
                 }
+
+                //A0.04 Start
+                if (vh.ACT_STATUS != VHActionStatus.NoCommand)
+                {
+                    check_result.Result.AppendLine($" vh:{vh_id} act status is not no command.");
+                    check_result.Result.AppendLine($" please wait privious commnad finish.");
+                    check_result.Result.AppendLine("");
+                    check_result.IsSuccess &= false;
+                }
+                //A0.04 End
 
                 if (SCUtility.isEmpty(vh_current_adr))
                 {

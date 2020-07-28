@@ -201,6 +201,10 @@ namespace com.mirle.ibg3k0.sc.Data.ValueDefMapAction
                          Data: recevie_function.ToString(),
                          VehicleID: eqpt.EQPT_ID);
                 eqpt.SafetyCheckRequest = recevie_function.SafetyCheckRequest;
+
+                if (scApp.getEQObjCacheManager().getLine().ServiceMode!= SCAppConstants.AppServiceMode.Active)
+                    return;
+
                 if (recevie_function.SafetyCheckRequest)
                 {
                     //if (!node.DoorClosed)//檢查安全門是不是關閉的
@@ -363,6 +367,9 @@ namespace com.mirle.ibg3k0.sc.Data.ValueDefMapAction
 
         private void cancelSafetyCheckRequest()
         {
+            if (scApp.getEQObjCacheManager().getLine().ServiceMode != SCAppConstants.AppServiceMode.Active)
+                return;
+
             if (!node.DoorClosed)//檢查安全門是不是關閉的
             {
                 BCFApplication.onWarningMsg($"OHCV:[{eqpt.EQPT_ID}] send safety check request cancel to OHTC,but door is open now.");
