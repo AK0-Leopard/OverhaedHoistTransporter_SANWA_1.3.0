@@ -875,6 +875,7 @@ namespace com.mirle.ibg3k0.sc.App
             public const string Abnormal_Release_OrtherNonRelease = "5";
             public const string Abnormal_Release_TimerCheck = "6";
             public const string Abnormal_Release_ForceRelease = "7";
+            public const string Abnormal_Command_Finish_Release = "8";
         }
 
         public class TransferState
