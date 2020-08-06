@@ -561,6 +561,7 @@
             this.cb_SecAdrMark.TabIndex = 94;
             this.cb_SecAdrMark.Text = "Sec、Adr Mark";
             this.cb_SecAdrMark.UseVisualStyleBackColor = true;
+            this.cb_SecAdrMark.Visible = false;
             this.cb_SecAdrMark.CheckedChanged += new System.EventHandler(this.cb_SecAdrMark_CheckedChanged);
             // 
             // cb_railDirection
@@ -573,6 +574,7 @@
             this.cb_railDirection.TabIndex = 94;
             this.cb_railDirection.Text = "Rail Direction";
             this.cb_railDirection.UseVisualStyleBackColor = true;
+            this.cb_railDirection.Visible = false;
             this.cb_railDirection.CheckedChanged += new System.EventHandler(this.cb_railDirection_CheckedChanged);
             // 
             // groupBox1
@@ -686,6 +688,7 @@
             this.lbl_maxScale.Size = new System.Drawing.Size(27, 19);
             this.lbl_maxScale.TabIndex = 90;
             this.lbl_maxScale.Text = "10";
+            this.lbl_maxScale.Visible = false;
             // 
             // label1
             // 
@@ -696,6 +699,7 @@
             this.label1.Size = new System.Drawing.Size(18, 19);
             this.label1.TabIndex = 89;
             this.label1.Text = "0";
+            this.label1.Visible = false;
             // 
             // trackBar_scale
             // 
@@ -708,6 +712,7 @@
             this.trackBar_scale.TabIndex = 88;
             this.trackBar_scale.TickStyle = System.Windows.Forms.TickStyle.TopLeft;
             this.trackBar_scale.Value = 5;
+            this.trackBar_scale.Visible = false;
             this.trackBar_scale.Scroll += new System.EventHandler(this.trackBar_scale_Scroll);
             // 
             // panel1

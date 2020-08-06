@@ -15,6 +15,7 @@
 // 2020/06/02    Kevin Wei      N/A            A0.03   加入當發生Table:AVEHICLE 與 Table:ACMD_OHTC狀態不匹配時，
 //                                                     會再次檢查兩邊的狀態，以防發生在趕車時，無法順利趕走的問題。(因為有命令殘留)
 // 2020/07/28    Mark Chou      N/A            A0.04   發送43 Event詢問車輛一律更新車輛狀態，但車輛位置是否更新可由參數決定。
+// 2020/08/06    Mark Chou      N/A            A0.05   用BackgroundWorkQueue取代Lock來確保通行權邏輯的時序，並提升效率。
 //**********************************************************************************
 using com.mirle.ibg3k0.bcf.App;
 using com.mirle.ibg3k0.bcf.Common;
@@ -2107,7 +2108,13 @@ namespace com.mirle.ibg3k0.sc.Service
             using (TransactionScope tx = SCUtility.getTransactionScope())
             {
                 if (eventType == EventType.BlockReq || eventType == EventType.BlockHidreq)
-                    can_block_pass = ProcessBlockReqNew(bcfApp, eqpt, req_block_id);
+                {
+                    //A0.05 can_block_pass = ProcessBlockReqNew(bcfApp, eqpt, req_block_id);
+                    var workItem = new com.mirle.ibg3k0.bcf.Data.BackgroundWorkItem(bcfApp,  eqpt, eventType, seqNum, req_block_id, req_hid_secid);//A0.05
+                    scApp.BackgroundWorkBlockQueue.triggerBackgroundWork("BlockQueue", workItem);//A0.05
+                    return;//A0.05
+                }
+
                 if (eventType == EventType.Hidreq || eventType == EventType.BlockHidreq)
                     can_hid_pass = ProcessHIDRequest(bcfApp, eqpt, req_hid_secid);
                 isSuccess = replyTranEventReport(bcfApp, eventType, eqpt, seqNum, canBlockPass: can_block_pass, canHIDPass: can_hid_pass);
@@ -2238,6 +2245,127 @@ namespace com.mirle.ibg3k0.sc.Service
 
 
         private bool ProcessBlockReqNew(BCFApplication bcfApp, AVEHICLE eqpt, string req_block_id)
+        {
+            bool canBlockPass = false;
+            LogHelper.Log(logger: logger, LogLevel: LogLevel.Debug, Class: nameof(VehicleService), Device: DEVICE_NAME_OHx,
+               Data: $"Process block request,request block id:{req_block_id}",
+               VehicleID: eqpt.VEHICLE_ID,
+               CarrierID: eqpt.CST_ID);
+            if (DebugParameter.isForcedPassBlockControl)
+            {
+                LogHelper.Log(logger: logger, LogLevel: LogLevel.Debug, Class: nameof(VehicleService), Device: DEVICE_NAME_OHx,
+                   Data: "test flag: Force pass block control is open, will driect reply to vh can pass block",
+                   VehicleID: eqpt.VEHICLE_ID,
+                   CarrierID: eqpt.CST_ID);
+                canBlockPass = true;
+            }
+            else if (DebugParameter.isForcedRejectBlockControl)
+            {
+                LogHelper.Log(logger: logger, LogLevel: LogLevel.Debug, Class: nameof(VehicleService), Device: DEVICE_NAME_OHx,
+                   Data: "test flag: Force reject block control is open, will driect reply to vh can't pass block",
+                   VehicleID: eqpt.VEHICLE_ID,
+                   CarrierID: eqpt.CST_ID);
+                canBlockPass = false;
+            }
+            else
+            {
+                lock (block_control_lock_obj)
+                {
+                    using (DBConnection_EF con = DBConnection_EF.GetUContext())
+                    {
+                        //先確認在Redis上是否該台VH 已經有要過的Block
+                        //bool hasAskedBlock = scApp.MapBLL.HasBlockControlAskedFromRedis
+                        //    (eqpt.VEHICLE_ID, out string current_asked_block_id, out string current_asked_block_status);
+                        List<BLOCKZONEQUEUE> ask_block_queues = scApp.MapBLL.loadNonReleaseBlockQueueByCarID(eqpt.VEHICLE_ID);
+                        bool hasAskedBlock = ask_block_queues != null && ask_block_queues.Count > 0;
+                        if (hasAskedBlock)
+                        {
+                            //bool isBlocking = SCUtility.isMatche(current_asked_block_status, SCAppConstants.BlockQueueState.Blocking)
+                            //               || SCUtility.isMatche(current_asked_block_status, SCAppConstants.BlockQueueState.Through);
+
+                            //確認當前要的Block是否有存在目前的DB中。
+                            BLOCKZONEQUEUE current_request_again_block_queue = ask_block_queues.
+                                                                         Where(queue => SCUtility.isMatche(queue.ENTRY_SEC_ID, req_block_id)).
+                                                                         FirstOrDefault();
+                            //if (SCUtility.isMatche(req_block_id, current_asked_block_id))
+                            if (current_request_again_block_queue != null)
+                            {
+                                //如果要的是同一個，則確認是否已經給該台VH
+                                //if (isBlocking)
+                                if (SCUtility.isMatche(current_request_again_block_queue.STATUS, SCAppConstants.BlockQueueState.Blocking) ||
+                                    SCUtility.isMatche(current_request_again_block_queue.STATUS, SCAppConstants.BlockQueueState.Through))
+                                {
+                                    //如果已經給過該台VH通行權，則直接讓它通過。
+                                    canBlockPass = true;
+                                    LogHelper.Log(logger: logger, LogLevel: LogLevel.Debug, Class: nameof(VehicleService), Device: DEVICE_NAME_OHx,
+                                       Data: $"Vh:{eqpt.VEHICLE_ID} ask again block:{req_block_id},but it is the owner so ask result:{canBlockPass}",
+                                       VehicleID: eqpt.VEHICLE_ID,
+                                       CarrierID: eqpt.CST_ID);
+                                }
+                                else
+                                {
+                                    //如果還沒有給過該台VH通行權，則需再判斷一次該Vh是否已經可以通過
+                                    canBlockPass = canPassBlockZone(eqpt, req_block_id);
+                                    LogHelper.Log(logger: logger, LogLevel: LogLevel.Debug, Class: nameof(VehicleService), Device: DEVICE_NAME_OHx,
+                                       Data: $"Vh:{eqpt.VEHICLE_ID} ask again block:{req_block_id},ask result:{canBlockPass}",
+                                       VehicleID: eqpt.VEHICLE_ID,
+                                       CarrierID: eqpt.CST_ID);
+                                    if (canBlockPass)
+                                    {
+                                        scApp.MapBLL.updateBlockZoneQueue_BlockTime(eqpt.VEHICLE_ID, req_block_id);
+                                        scApp.MapBLL.ChangeBlockControlStatus_Blocking(eqpt.VEHICLE_ID, req_block_id, DateTime.Now);
+                                    }
+                                }
+                            }
+                            else
+                            {
+                                bool has_in_request = ask_block_queues.Where(queue => SCUtility.isMatche(queue.STATUS, SCAppConstants.BlockQueueState.Request))
+                                                                      .Count() > 0;
+                                string[] current_using_block_ids = ask_block_queues.Select(queue => queue.ENTRY_SEC_ID).ToArray();
+                                //如果不是同一個，則要判斷目前asked的Blocks狀態是否沒有在Request中的                           
+                                //if (isBlocking)
+                                if (!has_in_request)
+                                {
+                                    //如果是的話才可以再進行新的BlockControlRequest的建立流程
+                                    canBlockPass = tryCreatBlockControlRequest(eqpt, req_block_id);
+                                    LogHelper.Log(logger: logger, LogLevel: LogLevel.Debug, Class: nameof(VehicleService), Device: DEVICE_NAME_OHx,
+                                       Data: $"Vh:{eqpt.VEHICLE_ID} already has a block:{string.Join(",", current_using_block_ids)}," +
+                                       $"asking for another one at a time ,block:{req_block_id}, ask result:{canBlockPass}",
+                                       VehicleID: eqpt.VEHICLE_ID,
+                                       CarrierID: eqpt.CST_ID);
+                                }
+                                else
+                                {
+                                    //如果不是，則不可以再給他另外一個Block
+                                    canBlockPass = false;
+                                    LogHelper.Log(logger: logger, LogLevel: LogLevel.Debug, Class: nameof(VehicleService), Device: DEVICE_NAME_OHx,
+                                       Data: $"Vh:{eqpt.VEHICLE_ID} already has a block:{string.Join(",", current_using_block_ids)}," +
+                                       $"but the status is Request,so ask block:{req_block_id} result:{canBlockPass}",
+                                       VehicleID: eqpt.VEHICLE_ID,
+                                       CarrierID: eqpt.CST_ID);
+                                    DateTime reqest_time = DateTime.Now;
+                                    //scApp.MapBLL.doCreatBlockZoneQueueByReqStatus(eqpt.VEHICLE_ID, req_block_id, canBlockPass, reqest_time);
+                                    //scApp.MapBLL.CreatBlockControlKeyWordToRedis(eqpt.VEHICLE_ID, req_block_id, canBlockPass, reqest_time);
+                                }
+                            }
+                        }
+                        else
+                        {
+                            //如果目前Redis上沒有要求的Block的話，則可以嘗試建立新的BlocControlRequest，
+                            //並判斷是否可以給其通行權
+                            canBlockPass = tryCreatBlockControlRequest(eqpt, req_block_id);
+                            LogHelper.Log(logger: logger, LogLevel: LogLevel.Debug, Class: nameof(VehicleService), Device: DEVICE_NAME_OHx,
+                               Data: $"Vh:{eqpt.VEHICLE_ID} ask block:{req_block_id},ask result:{canBlockPass}",
+                               VehicleID: eqpt.VEHICLE_ID,
+                               CarrierID: eqpt.CST_ID);
+                        }
+                    }
+                }
+            }
+            return canBlockPass;
+        }
+
+        public bool ProcessBlockReqNewNew(BCFApplication bcfApp, AVEHICLE eqpt, string req_block_id)
         {
             bool canBlockPass = false;
             LogHelper.Log(logger: logger, LogLevel: LogLevel.Debug, Class: nameof(VehicleService), Device: DEVICE_NAME_OHx,
@@ -2634,7 +2762,7 @@ namespace com.mirle.ibg3k0.sc.Service
                     break;
             }
         }
-        private bool replyTranEventReport(BCFApplication bcfApp, EventType eventType, AVEHICLE eqpt, int seq_num, bool canBlockPass = true, bool canHIDPass = true,
+        public bool replyTranEventReport(BCFApplication bcfApp, EventType eventType, AVEHICLE eqpt, int seq_num, bool canBlockPass = true, bool canHIDPass = true,
                                           string renameCarrierID = "", CMDCancelType cancelType = CMDCancelType.CmdNone)
         {
             ID_36_TRANS_EVENT_RESPONSE send_str = new ID_36_TRANS_EVENT_RESPONSE
