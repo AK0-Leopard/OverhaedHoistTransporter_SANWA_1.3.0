@@ -8,6 +8,7 @@
 //
 // Date          Author         Request No.    Tag     Description
 // ------------- -------------  -------------  ------  -----------------------------
+// 2020/08/08    Kevin Wei      N/A            A0.01   加入Cancel來源的追蹤，用來紀錄是由哪一個Function呼叫進來的。
 //**********************************************************************************
 using com.mirle.ibg3k0.bcf.App;
 using com.mirle.ibg3k0.bcf.Common;
@@ -688,6 +689,18 @@ namespace com.mirle.ibg3k0.sc.Data.ValueDefMapAction
 
         public override bool send_Str37(string cmd_id, CMDCancelType actType)
         {
+            //加入StackTrace，來找出他會下達Cancel的入口 by Kevin //A0.01
+            try
+            {
+                StackTrace st = new StackTrace(true);
+                string trace_msg = SCUtility.ShowCallerInfo(st, $"Call EQTcpIpMapAction.send_Str37(),cmd id:{cmd_id},act type:{actType}");
+                LogHelper.Log(logger: logger, LogLevel: LogLevel.Info, Class: nameof(EQTcpIpMapAction), Device: "OHxC",
+                   Data: trace_msg,
+                   VehicleID: eqpt.VEHICLE_ID,
+                   Details: st.ToString(),
+                   CarrierID: eqpt.CST_ID);
+            }
+            catch { }
             bool isScuess = false;
             try
             {

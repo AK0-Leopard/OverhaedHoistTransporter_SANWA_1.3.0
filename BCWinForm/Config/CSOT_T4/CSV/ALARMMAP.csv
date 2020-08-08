@@ -1,4 +1,4 @@
-OBJECT_ID,ALARM_ID,ALARM_LVL,ALARM_DESC,ALARM_DESC_CH,POSSIBLE_CAUSES,SUGGESTION,COMMENT
+﻿OBJECT_ID,ALARM_ID,ALARM_LVL,ALARM_DESC,ALARM_DESC_CH,POSSIBLE_CAUSES,SUGGESTION,COMMENT
 VH_LINE,14,2,Turning speed exceeded,入弯速度超标,a. 入弯传感器在高速直線段異常触发,a1. 检查/调整入弯传感器,"入弯传感器:
   DI_前左车入弯检知
   DI_前右车入弯检知"
@@ -14,6 +14,12 @@ a2. 检查前车转向换手传动系统","天轨检知传感器:
   DI_前右后_上轨道检知"
 VH_LINE,89,2,Too big protection stops,偏过大保护停止,a. 该次走行路线之马达编码器值与实际条形码定义图资距离，累积偏差超过800mm -- 走行轮打滑,"a1. 检查走行马达分辨率设定
 a2. 检查走行轮传动系统",
+VH_LINE,98,1,Out-of-ctrl  monitor,Out-of-ctrl  monitor,"a. 前次程序部分残留
+b. 内存不足
+c. 储存空间不足","a1. 重新启动
+b1. 重新启动
+b2. 仅执行必要软件即可
+c1. 清理不必要档案",
 VH_LINE,99,2,OoC  HANG,OoC  *HANG*,"a. 前次程序部分残留
 b. 内存不足
 c. 储存空间不足","a1. 重新启动
@@ -263,6 +269,10 @@ b1. 检查载具材质",
 VH_LINE,823,2,Abnormal detection of falling objects,防坠过物检知异常,"a. 防坠过物Sensor相对位置未对准
 b. 卷扬可行走位置设定过低","a1. 检查Sensor发射端与接收端角度与位置
 b1. 修改卷扬可行走高度设定值",
+VH_LINE,872,2,Trigger an offline Local exception artificially,人为触发离线Local异常,a. 人为触发/变更界面离线Local功能,a1. 确认人为动机,
+VH_LINE,873,2,Manually trigger offline offline exception,人为触发离线Offline异常,a. 人为触发/变更界面离线Offline功能,a1. 确认人为动机,
+VH_LINE,874,2,Artificially trigger Stop exception,人为触发Stop异常,a. 人为触发/变更界面Stop功能,a1. 确认人为动机,
+VH_LINE,875,2,Artificially trigger EMS abnormalities,人为触发EMS异常,a. 人为触发/变更界面EMS功能,a1. 确认人为动机,
 VH_LINE,888,2,OHTC request ForceFinish,OHTC要求强制终结_ForceFinish,a. OHTC要求强制终结,a1. 确认OHTC强制终结(ForceFinish)缘由,
 VH_LINE,900,1,BCR Read Fail,BCR Read Fail,"a. 台车定点取物上货, 上升后在OHT车内, 没读到CST/Tray-ID
 b. 台车定点置物下货, 在OHT车内下降前, 没读到CST/Tray-ID","a1. 检查CST/Tray-ID是否可正常辨识
@@ -285,6 +295,12 @@ VH_LINE,911,1,PIO (after Busy-OFF) handshake failure,PIO(Busy-OFF后)交握失�
 a2. 确认/排除对应EQ侧PIO交握讯号异常
 a3. 确认PIO交握时序是否有误","TA3:
   DI_PIO模块_OUT_4 (等EQ侧 READY 为Low)"
+VH_LINE,912,2,PIO Set CH ID Fail before delivery,上货前PIO_Set_CH_ID_Fail,a. 上货前之PIO设定CH/ID异常,"a1. 确认图资CH/ID编值是否正确
+a2. 检查PIO Sensor是否有电
+a3. 检查IPC COM PORT是否异常",
+VH_LINE,913,2,PIO Se CH ID Fail before ordering,下货前PIO_Set_CH_ID_Fail,a. 下货前之PIO设定CH/ID异常,"a1. 确认图资CH/ID编值是否正确
+a2. 检查PIO Sensor是否有电
+a3. 检查IPC COM PORT是否异常",
 VH_LINE,918,2,Abnormal tension of rear belt 1,后皮带1张力异常,"a. 后皮带1断裂
 b. 卷扬夹爪吊篮因碰撞到东西而歪斜
 c.  后皮带1张力传感器异常","a1. 检查/更换后皮带1
@@ -320,6 +336,11 @@ VH_LINE,926,2,Out-Of-Adr Space,Out-Of-Adr Space,"a. 欲上下货, 却未停进�
 VH_LINE,927,1,Illegal AdrType,Illegal AdrType,a. 此定义站点不适用于上下货,a1. 检查图资设定,"(限定Port为EQ, STK/CV, OHB)"
 VH_LINE,928,1,Unmatched Adr,Unmatched Adr,a. 目前站点非欲上下货站点,a1. 检查图资设定,
 VH_LINE,929,1,Illegal AdrID,Illegal AdrID,a. 欲上下货站点在图资内无对应设定,a1. 检查图资设定,
+VH_LINE,930,2,Gripper motor communication abnormal,夹爪马达通讯异常,"a. 夹爪皮带断裂或短路
+b. 夹爪驱动器损坏
+c. IPC COM PORT损坏","a1. 检查/更换皮带
+b1. 检查驱动器灯号显示
+c1. 交换IPC COM PORT测试通讯",
 VH_LINE,931,2,Belt tension abnormal,皮带张力异常,"a. 皮带断裂
 b. 卷扬夹爪吊篮因碰撞到东西而歪斜
 c. 皮带张力传感器异常","a1. 检查/更换皮带
@@ -534,6 +555,8 @@ VH_LINE,982,2,Position of winch 2 is unsafe,卷扬2位置不安全,"a. 走行前
 a2. 进行整机校正点复归","(仅适用于特殊型号OHT产品)
 卷扬2马达轴原点讯号:
   DI_后上升端检知_原点_极限"
+VH_LINE,983,2,,AreaSnr切换运作异常,a. 光学雷达设定IO切换系统(DO)异常,"a1. OHT断电重新启动
+a2. IO切换系统送修",
 VH_LINE,985,2,Steering status is abnormal,转向状态异常,a. 转向换手系统(马达/传感器/机构)异常,a1. 检查转向换手传动系统,
 VH_LINE,987,2,Running steering status is abnormal,走行转向状态异常,"a. 走行系统(马达/传感器/机构)异常
 b. 转向换手系统(马达/传感器/机构)异常","a1. 检查走行传动系统
