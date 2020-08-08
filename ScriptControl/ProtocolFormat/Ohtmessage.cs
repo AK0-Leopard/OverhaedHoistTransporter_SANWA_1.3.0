@@ -652,17 +652,18 @@ namespace com.mirle.ibg3k0.sc.ProtocolFormat.OHTMessage {
     [pbr::OriginalName("CmpStatusForceFinishByOp")] CmpStatusForceFinishByOp = 99,
   }
 
-  public enum CMDCancelType {
-    [pbr::OriginalName("CMD_None")] CmdNone = 0,
-    [pbr::OriginalName("CMD_Cancel")] CmdCancel = 20,
-    [pbr::OriginalName("CMD_Abort")] CmdAbort = 21,
-    [pbr::OriginalName("CMD_Cancel_ID_Mismatch")] CmdCancelIdMismatch = 23,
-    [pbr::OriginalName("CMD_Cancel_ID_Read_Failed")] CmdCancelIdReadFailed = 24,
-    [pbr::OriginalName("CMD_Cancel_ID_Read_Duplicate")] CmdCancelIdReadDuplicate = 25,
-    [pbr::OriginalName("CMD_Cancel_ID_Read_ForceFinish")] CmdCancelIdReadForceFinish = 26,
-  }
+    public enum CMDCancelType
+    {
+        [pbr::OriginalName("CMD_None")] CmdNone = 0,
+        [pbr::OriginalName("CMD_Cancel")] CmdCancel = 20,
+        [pbr::OriginalName("CMD_Abort")] CmdAbort = 21,
+        [pbr::OriginalName("CMD_Cancel_ID_Mismatch")] CmdCancelIdMismatch = 23,
+        [pbr::OriginalName("CMD_Cancel_ID_Read_Failed")] CmdCancelIdReadFailed = 24,
+        [pbr::OriginalName("CMD_Cancel_ID_Read_Duplicate")] CmdCancelIdReadDuplicate = 25,
+        [pbr::OriginalName("CMD_Cancel_ID_Read_ForceFinish")] CmdCancelIdReadForceFinish = 26,
+    }
 
-  public enum PauseEvent {
+    public enum PauseEvent {
     [pbr::OriginalName("Continue")] Continue = 0,
     [pbr::OriginalName("Pause")] Pause = 1,
   }

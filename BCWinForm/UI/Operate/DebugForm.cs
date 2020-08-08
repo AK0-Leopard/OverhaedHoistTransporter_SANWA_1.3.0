@@ -72,8 +72,13 @@ namespace com.mirle.ibg3k0.bc.winform.UI
             cb_PwrMode.DataSource = Enum.GetValues(typeof(sc.ProtocolFormat.OHTMessage.OperatingPowerMode));
             cmb_pauseEvent.DataSource = Enum.GetValues(typeof(sc.ProtocolFormat.OHTMessage.PauseEvent));
             cmb_pauseType.DataSource = Enum.GetValues(typeof(OHxCPauseType));
-            cb_Abort_Type.DataSource = Enum.GetValues(typeof(sc.ProtocolFormat.OHTMessage.CMDCancelType));
-
+            c.Items.Add(sc.ProtocolFormat.OHTMessage.CMDCancelType.CmdCancel);
+            c.Items.Add(sc.ProtocolFormat.OHTMessage.CMDCancelType.CmdAbort);
+            c.Items.Add(sc.ProtocolFormat.OHTMessage.CMDCancelType.CmdCancelIdMismatch);
+            c.Items.Add(sc.ProtocolFormat.OHTMessage.CMDCancelType.CmdCancelIdReadFailed);
+            c.Items.Add(sc.ProtocolFormat.OHTMessage.CMDCancelType.CmdCancelIdReadDuplicate);
+            c.Items.Add(sc.ProtocolFormat.OHTMessage.CMDCancelType.CmdCancelIdReadForceFinish);
+            //c.DataSource = Enum.GetValues(typeof(sc.ProtocolFormat.OHTMessage.CMDCancelType));
 
             radioButtons.Add(radio_bit0);
             radioButtons.Add(radio_bit1);
@@ -460,7 +465,7 @@ namespace com.mirle.ibg3k0.bc.winform.UI
             {
                 button9.Enabled = false;
                 sc.ProtocolFormat.OHTMessage.CMDCancelType type;
-                Enum.TryParse(cb_Abort_Type.SelectedValue.ToString(), out type);
+                Enum.TryParse(c.SelectedItem.ToString(), out type);
 
                 Common.LogHelper.Log(logger: NLog.LogManager.GetCurrentClassLogger(), LogLevel: LogLevel.Info, Class: nameof(DebugForm), Device: "OHTC",
                   Data: $"Send cancel command(ID:37) to vh:{vh_id},command id:{BCFUtility.Trim(noticeCar.OHTC_CMD)} cacnel type:{type}");
@@ -1356,5 +1361,7 @@ namespace com.mirle.ibg3k0.bc.winform.UI
                 MessageBox.Show(returnMsg);
             }
         }
+
+
     }
 }
