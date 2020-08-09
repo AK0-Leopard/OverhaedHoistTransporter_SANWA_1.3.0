@@ -2998,6 +2998,7 @@ namespace com.mirle.ibg3k0.sc.BLL
             return hasCmd;
         }
 
+
         public string[] loadPassSectionByCMDID(string cmd_id)
         {
             string[] sections = null;

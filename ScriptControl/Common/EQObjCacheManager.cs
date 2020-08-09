@@ -161,6 +161,7 @@ namespace com.mirle.ibg3k0.sc.Common
         /// </summary>
         /// <value>The common information.</value>
         public CommonInfo CommonInfo { get { return commonInfo; } }         //A0.08
+        private List<EqptLocationInfo> ohcvLocationList = new List<EqptLocationInfo>();
 
         /// <summary>
         /// Prevents a default instance of the <see cref="EQObjCacheManager"/> class from being created.
@@ -376,6 +377,8 @@ namespace com.mirle.ibg3k0.sc.Common
                 StopWatch_mcsDisconnectionTime = new System.Diagnostics.Stopwatch(),
                 DeviceConnectionInfos = device_connection_satuses
             };
+
+            ohcvLocationList = loadAllOHCVLocation();
             //Zone
             List<ZoneConfigSection> zoneConfigs = eqptCss.ConfigSections[0].ZoneConfigList;
             foreach (ZoneConfigSection zoneConfig in zoneConfigs)
@@ -587,6 +590,21 @@ namespace com.mirle.ibg3k0.sc.Common
             return setting.SEGMENT_ID;
         }
 
+        private List<EqptLocationInfo> loadAllOHCVLocation()
+        {
+            List<EqptLocationInfo> setting = scApp.EqptLocationInfoDao.LoadAllEqptLocationInfo(scApp);
+            //List<string> locations = new List<string>();
+            //if(setting!= null)
+            //{
+            //    foreach(EqptLocationInfo info in setting)
+            //    {
+            //        locations.Add(info.SEGMENT_ID);
+            //    }
+            //}
+
+            return setting;
+        }
+        
 
         /// <summary>
         /// 如果要以MPLC目前資料為主，則需先清除DB內舊有資料，再重新rebuild，並透過腳本更新
@@ -1296,6 +1314,11 @@ namespace com.mirle.ibg3k0.sc.Common
         public List<ABUFFER> getBuffListByEquipment(string eqpt_id)
         {
             return buffList.Where(b => b.EQPT_ID.Trim() == eqpt_id.Trim()).ToList();
+        }
+
+        public List<EqptLocationInfo> loadAllOHCVLocationInfoList()
+        {
+            return ohcvLocationList;
         }
 
         /// <summary>
