@@ -16,6 +16,8 @@
 //                                                     會再次檢查兩邊的狀態，以防發生在趕車時，無法順利趕走的問題。(因為有命令殘留)
 // 2020/07/28    Mark Chou      N/A            A0.04   發送43 Event詢問車輛一律更新車輛狀態，但車輛位置是否更新可由參數決定。
 // 2020/08/06    Mark Chou      N/A            A0.05   用BackgroundWorkQueue取代Lock來確保通行權邏輯的時序，並提升效率。
+// 2020/08/08    Kevin Wei      N/A            A0.06   在判斷是否為最接近 Req block的車子時，多增加一個條件，確認車子是否已經是在該Block中，
+//                                                     如果是就讓它當作已經是最靠近該Block的
 //**********************************************************************************
 using com.mirle.ibg3k0.bcf.App;
 using com.mirle.ibg3k0.bcf.Common;
@@ -703,7 +705,7 @@ namespace com.mirle.ibg3k0.sc.Service
                 int obstacleDIST = receive_gpp.ObstDistance;
                 string obstacleVhID = receive_gpp.ObstVehicleID;
 
-                if(isSync) //A0.04
+                if (isSync) //A0.04
                 {
                     scApp.VehicleBLL.setAndPublishPositionReportInfo2Redis(vh.VEHICLE_ID, receive_gpp);
                     scApp.VehicleBLL.getAndProcPositionReportFromRedis(vh.VEHICLE_ID);
@@ -2110,7 +2112,7 @@ namespace com.mirle.ibg3k0.sc.Service
                 if (eventType == EventType.BlockReq || eventType == EventType.BlockHidreq)
                 {
                     //A0.05 can_block_pass = ProcessBlockReqNew(bcfApp, eqpt, req_block_id);
-                    var workItem = new com.mirle.ibg3k0.bcf.Data.BackgroundWorkItem(bcfApp,  eqpt, eventType, seqNum, req_block_id, req_hid_secid);//A0.05
+                    var workItem = new com.mirle.ibg3k0.bcf.Data.BackgroundWorkItem(bcfApp, eqpt, eventType, seqNum, req_block_id, req_hid_secid);//A0.05
                     scApp.BackgroundWorkBlockQueue.triggerBackgroundWork("BlockQueue", workItem);//A0.05
                     return;//A0.05
                 }
@@ -3113,11 +3115,21 @@ namespace com.mirle.ibg3k0.sc.Service
                 }
             }
 
-            //b.經過"a"的判斷後，如果自己已經是在該Block的前一段Section上，則即為該Block的下一台將要通過的Vh
+            //b-0.經過"a"的判斷後，如果自己已經是在該Block裡面，則代表該vh已經是最接近這個Block的車子了 //A0.06
+            bool is_already_in_req_block = SCUtility.isMatche(vh_current_section_id, block_entry_section_id);
+            if (is_already_in_req_block)
+            {
+                LogHelper.Log(logger: logger, LogLevel: LogLevel.Debug, Class: nameof(VehicleService), Device: DEVICE_NAME_OHx,
+                   Data: $"vh:{vh.VEHICLE_ID} is already in req block,it is closest block:{block_entry_section_id}",
+                   VehicleID: vh.VEHICLE_ID,
+                   CarrierID: vh.CST_ID);
+                return true;
+            }
+            //b-1.經過"a"的判斷後，如果自己已經是在該Block的前一段Section上，則即為該Block的下一台將要通過的Vh
             List<string> entry_section_of_previous_section_id =
-                scApp.SectionBLL.cache.GetSectionsByToAddress(block_entry_section.FROM_ADR_ID).
-                Select(section => SCUtility.Trim(section.SEC_ID)).
-                ToList();
+            scApp.SectionBLL.cache.GetSectionsByToAddress(block_entry_section.FROM_ADR_ID).
+            Select(section => SCUtility.Trim(section.SEC_ID)).
+            ToList();
             if (entry_section_of_previous_section_id.Contains(vh_current_section_id))
             {
                 return true;
