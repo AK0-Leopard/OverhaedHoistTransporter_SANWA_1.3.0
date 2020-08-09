@@ -50,5 +50,26 @@ namespace com.mirle.ibg3k0.sc.Data.DAO
             }
         }
 
+        public List<EqptLocationInfo> LoadAllEqptLocationInfo(SCApplication app)
+        {
+            try
+            {
+                DataTable dt = app.OHxCConfig.Tables["EQPTLOCATIONINFO"];
+                var query = from c in dt.AsEnumerable()
+                            select new EqptLocationInfo
+                            {
+                                EQPT_ID = c.Field<string>("EQPT_ID"),
+                                SEGMENT_ID = c.Field<string>("SEGMENT_ID")
+                            };
+                return query.ToList();
+            }
+            catch (Exception ex)
+            {
+                logger.Warn(ex);
+                throw;
+            }
+        }
+
+
     }
 }
