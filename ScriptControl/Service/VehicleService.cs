@@ -18,6 +18,8 @@
 // 2020/08/06    Mark Chou      N/A            A0.05   用BackgroundWorkQueue取代Lock來確保通行權邏輯的時序，並提升效率。
 // 2020/08/08    Kevin Wei      N/A            A0.06   在判斷是否為最接近 Req block的車子時，多增加一個條件，確認車子是否已經是在該Block中，
 //                                                     如果是就讓它當作已經是最靠近該Block的
+// 2020/08/15    Kevin Wei      N/A            A0.07   加入判斷當該次136事件為Block req...等地事件上報時，就不去觸發狀態變化的事件，
+//                                                     避免狀態變化畫面頻繁更新影響效能
 //**********************************************************************************
 using com.mirle.ibg3k0.bcf.App;
 using com.mirle.ibg3k0.bcf.Common;
@@ -1718,8 +1720,13 @@ namespace com.mirle.ibg3k0.sc.Service
             //}
             //doUpdateVheiclePositionAndCmdSchedule(eqpt, current_adr_id, current_sec_id, last_adr_id, last_sec_id, (uint)eqpt.ACC_SEC_DIST, eventType, loadCSTStatus);
             //}
-            scApp.VehicleBLL.updateVehicleActionStatus(eqpt, eventType);
-
+            if (eventType != EventType.BlockReq &&         //A0.07
+                eventType != EventType.BlockHidreq &&      //A0.07
+                eventType != EventType.BlockHidrelease &&  //A0.07
+                eventType != EventType.BlockRelease)       //A0.07
+            {
+                scApp.VehicleBLL.updateVehicleActionStatus(eqpt, eventType);
+            }
 
             switch (eventType)
             {
@@ -3767,7 +3774,7 @@ namespace com.mirle.ibg3k0.sc.Service
                         scApp.ReportBLL.newReportTransferCommandPaused(eqpt.MCS_CMD, null);
                     }
                     //當Error Flag有變化且被切為On的時候，需要檢查車輛是否在CV所在的Segment，在的話要把該Segment禁用並取消要前往該處的命令。
-                    if(errorStat == VhStopSingle.StopSingleOn)
+                    if (errorStat == VhStopSingle.StopSingleOn)
                     {
                         string section_id = eqpt.CUR_SEC_ID;
                         ASECTION section = scApp.SectionBLL.cache.GetSection(section_id);
@@ -3894,7 +3901,7 @@ namespace com.mirle.ibg3k0.sc.Service
 
 
 
-                                
+
 
 
 
