@@ -199,6 +199,7 @@
             this.btn_force_finish.TabIndex = 5;
             this.btn_force_finish.Text = "Force finish";
             this.btn_force_finish.UseVisualStyleBackColor = true;
+            this.btn_force_finish.Visible = false;
             this.btn_force_finish.Click += new System.EventHandler(this.btn_force_finish_Click);
             // 
             // btn_refresh

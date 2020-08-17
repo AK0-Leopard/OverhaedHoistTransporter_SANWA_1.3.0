@@ -1412,7 +1412,10 @@ namespace com.mirle.ibg3k0.sc.BLL
         public void DoIdleVehicleHandle_NoAction(string vh_id)
         {
             AVEHICLE vh = scApp.VehicleBLL.getVehicleByID(vh_id);
-
+            LogHelper.Log(logger: logger, LogLevel: LogLevel.Debug, Class: nameof(VehicleBLL), Device: "OHxC",
+            Data: $"vh id:{vh.VEHICLE_ID} start excute idle vehicle handle.",
+            VehicleID: vh.VEHICLE_ID,
+            CarrierID: vh.CST_ID);
             //如果是停在Maintain space的位置，則不執行Idle vh的處理
             if (scApp.EquipmentBLL.cache.IsInMaintainDeviceRangeOfAddress(scApp.SegmentBLL, vh.CUR_ADR_ID))
             {
@@ -1446,6 +1449,11 @@ namespace com.mirle.ibg3k0.sc.BLL
             APARKZONEDETAIL ParkAdr = scApp.ParkBLL.getParkAddress(vh.CUR_ADR_ID, vh.VEHICLE_TYPE);
             if (ParkAdr != null)
             {
+                LogHelper.Log(logger: logger, LogLevel: LogLevel.Debug, Class: nameof(VehicleBLL), Device: "OHxC",
+                Data: $"vh id:{vh.VEHICLE_ID} is in park address :{vh.CUR_ADR_ID} " +
+                $"so don't excute idle vehicle handle",
+                VehicleID: vh.VEHICLE_ID,
+                CarrierID: vh.CST_ID);
                 scApp.VehicleBLL.setVhIsInPark(vh.VEHICLE_ID, vh.CUR_ADR_ID);
                 scApp.ParkBLL.updateVhEntryParkingAdr(vh.VEHICLE_ID, ParkAdr);
                 vh.NotifyVhStatusChange();
@@ -1453,10 +1461,23 @@ namespace com.mirle.ibg3k0.sc.BLL
             else
             {
                 //只有在Auto Remote才進行自動找停車位的功能
-                if (vh.MODE_STATUS != VHModeStatus.AutoRemote) return;
+                if (vh.MODE_STATUS != VHModeStatus.AutoRemote)
+                {
+                    LogHelper.Log(logger: logger, LogLevel: LogLevel.Debug, Class: nameof(VehicleBLL), Device: "OHxC",
+                    Data: $"vh id:{vh.VEHICLE_ID}  mode status is :{vh.MODE_STATUS}, " +
+                    $"so don't excute idle vehicle handle",
+                    VehicleID: vh.VEHICLE_ID,
+                    CarrierID: vh.CST_ID);
+                    return;
+                }
                 bool isCmdInQueue = scApp.CMDBLL.isCMD_OHTCQueueByVh(vh.VEHICLE_ID);
                 if (isCmdInQueue)
                 {
+                    LogHelper.Log(logger: logger, LogLevel: LogLevel.Debug, Class: nameof(VehicleBLL), Device: "OHxC",
+                    Data: $"vh id:{vh.VEHICLE_ID}  have queue command in OHTC, " +
+                    $"so don't excute idle vehicle handle",
+                    VehicleID: vh.VEHICLE_ID,
+                    CarrierID: vh.CST_ID);
                     return;
                 }
                 bool isCycleRun = false;
@@ -1468,11 +1489,27 @@ namespace com.mirle.ibg3k0.sc.BLL
                     {
                         if (scApp.VehicleBLL.FindParkZoneOrCycleRunZoneNew(vh))
                         {
+                            LogHelper.Log(logger: logger, LogLevel: LogLevel.Debug, Class: nameof(VehicleBLL), Device: "OHxC",
+                            Data: $"vh id:{vh.VEHICLE_ID}  find park zone success. ",
+                            VehicleID: vh.VEHICLE_ID,
+                            CarrierID: vh.CST_ID);
                         }
                         else
                         {
+                            LogHelper.Log(logger: logger, LogLevel: LogLevel.Debug, Class: nameof(VehicleBLL), Device: "OHxC",
+                            Data: $"vh id:{vh.VEHICLE_ID}  find park zone failed. ",
+                            VehicleID: vh.VEHICLE_ID,
+                            CarrierID: vh.CST_ID);
                         }
                     }
+                }
+                else
+                {
+                    LogHelper.Log(logger: logger, LogLevel: LogLevel.Debug, Class: nameof(VehicleBLL), Device: "OHxC",
+                    Data: $"vh id:{vh.VEHICLE_ID}  is in cycle run address: {vh.CUR_ADR_ID}, " +
+                    $"so don't excute idle vehicle handle",
+                    VehicleID: vh.VEHICLE_ID,
+                    CarrierID: vh.CST_ID);
                 }
             }
         }
