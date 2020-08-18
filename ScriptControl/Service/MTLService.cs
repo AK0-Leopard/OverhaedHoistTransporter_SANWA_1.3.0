@@ -554,14 +554,38 @@ namespace com.mirle.ibg3k0.sc.Service
                 AVEHICLE pre_car_out_vh = vehicleBLL.cache.getVhByID(mtx.PreCarOutVhID);
                 if (!SCUtility.isEmpty(pre_car_out_vh?.OHTC_CMD))
                 {
-                    //如果是強制被取消(Safety check突然關閉)的時候，要先下一次暫停給車子
-                    if (isForceFinish)
+                    ACMD_OHTC cmd = scApp.CMDBLL.getCMD_OHTCByID(pre_car_out_vh.OHTC_CMD);
+                    if(cmd!=null)
                     {
-                        VehicleService.PauseRequest
-                            (pre_car_out_vh.VEHICLE_ID, PauseEvent.Pause, SCAppConstants.OHxCPauseType.Normal);
+                        if(cmd.CMD_TPYE== E_CMD_TYPE.MoveToMTL|| cmd.CMD_TPYE == E_CMD_TYPE.SystemOut || 
+                            cmd.CMD_TPYE == E_CMD_TYPE.SystemIn || cmd.CMD_TPYE == E_CMD_TYPE.MTLHome)
+                        {
+                            //如果是強制被取消(Safety check突然關閉)的時候，要先下一次暫停給車子
+                            if (isForceFinish)
+                            {
+                                VehicleService.PauseRequest
+                                    (pre_car_out_vh.VEHICLE_ID, PauseEvent.Pause, SCAppConstants.OHxCPauseType.Normal);
+                            }
+                            VehicleService.doAbortCommand
+                                (pre_car_out_vh, pre_car_out_vh.OHTC_CMD, ProtocolFormat.OHTMessage.CMDCancelType.CmdCancel);
+                        }
                     }
-                    VehicleService.doAbortCommand
-                        (pre_car_out_vh, pre_car_out_vh.OHTC_CMD, ProtocolFormat.OHTMessage.CMDCancelType.CmdCancel);
+                    else
+                    {
+                        if (cmd.CMD_TPYE == E_CMD_TYPE.MoveToMTL || cmd.CMD_TPYE == E_CMD_TYPE.SystemOut ||
+                            cmd.CMD_TPYE == E_CMD_TYPE.SystemIn || cmd.CMD_TPYE == E_CMD_TYPE.MTLHome)
+                        {
+                            //如果是強制被取消(Safety check突然關閉)的時候，要先下一次暫停給車子
+                            if (isForceFinish)
+                            {
+                                VehicleService.PauseRequest
+                                    (pre_car_out_vh.VEHICLE_ID, PauseEvent.Pause, SCAppConstants.OHxCPauseType.Normal);
+                            }
+                            VehicleService.doAbortCommand
+                                (pre_car_out_vh, pre_car_out_vh.OHTC_CMD, ProtocolFormat.OHTMessage.CMDCancelType.CmdCancel);
+                        }
+                    }
+
                 }
                 //如果OHT已經在MTS/MTL的Segment上時，
                 //就不能將他的對應訊號關閉

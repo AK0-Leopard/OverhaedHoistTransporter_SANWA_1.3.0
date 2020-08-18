@@ -753,6 +753,14 @@ namespace com.mirle.ibg3k0.bc.winform.UI.Components
                 keyValue.Value.GroupColorChange(RailOriginalColor);
             }
         }
+
+        public void resetAllSelectedRailColor()
+        {
+            foreach (var keyValue in m_DicSectionGroupRails)
+            {
+                keyValue.Value.GroupColorChange(RailOriginalColor);
+            }
+        }
         private void RailBringToFrontBySegment(string SelectSegment)
         {
             if (SCUtility.isEmpty(SelectSegment))

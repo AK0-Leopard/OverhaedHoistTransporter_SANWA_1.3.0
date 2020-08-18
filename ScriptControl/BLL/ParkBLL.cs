@@ -266,7 +266,7 @@ namespace com.mirle.ibg3k0.sc.BLL
                     {
                         lstParkZoneMasterAndDis.Add
                             (new KeyValuePair<APARKZONEMASTER, double>(park_zone_master, double.MinValue));
-                        break;
+                        //break;
                     }
 
 
@@ -312,6 +312,7 @@ namespace com.mirle.ibg3k0.sc.BLL
                             {
                                 LogHelper.Log(logger: logger, LogLevel: LogLevel.Debug, Class: nameof(ParkBLL), Device: "OHTC",
                                    Data: $"try find the park adr.,but current:{vh_current_adr} with want to parking adr is same,pass this one");
+
                                 continue;
                             }
                             bsetParkDeatil = bestParkDetailTemp;
@@ -332,7 +333,7 @@ namespace com.mirle.ibg3k0.sc.BLL
                 result = FindParkResult.NoParkZone;
             }
             // mark modify start
-            if(result != FindParkResult.Success)
+            if (result != FindParkResult.Success)
             {
                 LogHelper.Log(logger: logger, LogLevel: LogLevel.Debug, Class: nameof(ParkBLL), Device: "OHTC",
                     Data: $"Start find Park Address Alternative.vh current:{vh_current_adr} Park Type:{scApp.getEQObjCacheManager().getLine().Currnet_Park_Type} Vehicle Type:{e_VH_TYPE}");
@@ -340,22 +341,74 @@ namespace com.mirle.ibg3k0.sc.BLL
                 List<APARKZONEMASTER> masters = loadByParkTypeID(scApp.getEQObjCacheManager().getLine().Currnet_Park_Type, e_VH_TYPE);
                 if (masters != null && masters.Count > 0)
                 {
+                    List<KeyValuePair<APARKZONEMASTER, double>> lstParkZoneMasterAndDis = new List<KeyValuePair<APARKZONEMASTER, double>>();
                     foreach (APARKZONEMASTER master in masters)
                     {
-                        APARKZONEDETAIL bestParkDetailTemp = null;
-                        bestParkDetailTemp = findFitParkZoneDetailInParkMater(master);
-                        if (bestParkDetailTemp != null)
+                        KeyValuePair<string[], double> route_distance;
+
+                        if (SCUtility.isMatche(master.ENTRY_ADR_ID, vh_current_adr))
                         {
-                            if (SCUtility.isMatche(vh_current_adr, bestParkDetailTemp.ADR_ID))
-                            {
-                                LogHelper.Log(logger: logger, LogLevel: LogLevel.Debug, Class: nameof(ParkBLL), Device: "OHTC",
-                                   Data: $"Using find Park Address Alternative,try find the park adr,but current:{vh_current_adr} with want to parking adr is same,pass this one. Park Type:{scApp.getEQObjCacheManager().getLine().Currnet_Park_Type} Vehicle Type:{e_VH_TYPE}");
-                                continue;
-                            }
-                            bsetParkDeatil = bestParkDetailTemp;
-                            isSuccess = true;
-                            result = FindParkResult.Success;
+                            lstParkZoneMasterAndDis.Add
+                                (new KeyValuePair<APARKZONEMASTER, double>(master, double.MinValue));
                             break;
+                        }
+
+
+                        if (scApp.RouteGuide.checkRoadIsWalkable(vh_current_adr, master.ENTRY_ADR_ID, out route_distance))
+                        {
+                            lstParkZoneMasterAndDis.Add
+                                (new KeyValuePair<APARKZONEMASTER, double>(master, route_distance.Value));
+                        }
+
+
+                        if (lstParkZoneMasterAndDis.Count > 0)
+                        {
+                            lstParkZoneMasterAndDis = lstParkZoneMasterAndDis.OrderBy(o => o.Value).ToList();
+                            foreach (KeyValuePair<APARKZONEMASTER, double> keyValue in lstParkZoneMasterAndDis)
+                            {
+                                APARKZONEMASTER zone_master_temp = keyValue.Key;
+                                APARKZONEDETAIL bestParkDetailTemp = null;
+                                bestParkDetailTemp = findFitParkZoneDetailInParkMater(zone_master_temp);
+                                if (bestParkDetailTemp != null)
+                                {
+                                    if (SCUtility.isMatche(vh_current_adr, bestParkDetailTemp.ADR_ID))
+                                    {
+                                        bestParkDetailTemp = scApp.ParkBLL.getParkDetailByZoneIDAndPRIO
+                                        (bestParkDetailTemp.PARK_ZONE_ID, bestParkDetailTemp.PRIO - 1);
+                                        if (bestParkDetailTemp == null)
+                                        {
+                                            continue;
+                                        }
+                                    }
+                                    bsetParkDeatil = bestParkDetailTemp;
+                                    isSuccess = true;
+                                    result = FindParkResult.Success;
+                                    break;
+                                }
+                            }
+                        }
+                    }
+
+
+                    if (result != FindParkResult.Success)
+                    {
+                        foreach (APARKZONEMASTER master in masters)
+                        {
+                            APARKZONEDETAIL bestParkDetailTemp = null;
+                            bestParkDetailTemp = findFitParkZoneDetailInParkMater(master);
+                            if (bestParkDetailTemp != null)
+                            {
+                                if (SCUtility.isMatche(vh_current_adr, bestParkDetailTemp.ADR_ID))
+                                {
+                                    LogHelper.Log(logger: logger, LogLevel: LogLevel.Debug, Class: nameof(ParkBLL), Device: "OHTC",
+                                       Data: $"Using find Park Address Alternative,try find the park adr,but current:{vh_current_adr} with want to parking adr is same,pass this one. Park Type:{scApp.getEQObjCacheManager().getLine().Currnet_Park_Type} Vehicle Type:{e_VH_TYPE}");
+                                    continue;
+                                }
+                                bsetParkDeatil = bestParkDetailTemp;
+                                isSuccess = true;
+                                result = FindParkResult.Success;
+                                break;
+                            }
                         }
                     }
                 }

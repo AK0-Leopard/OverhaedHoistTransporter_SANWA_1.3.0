@@ -82,6 +82,7 @@ namespace com.mirle.ibg3k0.bc.winform.UI
             initialEvent();
             SetHostControlState(scApp.getEQObjCacheManager().getLine());
 
+            RefreshMapColor();
         }
 
         private void initialEvent()
@@ -355,8 +356,17 @@ namespace com.mirle.ibg3k0.bc.winform.UI
                 return;
             }
 
+
+
             E_CMD_TYPE cmd_type;
             Enum.TryParse<E_CMD_TYPE>(cbm_Action.SelectedValue.ToString(), out cmd_type);
+
+            if (cmd_type == E_CMD_TYPE.LoadUnload && from_adr == to_adr)
+            {
+                MessageBox.Show($"Can't execute a loadunload command with load address and unload address the same.", "Start fail.", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
             switch (cmd_type)
             {
                 case E_CMD_TYPE.Move:
@@ -982,6 +992,11 @@ namespace com.mirle.ibg3k0.bc.winform.UI
             uctl_Map.resetAllRailColor();
         }
 
+        public void ResetAllSelectedSegment()
+        {
+            uctl_Map.resetAllRailColor();
+        }
+
 
         private void changePredictPathByInObservation()
         {
@@ -1310,6 +1325,29 @@ namespace com.mirle.ibg3k0.bc.winform.UI
             AVEHICLE vh = scApp.VehicleBLL.cache.getVhByID(vh_id);
             if (vh == null) return;
             txt_cstID.Text = vh.HAS_CST == 1 ? SCUtility.Trim(vh.CST_ID, true) : "Manual_CST";
+        }
+
+        private void RefreshMapColor()
+        {
+            List<ASEGMENT> segment_List = null;
+            segment_List = scApp.SegmentBLL.cache.GetSegments();
+            foreach (ASEGMENT seg in segment_List)
+            {
+                int index = segment_List.IndexOf(seg);
+
+                if (seg.PRE_DISABLE_FLAG)
+                {
+                    this.SetSpecifySegmentSelected(seg.SEG_NUM, Color.Pink);
+                }
+                else if (seg.STATUS == E_SEG_STATUS.Closed)
+                {
+                    this.SetSpecifySegmentSelected(seg.SEG_NUM, Color.Red);
+                }
+                else
+                {
+                    this.ResetSpecifySegmentSelected(seg.SEG_NUM);
+                }
+            }
         }
     }
 }

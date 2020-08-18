@@ -113,6 +113,11 @@ namespace com.mirle.ibg3k0.sc.Service
             else
             {
                 vh.StatusRequestFailTimes = 0;
+
+                if(vh.ACT_STATUS== VHActionStatus.NoCommand)
+                {
+                    scApp.VehicleBLL.DoIdleVehicleHandle_NoAction(vh.VEHICLE_ID);
+                }
             }
         }
 
@@ -650,7 +655,7 @@ namespace com.mirle.ibg3k0.sc.Service
         public void VehicleInfoSynchronize(string vh_id)
         {
             /*與Vehicle進行狀態同步*/
-            VehicleStatusRequest(vh_id, true);
+            VehicleStatusRequestInit(vh_id, true);
             /*要求Vehicle進行Alarm的Reset，如果成功後會將OHxC上針對該Vh的Alarm清除*/
             if (AlarmResetRequest(vh_id))
             {
@@ -726,6 +731,73 @@ namespace com.mirle.ibg3k0.sc.Service
             return isSuccess;
         }
 
+        //只於車輛上線時使用，多檢查了車輛當前命令狀態，如果從有命令變沒命令，要Force Finish Command
+        public bool VehicleStatusRequestInit(string vh_id, bool isSync = false)
+        {
+            bool isSuccess = false;
+            string reason = string.Empty;
+            AVEHICLE vh = scApp.getEQObjCacheManager().getVehicletByVHID(vh_id);
+            ID_143_STATUS_RESPONSE receive_gpp;
+            ID_43_STATUS_REQUEST send_gpp = new ID_43_STATUS_REQUEST()
+            {
+                SystemTime = DateTime.Now.ToString(SCAppConstants.TimestampFormat_16)
+            };
+            SCUtility.RecodeReportInfo(vh.VEHICLE_ID, 0, send_gpp);
+            isSuccess = vh.send_S43(send_gpp, out receive_gpp);
+            SCUtility.RecodeReportInfo(vh.VEHICLE_ID, 0, receive_gpp, isSuccess.ToString());
+            //A0.04 if (isSync && isSuccess)
+            if (isSuccess) //A0.04
+            {
+                string current_adr_id = receive_gpp.CurrentAdrID;
+                VHModeStatus modeStat = DecideVhModeStatus(vh.VEHICLE_ID, current_adr_id, receive_gpp.ModeStatus);
+                VHActionStatus actionStat = receive_gpp.ActionStatus;
+                VhPowerStatus powerStat = receive_gpp.PowerStatus;
+                string cstID = receive_gpp.CSTID;
+                VhStopSingle obstacleStat = receive_gpp.ObstacleStatus;
+                VhStopSingle blockingStat = receive_gpp.BlockingStatus;
+                VhStopSingle pauseStat = receive_gpp.PauseStatus;
+                VhStopSingle hidStat = receive_gpp.HIDStatus;
+                VhStopSingle errorStat = receive_gpp.ErrorStatus;
+                VhLoadCSTStatus loadCSTStatus = receive_gpp.HasCST;
+                //VhGuideStatus leftGuideStat = recive_str.LeftGuideLockStatus;
+                //VhGuideStatus rightGuideStat = recive_str.RightGuideLockStatus;
+
+
+                int obstacleDIST = receive_gpp.ObstDistance;
+                string obstacleVhID = receive_gpp.ObstVehicleID;
+
+                if (isSync) //A0.04
+                {
+                    scApp.VehicleBLL.setAndPublishPositionReportInfo2Redis(vh.VEHICLE_ID, receive_gpp);
+                    scApp.VehicleBLL.getAndProcPositionReportFromRedis(vh.VEHICLE_ID);
+                }
+                //A0.04 scApp.VehicleBLL.setAndPublishPositionReportInfo2Redis(vh.VEHICLE_ID, receive_gpp);
+                //A0.04 scApp.VehicleBLL.getAndProcPositionReportFromRedis(vh.VEHICLE_ID);
+                if (!scApp.VehicleBLL.doUpdateVehicleStatus(vh, cstID,
+                                       modeStat, actionStat,
+                                       blockingStat, pauseStat, obstacleStat, hidStat, errorStat, loadCSTStatus))
+                {
+                    isSuccess = false;
+                }
+                if (actionStat == VHActionStatus.NoCommand)
+                {
+                    ACMD_OHTC executed_cmd = scApp.CMDBLL.geExecutedCMD_OHTCByVehicleID(vh.VEHICLE_ID);
+                    if (executed_cmd != null)
+                    {
+                        LogHelper.Log(logger: logger, LogLevel: LogLevel.Info, Class: nameof(VehicleService), Device: DEVICE_NAME_OHx,
+                        Data: $"Excute force command finish for vh:[{vh_id}] , OHTC_CMD:[{SCUtility.Trim(executed_cmd.CMD_ID, true)}] ",
+                        VehicleID: vh?.VEHICLE_ID,
+                        CarrierID: vh?.CST_ID);
+                        Task.Run(() =>
+                        {
+                            scApp.CMDBLL.forceUpdataCmdStatus2FnishByVhID(vh_id);
+                        });
+                    }
+                }
+            }
+            vhCommandExcuteStatusCheck(vh.VEHICLE_ID);
+            return isSuccess;
+        }
         /// <summary>
         /// 如果在車子已有回報是無命令狀態下，但在OHXC的AVEHICLE欄位"CMD_OHTC"卻還有命令時，
         /// 則需要在檢查在ACMD_OHTC是否已無命令，如果也沒有的話，則要將AVEHICLE改成正確的

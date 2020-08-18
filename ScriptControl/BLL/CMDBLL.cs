@@ -132,11 +132,16 @@ namespace com.mirle.ibg3k0.sc.BLL
                         check_result = $"Vh:{HostSource.Trim()},not carray cst.";
                         return SECSConst.HCACK_Current_Not_Able_Execute;
                     }
-                    else
+                    else if (!SCUtility.isMatche(carray_vh.CST_ID, carrier_id))
                     {
-                        if (!SCUtility.isMatche(carray_vh.CST_ID, carrier_id))
-                        {
                             check_result = $"Vh:{HostSource.Trim()}, current carray cst id:{carray_vh.CST_ID} ,not matche host carrier id:{carrier_id}.";
+                            return SECSConst.HCACK_Current_Not_Able_Execute;
+                    }
+                    else 
+                    {
+                        if (scApp.CMDBLL.getCMD_MCSIsUnfinishedCountByCarrierID(carrier_id) > 0)
+                        {
+                            check_result = $"Host carrier:{carrier_id} already have command.";
                             return SECSConst.HCACK_Current_Not_Able_Execute;
                         }
                     }
@@ -1353,6 +1358,16 @@ namespace com.mirle.ibg3k0.sc.BLL
             {
                 case E_CMD_TYPE.Move:
                 case E_CMD_TYPE.Unload:
+                    if (!scApp.RouteGuide.checkRoadIsWalkable(vh_current_adr, destination))
+                    {
+                        result = $" vh:{vh_id},want excute cmd type:{cmd_type}, current address:[{vh_current_adr}] to destination address:[{destination}] no find path";
+                        is_walk_able = false;
+                    }
+                    else
+                    {
+                        result = "";
+                    }
+                    break;
                 case E_CMD_TYPE.Move_Park:
                     //case E_CMD_TYPE.MoveToMTL:
                     //case E_CMD_TYPE.MTLHome:
@@ -1360,7 +1375,7 @@ namespace com.mirle.ibg3k0.sc.BLL
                     //case E_CMD_TYPE.SystemOut:
                     if (!scApp.RouteGuide.checkRoadIsWalkable(vh_current_adr, destination))
                     {
-                        result = $" vh:{vh_id},want excute cmd type:{cmd_type}, current address:[{vh_current_adr}] to destination address:[{destination}] no find path";
+                        result = $" vh:{vh_id},want excute park cmd type:{cmd_type}, current address:[{vh_current_adr}] to destination address:[{destination}] no find path";
                         is_walk_able = false;
                     }
                     else
@@ -1615,6 +1630,15 @@ namespace com.mirle.ibg3k0.sc.BLL
             {
                 cmd_ohtcDAO.RemoteByBatch(con, cmds);
             }
+        }
+        public ACMD_OHTC geExecutedCMD_OHTCByVehicleID(string vh_id)
+        {
+            ACMD_OHTC cmd_ohtc = null;
+            using (DBConnection_EF con = new DBConnection_EF())
+            {
+                cmd_ohtc = cmd_ohtcDAO.getExecuteByVhID(con, vh_id);
+            }
+            return cmd_ohtc;
         }
 
         public ACMD_OHTC getCMD_OHTCByStatusSending()

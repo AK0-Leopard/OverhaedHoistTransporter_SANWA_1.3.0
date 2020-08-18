@@ -462,6 +462,7 @@ namespace com.mirle.ibg3k0.bc.winform.UI
             bcApp.SCApplication.RoadControlService.SegmentListChanged -= RoadControlService_SegmentListChanged;
             oht_form.LeaveSegmentSetMode(SegmentSelectOnMap);
             oht_form.ResetAllSegment();
+            RefreshMapColorNoSelected();
         }
 
 
@@ -476,6 +477,26 @@ namespace com.mirle.ibg3k0.bc.winform.UI
                     oht_form.SetSpecifySegmentSelected(seg.SEG_NUM, Color.LightGreen);
                 }
                 else if (seg.PRE_DISABLE_FLAG)
+                {
+                    oht_form.SetSpecifySegmentSelected(seg.SEG_NUM, Color.Pink);
+                }
+                else if (seg.STATUS == E_SEG_STATUS.Closed)
+                {
+                    oht_form.SetSpecifySegmentSelected(seg.SEG_NUM, Color.Red);
+                }
+                else
+                {
+                    oht_form.ResetSpecifySegmentSelected(seg.SEG_NUM);
+                }
+            }
+        }
+
+        private void RefreshMapColorNoSelected()
+        {
+            foreach (ASEGMENT seg in segment_List)
+            {
+                int index = segment_List.IndexOf(seg);
+                if (seg.PRE_DISABLE_FLAG)
                 {
                     oht_form.SetSpecifySegmentSelected(seg.SEG_NUM, Color.Pink);
                 }

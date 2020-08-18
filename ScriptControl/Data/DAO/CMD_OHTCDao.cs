@@ -108,6 +108,8 @@ namespace com.mirle.ibg3k0.sc.Data.DAO
                         select cmd;
             return query.FirstOrDefault();
         }
+
+
         public ACMD_OHTC getCMD_OHTCByStatusSending(DBConnection_EF con)
         {
             var query = from cmd in con.ACMD_OHTC
