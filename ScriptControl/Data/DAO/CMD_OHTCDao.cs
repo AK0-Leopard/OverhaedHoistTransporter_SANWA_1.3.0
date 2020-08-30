@@ -77,7 +77,7 @@ namespace com.mirle.ibg3k0.sc.Data.DAO
         public List<ACMD_OHTC> loadFinishCMD_OHT(DBConnection_EF con)
         {
             var query = from cmd in con.ACMD_OHTC
-                        where cmd.CMD_STAUS >=  E_CMD_STATUS.NormalEnd
+                        where cmd.CMD_STAUS >= E_CMD_STATUS.NormalEnd
                         select cmd;
             return query.ToList();
         }
@@ -141,6 +141,14 @@ namespace com.mirle.ibg3k0.sc.Data.DAO
             var query = from cmd in con.ACMD_OHTC.AsNoTracking()
                         where cmd.VH_ID == vh_id.Trim() &&
                         cmd.CMD_STAUS == E_CMD_STATUS.Queue
+                        select cmd;
+            return query.Count();
+        }
+        public int getVhWillSendingCMDConut(DBConnection_EF con, string vh_id)
+        {
+            var query = from cmd in con.ACMD_OHTC.AsNoTracking()
+                        where cmd.VH_ID == vh_id.Trim() &&
+                        cmd.CMD_STAUS <= E_CMD_STATUS.Sending
                         select cmd;
             return query.Count();
         }

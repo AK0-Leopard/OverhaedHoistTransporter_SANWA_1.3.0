@@ -1077,7 +1077,8 @@ namespace com.mirle.ibg3k0.sc.BLL
             }
             foreach (AVEHICLE vh in vhs.ToList())
             {
-                if (scApp.CMDBLL.isCMD_OHTCQueueByVh(vh.VEHICLE_ID))
+                //if (scApp.CMDBLL.isCMD_OHTCQueueByVh(vh.VEHICLE_ID))
+                if (scApp.CMDBLL.isCMD_OHTCWillSending(vh.VEHICLE_ID))
                 {
                     vhs.Remove(vh);
                     LogHelper.Log(logger: logger, LogLevel: LogLevel.Debug, Class: nameof(VehicleBLL), Device: "OHxC",
@@ -1470,7 +1471,8 @@ namespace com.mirle.ibg3k0.sc.BLL
                     CarrierID: vh.CST_ID);
                     return;
                 }
-                bool isCmdInQueue = scApp.CMDBLL.isCMD_OHTCQueueByVh(vh.VEHICLE_ID);
+                //bool isCmdInQueue = scApp.CMDBLL.isCMD_OHTCQueueByVh(vh.VEHICLE_ID);
+                bool isCmdInQueue = scApp.CMDBLL.isCMD_OHTCWillSending(vh.VEHICLE_ID);
                 if (isCmdInQueue)
                 {
                     LogHelper.Log(logger: logger, LogLevel: LogLevel.Debug, Class: nameof(VehicleBLL), Device: "OHxC",

@@ -134,10 +134,10 @@ namespace com.mirle.ibg3k0.sc.BLL
                     }
                     else if (!SCUtility.isMatche(carray_vh.CST_ID, carrier_id))
                     {
-                            check_result = $"Vh:{HostSource.Trim()}, current carray cst id:{carray_vh.CST_ID} ,not matche host carrier id:{carrier_id}.";
-                            return SECSConst.HCACK_Current_Not_Able_Execute;
+                        check_result = $"Vh:{HostSource.Trim()}, current carray cst id:{carray_vh.CST_ID} ,not matche host carrier id:{carrier_id}.";
+                        return SECSConst.HCACK_Current_Not_Able_Execute;
                     }
-                    else 
+                    else
                     {
                         if (scApp.CMDBLL.getCMD_MCSIsUnfinishedCountByCarrierID(carrier_id) > 0)
                         {
@@ -799,7 +799,7 @@ namespace com.mirle.ibg3k0.sc.BLL
                             {
                                 bestSuitableVh = scApp.VehicleBLL.getVehicleByRealID(hostsource);
                                 //A0.04 if (bestSuitableVh.IsError || bestSuitableVh.MODE_STATUS != VHModeStatus.AutoRemote) 
-                                if (bestSuitableVh.IsError || bestSuitableVh.MODE_STATUS != VHModeStatus.AutoRemote|| bestSuitableVh.ACT_STATUS != VHActionStatus.NoCommand) //A0.04
+                                if (bestSuitableVh.IsError || bestSuitableVh.MODE_STATUS != VHModeStatus.AutoRemote || bestSuitableVh.ACT_STATUS != VHActionStatus.NoCommand) //A0.04
                                 {
                                     LogHelper.Log(logger: logger, LogLevel: LogLevel.Debug, Class: nameof(VehicleBLL), Device: "OHxC",
                                        Data: $"vh id:{bestSuitableVh.VEHICLE_ID} current mode status is {bestSuitableVh.MODE_STATUS},is error flag:{bestSuitableVh.IsError},act status is {bestSuitableVh.ACT_STATUS}." +
@@ -1310,7 +1310,8 @@ namespace com.mirle.ibg3k0.sc.BLL
                 if (!SCUtility.isEmpty(cmd_id_mcs) ||
                     cmd_type == E_CMD_TYPE.Move_MTPort)
                 {
-                    if (isCMD_OHTCQueueByVh(vh_id))
+                    //if (isCMD_OHTCQueueByVh(vh_id))
+                    if (isCMD_OHTCWillSending(vh_id))
                     {
                         check_result.IsSuccess &= false;
                         check_result.Result.AppendLine($" want to creat mcs transfer command:{cmd_id_mcs} of ACMD_OHTC, " +
@@ -1453,7 +1454,8 @@ namespace com.mirle.ibg3k0.sc.BLL
             //如果該筆Command是MCS Cmd，只需要檢查有沒有已經在Queue中的，有則不能Creat
             else
             {
-                if (isCMD_OHTCQueueByVh(vh_id))
+                //if (isCMD_OHTCQueueByVh(vh_id))
+                if (isCMD_OHTCWillSending(vh_id))
                 {
                     return null;
                 }
@@ -1596,7 +1598,7 @@ namespace com.mirle.ibg3k0.sc.BLL
             }
             return isSuccess;
         }
-        
+
         public List<string> loadAllCMDID()
         {
             List<string> acmd_ohtcids = null;
@@ -1687,6 +1689,15 @@ namespace com.mirle.ibg3k0.sc.BLL
             using (DBConnection_EF con = DBConnection_EF.GetUContext())
             {
                 count = cmd_ohtcDAO.getVhQueueCMDConut(con, vh_id);
+            }
+            return count != 0;
+        }
+        public bool isCMD_OHTCWillSending(string vhID)
+        {
+            int count = 0;
+            using (DBConnection_EF con = DBConnection_EF.GetUContext())
+            {
+                count = cmd_ohtcDAO.getVhWillSendingCMDConut(con, vhID);
             }
             return count != 0;
         }
