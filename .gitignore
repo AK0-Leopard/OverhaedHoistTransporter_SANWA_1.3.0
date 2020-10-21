@@ -338,3 +338,7 @@ ASALocalRun/
 
 # BeatPulse healthcheck temp database
 healthchecksdb
+/BCWinForm/Config/CSOT_T4/._CSTTranSchedule.xlsx
+/BCWinForm/Config/OHS100/._CSTTranSchedule.xlsx
+/BCWinForm/Config/Taichung/._CSTTranSchedule.xlsx
+/BCWinForm/Config/Taichung/._~$CSTTranSchedule.xlsx
